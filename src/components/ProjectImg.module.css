@@ -10,3 +10,19 @@
   align-items: center;
   margin: 0;
 }
+.ProjectImg figure {
+  background: var(--color-Green);
+  height: 362px;
+  width: 449px;
+  border-radius: 25px;
+}
+
+.ProjectImg figure img {
+  opacity: 0.6; /* Adjust the initial opacity as per your preference */
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.ProjectImg figure:hover img {
+  opacity: 1; /* Increase the opacity on hover */
+}

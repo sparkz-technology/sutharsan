@@ -1,9 +1,11 @@
-import profile from "../assets/profile.jpg";
+/* eslint-disable react/prop-types */
 import styles from "./ProjectImg.module.css";
-function ProjectImg() {
+function ProjectImg({ img }) {
   return (
     <div className={styles.ProjectImg}>
-      <img src={profile} alt="no" />
+      <figure>
+        <img src={img} alt="no" />
+      </figure>
     </div>
   );
 }

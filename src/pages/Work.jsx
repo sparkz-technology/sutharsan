@@ -12,9 +12,9 @@ function Work() {
         <span>02.</span> Some Things I've Built
       </h1>
       {projectconfig.projectinfo.map(
-        ({ name, subtitle, technology, host, url }) => (
+        ({ name, subtitle, technology, host, url, img }) => (
           <div style={{ margin: 20 }} key={name} className={styles.class}>
-            <ProjectImg />
+            <ProjectImg img={img} />
             <div className={styles.ProjectDiv}>
               <div className={styles.position}>
                 <ProjectTitle name={name} />
