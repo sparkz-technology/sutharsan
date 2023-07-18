@@ -1,0 +1,42 @@
+nav {
+  display: flex; /* 1 */
+  justify-content: space-between; /* 2 */
+  padding: 1rem 2rem; /* 3 */
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  line-height: 16.9px;
+  margin-top: 0;
+}
+
+nav ul {
+  display: flex; /* 5 */
+  list-style: none; /* 6 */
+  margin: 0%;
+  margin-top: 0;
+}
+
+nav li {
+  padding: 1rem; /* 7! */
+  margin: auto;
+}
+nav a {
+  text-decoration: none;
+  color: var(--color-Light-Slate);
+  padding: 0.6rem;
+}
+nav span {
+  color: var(--color-Green);
+}
+.nav a:global(.active) {
+  color: var(--color-Green);
+}
+.nav i {
+  color: var(--color-Green);
+  margin-right: 0.5rem;
+  height: 3rem;
+}
+.nav img {
+  height: 3rem;
+  width: 3rem;
+  margin-right: 0.5rem;
+}

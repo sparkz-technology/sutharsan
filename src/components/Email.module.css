@@ -1,0 +1,24 @@
+.Email hr {
+  margin: 0 20px;
+  border: none;
+  border-left: 2px solid var(--color-Light-Slate);
+  height: 7.5rem;
+}
+
+.Email a {
+  margin: 20px auto;
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  line-height: var(--fz-lg);
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+  text-decoration: none;
+  color: var(--color-Light-Slate);
+  &:hover {
+    color: var(--color-Green);
+  }
+  &:focus {
+    transform: translateY(-3px);
+  }
+}

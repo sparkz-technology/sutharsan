@@ -1,0 +1,20 @@
+.Social div {
+  position: fixed;
+  top: 21.5rem;
+  bottom: 0;
+  left: 40px;
+  z-index: 1;
+}
+.Outlet div {
+  margin: 0 10rem;
+  top: 105px;
+  bottom: 0;
+  left: 200px;
+  right: 200px;
+}
+.Email div {
+  position: fixed;
+  top: 20rem;
+  bottom: 0;
+  right: 40px;
+}

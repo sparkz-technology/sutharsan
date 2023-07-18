@@ -1,0 +1,8 @@
+body {
+  background-color: #0a192f;
+  margin: 0;
+}
+:root {
+  --color-Green: #64ffda;
+  --color-Light-Slate: #ccd6f6;
+}

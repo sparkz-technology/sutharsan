@@ -1,0 +1,23 @@
+.About div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 40px 0 0;
+}
+.About h1 {
+  font-size: 30px;
+  line-height: 88px;
+  font-weight: 800;
+  vertical-align: baseline;
+  text-align: start;
+  font-family: "Roboto Mono", monospace;
+  color: var(--color-Light-Slate);
+}
+.About span {
+  font-size: 30px;
+  line-height: 26px;
+  font-weight: 700;
+  vertical-align: baseline;
+  text-align: start;
+  font-family: "Roboto Mono", monospace;
+  color: var(--color-Green);
+}

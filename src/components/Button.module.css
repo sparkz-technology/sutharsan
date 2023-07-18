@@ -1,0 +1,8 @@
+.btn {
+  background-color: transparent;
+  border-color: var(--color-Green);
+  border-width: 1px;
+  color: var(--color-Green);
+  padding: 0.6rem;
+  border-radius: 5px;
+}
