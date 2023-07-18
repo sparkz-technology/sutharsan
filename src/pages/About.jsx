@@ -6,7 +6,10 @@ function About() {
   return (
     <div className={styles.About}>
       <h1>
-        <span>01.</span> About Me
+        <span>01.</span> About Me{" "}
+        <strong>
+          <hr />
+        </strong>
       </h1>
       <div style={{ margin: 0 }}>
         <AboutMe />

@@ -21,7 +21,7 @@
   vertical-align: baseline;
   text-align: start;
   font-family: "Roboto Mono", monospace;
-  color: var(--color-Light-Slate);
+  color: var(--Light-Slate);
 }
 .AboutMe strong {
   font-family: "Roboto Mono", monospace;

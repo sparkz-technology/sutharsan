@@ -2,7 +2,34 @@ body {
   background-color: #0a192f;
   margin: 0;
 }
+
 :root {
   --color-Green: #64ffda;
   --color-Light-Slate: #ccd6f6;
+  --Light-Slate: #a8b2d1;
+  --Light-Navy: #112240;
+}
+.loader {
+  width: 45px;
+  height: 30px;
+  background: linear-gradient(#64ffda 0 0) 0% 50% no-repeat,
+    linear-gradient(#64ffda 0 0) 50% 50% no-repeat,
+    linear-gradient(#64ffda 0 0) 100% 50% no-repeat;
+  background-size: 20% 50%;
+  animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
 }

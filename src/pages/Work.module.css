@@ -1,0 +1,35 @@
+.Work div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0 0;
+}
+
+.ProjectDiv div {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.Position div {
+  width: 300px;
+}
+.Work h1 {
+  font-size: 25px;
+  line-height: 88px;
+  font-weight: 800;
+  vertical-align: baseline;
+  text-align: start;
+  font-family: "Roboto Mono", monospace;
+  color: var(--color-Light-Slate);
+}
+.Work span {
+  font-size: 25px;
+  line-height: 26px;
+  font-weight: 700;
+  vertical-align: baseline;
+  text-align: start;
+  font-family: "Roboto Mono", monospace;
+  color: var(--color-Green);
+}
+.class {
+  width: 900px;
+}

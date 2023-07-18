@@ -1,0 +1,22 @@
+/* .ProjectTitle div {
+  width: 600px;
+  top: 10px;
+} */
+.ProjectTitle p {
+  font-size: 15px;
+  text-align: right;
+  font-family: "Roboto Mono", monospace;
+  color: var(--color-Green);
+}
+.ProjectTitle p span {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 400;
+  /* vertical-align: baseline; */
+  text-align: right;
+  font-family: "Roboto Mono", monospace;
+  color: var(--color-Light-Slate);
+}
+.ProjectTitle {
+  width: 340px;
+}

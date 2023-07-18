@@ -7,7 +7,7 @@ function AppLayout() {
   return (
     <>
       <Nav />
-      <div>
+      <div style={{ position: "relative" }}>
         <div className={styles.Email}>
           <Email />
         </div>

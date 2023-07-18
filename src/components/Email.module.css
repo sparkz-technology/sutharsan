@@ -1,7 +1,7 @@
 .Email hr {
   margin: 0 20px;
   border: none;
-  border-left: 2px solid var(--color-Light-Slate);
+  border-left: 2px solid var(--Light-Slate);
   height: 7.5rem;
 }
 
@@ -14,7 +14,7 @@
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
   text-decoration: none;
-  color: var(--color-Light-Slate);
+  color: var(--Light-Slate);
   &:hover {
     color: var(--color-Green);
   }

@@ -12,9 +12,30 @@
   left: 200px;
   right: 200px;
 }
+
 .Email div {
   position: fixed;
   top: 20rem;
   bottom: 0;
   right: 40px;
+}
+.Outlet {
+  overflow: hidden;
+}
+/* Customize the track */
+.Outlet::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Outlet::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Customize the thumb */
+.Outlet::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.Outlet::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

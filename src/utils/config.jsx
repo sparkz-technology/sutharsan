@@ -1,7 +1,5 @@
 export const config = {
   email: "sutharsan.webdev@gmail.com",
-  // github: "https://github.com/Sparkz-technology",
-  // linkedin: "https://www.linkedin.com/in/sutharsan-g-web-dev",
   socialMedia: [
     {
       id: 1,

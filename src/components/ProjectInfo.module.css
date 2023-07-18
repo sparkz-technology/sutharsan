@@ -1,0 +1,31 @@
+.ProjectInfo p {
+  color: var(--Light-Slate);
+  text-align: right;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  font-weight: 100;
+  /* line-height: 20px; */
+}
+.ProjectInfo {
+  /* background-color: var(--Light-Navy); */
+  padding: 20px;
+  width: 300px;
+  margin-left: 20px;
+}
+.ProjectInfo a {
+  padding: 10px;
+  color: var(--color-Light-Slate);
+}
+
+.ProjectInfo a:hover {
+  color: var(--color-Green);
+}
+
+&:focus {
+  transform: translateY(-3px);
+}
+
+.ProjectInfo svg {
+  width: 20px;
+  height: 20px;
+}
