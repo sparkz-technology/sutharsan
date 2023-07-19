@@ -8,9 +8,7 @@
 .Email a {
   margin: 20px auto;
   padding: 10px;
-  font-family: var(--font-mono);
-  font-size: var(--fz-xxs);
-  line-height: var(--fz-lg);
+  font-family: "Roboto Mono", monospace;
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
   text-decoration: none;

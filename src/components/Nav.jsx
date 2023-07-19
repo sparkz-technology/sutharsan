@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import Button from "./Button";
 import image from "../assets/outer-space-alien.png";
+import { config } from "../utils/config";
 function Nav() {
   return (
     <nav className={styles.nav}>
@@ -25,7 +26,9 @@ function Nav() {
           </NavLink>
         </li>
         <li>
-          <Button>Resume</Button>
+          <a href={config.resume}>
+            <Button>Resume</Button>
+          </a>
         </li>
       </ul>
     </nav>

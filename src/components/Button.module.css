@@ -1,8 +1,99 @@
-.btn {
+/* .btn {
   background-color: transparent;
   border-color: var(--color-Green);
   border-width: 1px;
   color: var(--color-Green);
   padding: 0.6rem;
   border-radius: 5px;
+} */
+.btn {
+  margin-bottom: 10px;
+  align-items: center;
+
+  background-color: var(--Light-Navy);
+
+  border: 2px solid var(--color-Green);
+
+  border-radius: 8px;
+
+  box-sizing: border-box;
+
+  color: var(--color-Green);
+
+  cursor: pointer;
+
+  /* display: flex; */
+
+  /* font-family: Inter, sans-serif; */
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 16px;
+
+  height: 48px;
+
+  justify-content: center;
+
+  line-height: 24px;
+
+  max-width: 100%;
+
+  padding: 0 25px;
+
+  position: relative;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+
+  touch-action: manipulation;
+}
+
+.btn:after {
+  background-color: var(--color-Green);
+
+  border-radius: 8px;
+
+  content: "";
+
+  display: block;
+
+  height: 48px;
+
+  left: 0;
+
+  width: 100%;
+
+  position: absolute;
+
+  top: -2px;
+
+  transform: translate(8px, 8px);
+
+  transition: transform 0.2s ease-out;
+
+  z-index: -1;
+}
+
+.btn:hover:after {
+  transform: translate(0, 0);
+}
+
+.btn:active {
+  background-color: var(--color-Green);
+  color: var(--Light-Navy);
+  outline: 0;
+}
+
+.btn:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0 40px;
+  }
 }

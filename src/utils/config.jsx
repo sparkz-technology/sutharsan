@@ -1,5 +1,7 @@
 export const config = {
   email: "sutharsan.webdev@gmail.com",
+  resume:
+    "https://drive.google.com/u/0/uc?id=1Rd1reeGtg0TFJGOj4Wg406chEepELT6M&export=download",
   socialMedia: [
     {
       id: 1,

@@ -1,6 +1,6 @@
 import { config } from "../utils/config";
 import styles from "./Social.module.css";
-import Github from "./icons/github";
+import Github from "./icons/Github";
 import Instagram from "./icons/instagram";
 import LinkedIn from "./icons/linkedin";
 function Social() {

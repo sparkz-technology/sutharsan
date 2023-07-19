@@ -2,7 +2,13 @@ body {
   background-color: #0a192f;
   margin: 0;
 }
-
+::-webkit-scrollbar {
+  display: none;
+}
+::selection {
+  background-color: #64ffda;
+  color: #0a192f;
+}
 :root {
   --color-Green: #64ffda;
   --color-Light-Slate: #ccd6f6;

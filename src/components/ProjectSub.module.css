@@ -9,6 +9,7 @@
 .ProjectSub {
   background-color: var(--Light-Navy);
   padding: 20px;
-  width: 300px;
+  min-width: 300px;
+  max-width: 600px;
   margin-left: 20px;
 }

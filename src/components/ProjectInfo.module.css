@@ -9,7 +9,7 @@
 .ProjectInfo {
   /* background-color: var(--Light-Navy); */
   padding: 20px;
-  width: 300px;
+  min-width: 300px;
   margin-left: 20px;
 }
 .ProjectInfo a {

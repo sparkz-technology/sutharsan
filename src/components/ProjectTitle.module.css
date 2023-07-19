@@ -18,5 +18,5 @@
   color: var(--color-Light-Slate);
 }
 .ProjectTitle {
-  width: 340px;
+  min-width: 340px;
 }
