@@ -18,11 +18,11 @@
 }
 
 .Profile figure img {
-  opacity: 0.6; /* Adjust the initial opacity as per your preference */
+  opacity: 1; /* Adjust the initial opacity as per your preference */
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
 .Profile figure:hover img {
-  opacity: 1; /* Increase the opacity on hover */
+  opacity: 0.6; /* Increase the opacity on hover */
 }
