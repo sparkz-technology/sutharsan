@@ -11,19 +11,3 @@
   align-items: center;
   margin: 0;
 }
-.Profile figure {
-  background: var(--color-Green);
-  height: 300px;
-  width: 300px;
-  border-radius: 25px;
-}
-
-.Profile figure img {
-  opacity: 1; /* Adjust the initial opacity as per your preference */
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-
-.Profile figure:hover img {
-  opacity: 0.6; /* Increase the opacity on hover */
-}

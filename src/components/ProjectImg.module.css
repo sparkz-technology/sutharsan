@@ -1,6 +1,12 @@
 .ProjectImg img {
-  height: 362px;
-  width: 449px;
+  /* height: 362px; */
+
+  /* width: 449px; */
+
+  min-width: 449px;
+  min-height: 362px;
+  max-width: 70%;
+  max-height: 70%;
 }
 .ProjectImg div {
   display: flex;
@@ -8,20 +14,4 @@
   justify-content: center;
   align-items: center;
   margin: 0;
-}
-
-.ProjectImg figure {
-  background: var(--color-Green);
-  height: 362px;
-  width: 449px;
-}
-
-.ProjectImg figure img {
-  opacity: 1; /* Adjust the initial opacity as per your preference */
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-}
-
-.ProjectImg figure:hover img {
-  opacity: 0.6; /* Increase the opacity on hover */
 }

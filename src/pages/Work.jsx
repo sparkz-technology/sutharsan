@@ -3,7 +3,7 @@ import ProjectImg from "../components/ProjectImg";
 import ProjectInfo from "../components/ProjectInfo";
 import ProjectTitle from "../components/ProjectTitle";
 import styles from "./Work.module.css";
-import { projectconfig } from "../utils/projectconfig";
+import projectconfig from "../utils/projectconfig";
 import ProjectSub from "../components/ProjectSub";
 function Work() {
   return (

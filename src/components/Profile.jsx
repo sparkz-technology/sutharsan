@@ -3,9 +3,7 @@ import styles from "./Profile.module.css";
 function Profile() {
   return (
     <div className={styles.Profile}>
-      <figure>
-        <img src={profile} alt="sutharsan" />
-      </figure>
+      <img src={profile} alt="sutharsan" />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-export const projectconfig = {
+const projectconfig = {
   projectinfo: [
     {
       id: 1,
@@ -23,3 +23,4 @@ export const projectconfig = {
     },
   ],
 };
+export default projectconfig;

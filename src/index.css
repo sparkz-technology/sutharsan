@@ -10,11 +10,11 @@ body {
   display: none;
 }
 ::selection {
-  background-color: #64ffda;
-  color: #0a192f;
+  background-color: #4c234a;
+  color: #ffff00;
 }
 :root {
-  /* --color-Green: #64ffda; */
+  /* --color-Green: #ffff00; */
   /* --color-Green: #7f00ff; */
   --color-Green: #ffff00;
   --color-Light-Slate: #fff;
@@ -27,9 +27,9 @@ body {
 .loader {
   width: 45px;
   height: 30px;
-  background: linear-gradient(#64ffda 0 0) 0% 50% no-repeat,
-    linear-gradient(#64ffda 0 0) 50% 50% no-repeat,
-    linear-gradient(#64ffda 0 0) 100% 50% no-repeat;
+  background: linear-gradient(#ffff00 0 0) 0% 50% no-repeat,
+    linear-gradient(#ffff00 0 0) 50% 50% no-repeat,
+    linear-gradient(#ffff00 0 0) 100% 50% no-repeat;
   background-size: 20% 50%;
   animation: loading 1s infinite linear;
 }
