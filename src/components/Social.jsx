@@ -3,6 +3,7 @@ import styles from "./Social.module.css";
 import Github from "./icons/Github";
 import Instagram from "./icons/Instagram";
 import LinkedIn from "./icons/linkedin";
+import Email from "./icons/Email";
 function Social() {
   return (
     <div className={styles.social}>
@@ -14,6 +15,7 @@ function Social() {
                 {name === "Github" ? <Github /> : ""}
                 {name === "Instagram" ? <Instagram /> : ""}
                 {name === "LinkedIn" ? <LinkedIn /> : ""}
+                {name === "Email" ? <Email /> : ""}
               </a>
             </li>
           ))}

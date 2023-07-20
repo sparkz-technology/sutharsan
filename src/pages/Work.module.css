@@ -13,12 +13,14 @@
   width: 300px;
 }
 .Work h1 {
-  font-size: 25px;
+  font-size: 35px;
   line-height: 88px;
   font-weight: 800;
   vertical-align: baseline;
   text-align: start;
-  font-family: "Roboto Mono", monospace;
+  /* font-family: "Roboto Mono", monospace; */
+  font-family: "Delicious Handrawn", cursive;
+
   color: var(--color-Light-Slate);
 }
 .Work span {

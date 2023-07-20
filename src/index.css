@@ -89,6 +89,6 @@ span {
   100% {
     opacity: 1;
     text-shadow: 0px 0px 5px var(--anime), 0px 0px 10px var(--anime),
-      1px 1px 50px var(--anime);
+      1px 1px 5px var(--anime);
   }
 }

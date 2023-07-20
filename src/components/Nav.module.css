@@ -2,8 +2,9 @@ nav {
   display: flex; /* 1 */
   justify-content: space-between; /* 2 */
   padding: 1rem 2rem; /* 3 */
-  font-family: "Space Mono", monospace;
-  font-size: 13px;
+  /* font-family: "Space Mono", monospace; */
+  font-family: "Delicious Handrawn", cursive;
+  font-size: 30px;
   line-height: 16.9px;
   margin-top: 0;
 }
@@ -21,7 +22,7 @@ nav li {
 }
 nav a {
   text-decoration: none;
-  color: var(--Light-violet);
+  color: var(--color-Light-Slate);
   padding: 0.6rem;
 }
 nav span {

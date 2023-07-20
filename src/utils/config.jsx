@@ -18,5 +18,10 @@ export const config = {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/sutharsan-g-web-dev",
     },
+    {
+      id: 4,
+      name: "Email",
+      url: "mailto:sutharsan.webdev@gmail.com",
+    },
   ],
 };
