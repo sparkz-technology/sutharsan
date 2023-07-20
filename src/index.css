@@ -1,5 +1,9 @@
 body {
-  background-color: #0a192f;
+  /* background-color: #0a192f; */
+  /* background-color: #232931;
+   */
+  /* background-color: #040303; */
+  background: linear-gradient(to top, #4c234a, #0f1532);
   margin: 0;
 }
 ::-webkit-scrollbar {
@@ -10,10 +14,15 @@ body {
   color: #0a192f;
 }
 :root {
-  --color-Green: #64ffda;
-  --color-Light-Slate: #ccd6f6;
+  /* --color-Green: #64ffda; */
+  /* --color-Green: #7f00ff; */
+  --color-Green: #ffff00;
+  --color-Light-Slate: #fff;
   --Light-Slate: #a8b2d1;
-  --Light-Navy: #112240;
+  /* --Light-Navy: #112240; #bfb1f0*/
+  --Light-violet: #bfb1f0;
+  --Light-Navy: #22153a;
+  --anime: #ffdd1b;
 }
 .loader {
   width: 45px;
@@ -37,5 +46,49 @@ body {
   }
   80% {
     background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+
+/* ... Other CSS rules ... */
+
+a,
+h1,
+h3,
+strong,
+span {
+  /* font-size: 2rem;font-family: 'Delicious Handrawn', cursive; */
+  /* font-weight: 500; */
+  /* letter-spacing: 8px; */
+  /* text-align: center; */
+  /* opacity: 0; */
+  /* color: white; */
+  animation: lightson 0.5s ease 2 forwards;
+}
+
+@keyframes lightson {
+  /* 0% {
+    opacity: 0;
+    text-shadow: 0px 0px 0px var(--anime), 0px 0px 0px var(--anime),
+      0px 0px 0px var(--anime);
+  }
+  20% {
+    opacity: 0.5;
+    text-shadow: 0px 0px 2.5px var(--anime), 0px 0px 5px var(--anime),
+      1px 1px 25px var(--anime);
+  }
+  40% {
+    opacity: 0;
+    text-shadow: 0px 0px 1px var(--anime), 0px 0px 2px var(--anime),
+      0px 0px 10px var(--anime);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0px 0px 5px var(--anime), 0px 0px 10px var(--anime),
+      1px 1px 50px var(--anime);
+  } */
+  100% {
+    opacity: 1;
+    text-shadow: 0px 0px 5px var(--anime), 0px 0px 10px var(--anime),
+      1px 1px 50px var(--anime);
   }
 }

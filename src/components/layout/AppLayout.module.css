@@ -20,7 +20,8 @@
   right: 40px;
 }
 .Outlet {
-  overflow: hidden;
+  min-height: 100dvh;
+  margin-top: 0;
 }
 /* Customize the track */
 .Outlet::-webkit-scrollbar {

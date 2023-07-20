@@ -21,7 +21,7 @@ nav li {
 }
 nav a {
   text-decoration: none;
-  color: var(--color-Light-Slate);
+  color: var(--Light-violet);
   padding: 0.6rem;
 }
 nav span {

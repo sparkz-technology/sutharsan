@@ -8,7 +8,7 @@ function Contact() {
         <span>0.3 </span>
         What's Next?
       </h3>
-      <h1>Get In Touch</h1>
+      <h1>Let's Connect </h1>
       <p>
         I'm a student actively seeking web development job opportunities. If you
         have any questions or want to say hello, feel free to reach out. Let's

@@ -27,9 +27,9 @@
   /* font-family: Inter, sans-serif; */
   font-family: "Roboto Mono", monospace;
 
-  font-size: 16px;
+  font-size: 1rem;
 
-  height: 48px;
+  height: 40px;
 
   justify-content: center;
 
@@ -37,7 +37,7 @@
 
   max-width: 100%;
 
-  padding: 0 25px;
+  padding: 0 20px;
 
   position: relative;
 
@@ -61,7 +61,7 @@
 
   display: block;
 
-  height: 48px;
+  height: 40px;
 
   left: 0;
 

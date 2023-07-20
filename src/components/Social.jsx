@@ -1,7 +1,7 @@
 import { config } from "../utils/config";
 import styles from "./Social.module.css";
 import Github from "./icons/Github";
-import Instagram from "./icons/instagram";
+import Instagram from "./icons/Instagram";
 import LinkedIn from "./icons/linkedin";
 function Social() {
   return (
@@ -17,7 +17,7 @@ function Social() {
               </a>
             </li>
           ))}
-        <hr />
+        {/* <hr /> */}
       </ul>
     </div>
   );

@@ -9,6 +9,7 @@
   align-items: center;
   margin: 0;
 }
+
 .ProjectImg figure {
   background: var(--color-Green);
   height: 362px;

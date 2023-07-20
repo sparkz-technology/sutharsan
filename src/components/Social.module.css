@@ -35,7 +35,7 @@
 
 .social a {
   padding: 10px;
-  color: var(--color-Light-Slate);
+  color: var(--Light-violet);
 }
 
 .social a:hover {
@@ -52,6 +52,6 @@
 }
 .social hr {
   border: none;
-  border-left: 2px solid var(--color-Light-Slate);
+  border-left: 2px solid var(--Light-violet);
   height: 14rem;
 }

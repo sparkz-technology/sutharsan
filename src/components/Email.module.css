@@ -1,8 +1,8 @@
 .Email hr {
   margin: 0 20px;
   border: none;
-  border-left: 2px solid var(--Light-Slate);
-  height: 7.5rem;
+  border-left: 2px solid var(--Light-violet);
+  height: 5rem;
 }
 
 .Email a {
@@ -13,6 +13,7 @@
   writing-mode: vertical-rl;
   text-decoration: none;
   color: var(--Light-Slate);
+  animation: none;
   &:hover {
     color: var(--color-Green);
   }
