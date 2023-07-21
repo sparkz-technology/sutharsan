@@ -2,7 +2,7 @@ import { config } from "../utils/config";
 import styles from "./Social.module.css";
 import Github from "./icons/Github";
 import Instagram from "./icons/Instagram";
-import LinkedIn from "./icons/linkedin";
+import LinkedIn from "./icons/Linkedin";
 import Email from "./icons/Email";
 function Social() {
   return (
