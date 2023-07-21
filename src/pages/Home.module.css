@@ -45,6 +45,21 @@
   padding-top: 100px;
   width: auto;
 }
+@media (max-width: 900px) {
+  .home h2 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .home p {
+    font-size: 14px;
+  }
+  .home strong {
+    font-size: 14px;
+  }
+  .home {
+    padding: 30px;
+  }
+}
 @media (max-width: 768px) {
   .home h2 {
     font-size: 20px;
@@ -55,5 +70,9 @@
   }
   .home strong {
     font-size: 14px;
+  }
+
+  .home {
+    padding: 30px;
   }
 }

@@ -9,7 +9,7 @@ function Work() {
   return (
     <div className={styles.Work}>
       <h1>
-        <span>02.</span> Some Things Ive Built
+        <span>02.</span> Artistic Masterpiece
       </h1>
       {projectconfig.projectinfo.map(
         ({ name, subtitle, technology, host, url, img }) => (

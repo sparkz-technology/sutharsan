@@ -50,6 +50,7 @@
   }
   .ProjectDiv div {
     background-color: #4c234ade;
+    border-radius: 10px;
   }
   .class {
     min-width: 0px;
@@ -60,7 +61,6 @@
     font-weight: 800;
     vertical-align: baseline;
     text-align: start;
-    font-family: "Roboto Mono", monospace;
     color: var(--color-Light-Slate);
   }
 }
@@ -68,6 +68,20 @@
   .Work h1 {
     font-size: 25px;
     line-height: 88px;
+    font-weight: 800;
+    vertical-align: baseline;
+    text-align: start;
+    color: var(--color-Light-Slate);
+    padding: 0 40px;
+  }
+  .class {
+    min-width: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .Work h1 {
+    font-size: 20px;
+    line-height: 40px;
     font-weight: 800;
     vertical-align: baseline;
     text-align: start;

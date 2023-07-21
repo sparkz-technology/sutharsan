@@ -29,3 +29,36 @@
   color: var(--color-Light-Slate);
   font-family: "Delicious Handrawn", cursive;
 }
+@media (max-width: 768px) {
+  .Contact div {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+  }
+  .Contact {
+    text-align: center;
+    font-family: "Space Mono", monospace;
+  }
+  .Contact p {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 40px;
+    color: var(--Light-Slate);
+  }
+  .Contact h3 {
+    padding-top: 20px;
+    color: var(--color-Light-Slate);
+  }
+  .Contact span {
+    color: var(--color-Green);
+  }
+  .Contact h1 {
+    font-size: 50px;
+    line-height: 20px;
+    font-weight: 800;
+    /* vertical-align: baseline; */
+    text-align: center;
+    color: var(--color-Light-Slate);
+    font-family: "Delicious Handrawn", cursive;
+  }
+}
