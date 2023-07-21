@@ -9,7 +9,6 @@ function Nav() {
     <>
       <nav className={styles.nav}>
         <NavLink to="/">
-          {/* <img src={image} alt="key" /> */}
           <Alien />
         </NavLink>
         <ul>

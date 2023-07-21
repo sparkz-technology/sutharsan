@@ -10,7 +10,7 @@
 }
 .home h2 {
   font-size: 50px;
-  line-height: 88px;
+  /* line-height: 88px; */
   font-weight: 800;
   margin-top: 0;
   vertical-align: baseline;
@@ -18,9 +18,6 @@
   /* font-family: "Roboto Mono", monospace; */
   color: var(--Light-violet);
   font-family: "Martian Mono", monospace;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
 }
 .home p {
   font-size: 16px;
@@ -47,4 +44,16 @@
   align-items: start;
   padding-top: 100px;
   width: auto;
+}
+@media (max-width: 768px) {
+  .home h2 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .home p {
+    font-size: 14px;
+  }
+  .home strong {
+    font-size: 14px;
+  }
 }

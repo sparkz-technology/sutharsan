@@ -15,3 +15,12 @@
   max-width: 600px;
   margin-left: 20px;
 }
+@media (max-width: 768px) {
+  .ProjectSub {
+    margin-left: 0px;
+    box-shadow: 3px 3px 10px 9px rgb(0 0 0 / 0.2);
+  }
+  .ProjectSub p {
+    text-align: left;
+  }
+}

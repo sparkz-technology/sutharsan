@@ -3,6 +3,7 @@
   width: 300px;
   border-radius: 25px;
   color: black;
+  margin: 10;
 }
 .Profile div {
   display: flex;

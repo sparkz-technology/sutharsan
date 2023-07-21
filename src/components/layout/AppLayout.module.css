@@ -13,12 +13,6 @@
   right: 200px;
 }
 
-.Email div {
-  position: fixed;
-  top: 20rem;
-  bottom: 0;
-  right: 40px;
-}
 .Outlet {
   min-height: 100dvh;
   margin-top: 0;
@@ -39,4 +33,30 @@
 
 .Outlet::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+@media (max-width: 900px) {
+  .Outlet div {
+    margin: 0 3rem;
+  }
+  .Social div {
+    position: fixed;
+    top: 21.5rem;
+    bottom: 0;
+    left: 40px;
+    z-index: 1;
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .Outlet div {
+    margin: 0rem;
+  }
+  .Social div {
+    position: fixed;
+    top: 21.5rem;
+    bottom: 0;
+    left: 40px;
+    z-index: 1;
+    display: none;
+  }
 }

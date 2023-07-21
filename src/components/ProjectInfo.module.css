@@ -29,3 +29,18 @@
   width: 20px;
   height: 20px;
 }
+@media (max-width: 768px) {
+  .ProjectInfo {
+    margin-left: 0px;
+  }
+  .ProjectInfo p {
+    text-align: left;
+  }
+  .ProjectInfo a {
+    padding: 4px;
+  }
+  .ProjectInfo svg {
+    width: 15px;
+    height: 15px;
+  }
+}

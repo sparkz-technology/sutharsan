@@ -31,3 +31,9 @@
   text-decoration: none;
   color: var(--color-Green);
 }
+@media (max-width: 768px) {
+  .AboutM div {
+    flex: 1;
+    /* margin: 0 40px 0 0; */
+  }
+}

@@ -23,3 +23,10 @@
   font-family: "Roboto Mono", monospace;
   color: var(--color-Green);
 }
+@media (max-width: 768px) {
+  .About div {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 40px 0 0; */
+  }
+}

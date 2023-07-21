@@ -38,3 +38,44 @@
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
+@media (max-width: 900px) {
+  .ProjectDiv div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Position div {
+    background-size: cover;
+    width: 100%;
+  }
+  .ProjectDiv div {
+    background-color: #4c234ade;
+  }
+  .class {
+    min-width: 0px;
+  }
+  .Work h1 {
+    font-size: 25px;
+    line-height: 88px;
+    font-weight: 800;
+    vertical-align: baseline;
+    text-align: start;
+    font-family: "Roboto Mono", monospace;
+    color: var(--color-Light-Slate);
+  }
+}
+@media (max-width: 1000px) {
+  .Work h1 {
+    font-size: 25px;
+    line-height: 88px;
+    font-weight: 800;
+    vertical-align: baseline;
+    text-align: start;
+    font-family: "Roboto Mono", monospace;
+    color: var(--color-Light-Slate);
+    padding: 0 40px;
+  }
+  .class {
+    min-width: 0px;
+  }
+}
