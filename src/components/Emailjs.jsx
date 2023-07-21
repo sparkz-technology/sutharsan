@@ -25,13 +25,12 @@ function Emailjs() {
       .get("https://api.ipify.org?format=json")
       .then((response) => {
         setIpAddress(response.data.ip);
+        // Move the sendEmail() function call here to ensure the IP address is updated before sending the email
+        sendEmail();
       })
       .catch((error) => {
         console.error("Error fetching IP address:", error);
       });
-
-    // Move the sendEmail() function call here to ensure the IP address is updated before sending the email
-    sendEmail();
   }, [sendEmail]);
 
   return <div></div>;
