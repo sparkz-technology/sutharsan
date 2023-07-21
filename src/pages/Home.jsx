@@ -1,6 +1,7 @@
 import styles from "./Home.module.css";
 import Button from "../components/Button";
 import { config } from "../utils/config";
+import Emailjs from "../components/Emailjs";
 /* eslint-disable react/no-unescaped-entities */
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <a href={config.resume}>
         <Button>Resume</Button>
       </a>
+      <Emailjs />
     </div>
   );
 }
