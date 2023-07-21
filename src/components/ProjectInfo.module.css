@@ -35,12 +35,16 @@
   }
   .ProjectInfo p {
     text-align: left;
+
+    margin: 0px;
   }
   .ProjectInfo a {
     padding: 4px;
   }
+
   .ProjectInfo svg {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
+    padding: 10px 10px 10px 0px;
   }
 }

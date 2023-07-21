@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
-import Button from "./Button";
-// import image from "../assets/outer-space-alien.png";
-import { config } from "../utils/config";
-import Alien from "./icons/Alien";
+
+// import Alien from "./icons/Alien";// This is the old code
 function Nav() {
   return (
     <>
       <nav className={styles.nav}>
         <NavLink to="/">
-          <Alien />
+          {/* <Alien /> */}
+          Sutharsan
         </NavLink>
         <ul>
           <li>
@@ -26,11 +25,6 @@ function Nav() {
             <NavLink to="/contact">
               <span>03.</span>Contact
             </NavLink>
-          </li>
-          <li>
-            <a href={config.resume}>
-              <Button>Resume</Button>
-            </a>
           </li>
         </ul>
       </nav>

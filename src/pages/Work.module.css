@@ -48,10 +48,7 @@
     background-size: cover;
     width: 100%;
   }
-  .ProjectDiv div {
-    background-color: #4c234ade;
-    border-radius: 10px;
-  }
+
   .class {
     min-width: 0px;
   }

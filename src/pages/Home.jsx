@@ -1,4 +1,6 @@
 import styles from "./Home.module.css";
+import Button from "../components/Button";
+import { config } from "../utils/config";
 /* eslint-disable react/no-unescaped-entities */
 function Home() {
   return (
@@ -13,6 +15,9 @@ function Home() {
         Science, I am actively seeking exciting opportunities to contribute to
         the field and apply my knowledge and expertise.
       </p>
+      <a href={config.resume}>
+        <Button>Resume</Button>
+      </a>
     </div>
   );
 }

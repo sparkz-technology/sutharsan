@@ -16,14 +16,7 @@ function Work() {
           <div style={{ margin: 40 }} key={name} className={styles.class}>
             <ProjectImg img={img} />
             <div className={styles.ProjectDiv}>
-              <div
-                className={styles.position}
-                style={{
-                  backgroundImage:
-                    window.innerWidth <= 768 ? `url(${img})` : "none",
-                  backgroundSize: "cover",
-                }}
-              >
+              <div className={styles.position}>
                 <ProjectTitle name={name} />
                 <ProjectSub subtitle={subtitle} />
                 <ProjectInfo technology={technology} host={host} url={url} />

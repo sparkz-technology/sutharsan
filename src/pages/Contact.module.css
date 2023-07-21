@@ -29,6 +29,7 @@
   color: var(--color-Light-Slate);
   font-family: "Delicious Handrawn", cursive;
 }
+
 @media (max-width: 768px) {
   .Contact div {
     margin: 0;
@@ -40,8 +41,12 @@
     font-family: "Space Mono", monospace;
   }
   .Contact p {
-    width: 60%;
-    margin: auto;
+    /* width: 60%; */
+    /* margin: auto; */
+    width: 90%;
+    margin: 0%;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 40px;
     color: var(--Light-Slate);
   }

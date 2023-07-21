@@ -7,6 +7,7 @@ nav {
   font-size: 30px;
   line-height: 16.9px;
   margin-top: 0;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -53,6 +54,26 @@ nav span {
   }
   svg {
     height: 3rem;
+    width: 3rem;
+    margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem 1rem;
+  }
+  nav ul {
+    margin-top: 0.5rem;
+    font-size: 15px;
+  }
+  nav li {
+    margin: 0.5rem 0;
+  }
+  nav a {
+    padding: 0;
+  }
+  svg {
+    height: 2rem;
     width: 3rem;
     margin: auto;
   }
