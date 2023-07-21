@@ -19,7 +19,6 @@ function Social() {
               </a>
             </li>
           ))}
-        {/* <hr /> */}
       </ul>
     </div>
   );
