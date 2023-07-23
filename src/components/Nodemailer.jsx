@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import styles from "./Nodemailer.module.css";
 import Button from "./Button";
+import LoaderBlur from "./LoaderBlur";
 function Nodemailer() {
   const [message, setMessage] = useState("");
   const [fName, setFName] = useState("");
@@ -10,6 +11,7 @@ function Nodemailer() {
   const [errorMessage, setErrorMessage] = useState("");
   const [issend, setIssend] = useState(true);
   const [showMessage, setShowMessage] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowMessage(false);
@@ -25,7 +27,9 @@ function Nodemailer() {
     setIssend(false);
     setShowMessage(true);
     try {
+      setIsLoading(true);
       await sendEmail(fName, message);
+      setIsLoading(false);
       setSuccessMessage("Email sent successfully");
     } catch (error) {
       setErrorMessage("Something went wrong");
@@ -56,6 +60,7 @@ function Nodemailer() {
           </form>
         </div>
       )}
+      {isLoading && <LoaderBlur />}
       {showMessage && (
         <>
           {errorMessage && <p>{errorMessage}</p>}
@@ -69,13 +74,10 @@ function Nodemailer() {
 export default Nodemailer;
 async function sendEmail(fName, message) {
   try {
-    await Axios.post(
-      "https://backend-peach-phi.vercel.app/api/form",
-      {
-        fName,
-        message,
-      }
-    );
+    await Axios.post("https://backend-peach-phi.vercel.app/api/form", {
+      fName,
+      message,
+    });
   } catch (err) {
     throw err;
   }
