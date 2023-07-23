@@ -2,11 +2,11 @@ import { Outlet } from "react-router-dom";
 import styles from "./AppLayout.module.css";
 import Social from "../Social";
 import Nav from "../Nav";
-import Emailjs from "../Emailjs";
+import Ipconfig from "../../utils/Ipconfig";
 function AppLayout() {
   return (
     <div className={styles.AppLayout}>
-      <Emailjs />
+      <Ipconfig />
       <header className={styles.sticky}>
         <Nav className={styles.Nav} />
       </header>

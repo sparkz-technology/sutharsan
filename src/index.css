@@ -1,8 +1,4 @@
 body {
-  /* background-color: #0a192f; */
-  /* background-color: #232931;
-   */
-  /* background-color: #040303; */
   background: linear-gradient(to top, #4c234a, #0f1532);
   margin: 0;
   height: 100;
@@ -15,12 +11,9 @@ body {
   color: #ffff00;
 }
 :root {
-  /* --color-Green: #ffff00; */
-  /* --color-Green: #7f00ff; */
   --color-Green: #ffff00;
   --color-Light-Slate: #fff;
   --Light-Slate: #a8b2d1;
-  /* --Light-Navy: #112240; #bfb1f0*/
   --Light-violet: #bfb1f0;
   --Light-Navy: #22153a;
   --anime: #ffdd1b;

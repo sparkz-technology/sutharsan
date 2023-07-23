@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import Button from "../components/Button";
 import styles from "./Contact.module.css";
-import { config } from "../utils/config";
+import Nodemailer from "../components/Nodemailer";
+import { useState } from "react";
 function Contact() {
-  const { email } = config;
+  const [isShown, setIsShown] = useState(true);
   return (
     <>
       <div className={styles.Contact}>
@@ -17,9 +18,13 @@ function Contact() {
           you have any questions or want to say hello, feel free to reach out.
           Let's connect and explore the world of web development together!
         </p>
-        <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
-          <Button type="button">Say Hello</Button>
-        </a>
+        {isShown ? (
+          <Button type="button" onClick={() => setIsShown(false)}>
+            Say Hello
+          </Button>
+        ) : (
+          <Nodemailer />
+        )}
       </div>
     </>
   );
