@@ -69,10 +69,13 @@ function Nodemailer() {
 export default Nodemailer;
 async function sendEmail(fName, message) {
   try {
-    await Axios.post("https://sutharsan-backend.vercel.app/api/form", {
-      fName,
-      message,
-    });
+    await Axios.post(
+      "https://sutharsan-backend-7c18f3vqs-sparkz-technology.vercel.app/?vercelToolbarCode=4ujiIMWdtu5N0TM/api/form",
+      {
+        fName,
+        message,
+      }
+    );
   } catch (err) {
     throw err;
   }
