@@ -5,7 +5,7 @@ function Ipconfig() {
   const [ipAddress, setIpAddress] = useState(null);
   const sendEmail = useCallback(async () => {
     try {
-      await axios.post("http://localhost:3000/api/ip", {
+      await axios.post("https://sutharsan-backend.vercel.app/api/ip", {
         ipAddress: ipAddress,
       });
     } catch (err) {
