@@ -12,10 +12,20 @@
   left: 200px;
   right: 200px;
 }
-
+.AppLayout {
+  min-height: 100vh;
+  max-height: 100%;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
 .Outlet {
-  min-height: 100dvh;
   margin-top: 0;
+  padding-top: 100px;
 }
 /* Customize the track */
 .Outlet::-webkit-scrollbar {
@@ -46,6 +56,10 @@
     z-index: 1;
     display: none;
   }
+  .AppLayout {
+    min-height: 100vh;
+    max-height: 00%;
+  }
 }
 @media (max-width: 1000px) {
   .Outlet div {
@@ -58,5 +72,9 @@
     left: 40px;
     z-index: 1;
     display: none;
+  }
+  .AppLayout {
+    min-height: 100vh;
+    max-height: 100%;
   }
 }

@@ -96,3 +96,8 @@
     padding-right: 30px;
   }
 }
+@media (max-width: 1000px) {
+  .About {
+    padding-left: 20px;
+  }
+}

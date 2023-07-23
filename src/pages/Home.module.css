@@ -76,3 +76,9 @@
     padding: 30px;
   }
 }
+@media (max-width: 1000px) {
+  .home {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

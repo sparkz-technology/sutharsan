@@ -5,9 +5,11 @@ import Nav from "../Nav";
 import Emailjs from "../Emailjs";
 function AppLayout() {
   return (
-    <>
+    <div className={styles.AppLayout}>
       <Emailjs />
-      <Nav className={styles.Nav} />
+      <header className={styles.sticky}>
+        <Nav className={styles.Nav} />
+      </header>
       <div style={{ position: "relative" }}>
         <div className={styles.Social}>
           <Social />
@@ -16,7 +18,7 @@ function AppLayout() {
           <Outlet />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
