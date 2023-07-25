@@ -24,7 +24,7 @@ function Ipconfig() {
       sendEmail();
     }
   }, [ipAddress, sendEmail]);
-  return <div></div>;
+  return <></>;
 }
 
 export default Ipconfig;

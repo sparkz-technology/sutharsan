@@ -63,8 +63,8 @@ function Nodemailer() {
       {isLoading && <LoaderBlur />}
       {showMessage && (
         <>
-          {errorMessage && <p>{errorMessage}</p>}
-          {successMessage && <p>{successMessage}</p>}
+          {errorMessage && <span>{errorMessage}</span>}
+          {successMessage && <span>{successMessage}</span>}
         </>
       )}
     </>
