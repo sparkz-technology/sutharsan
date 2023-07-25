@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import Error from "./components/Error";
+import PageNotFound from "./components/PageNotFound";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <About />, errorElement: <Error /> },
       { path: "/work", element: <Work />, errorElement: <Error /> },
       { path: "/contact", element: <Contact />, errorElement: <Error /> },
+      { path: "*", element: <PageNotFound /> },
     ],
   },
 ]);
