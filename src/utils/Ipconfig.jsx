@@ -3,13 +3,9 @@ import axios from "axios";
 function Ipconfig() {
   const [ipAddress, setIpAddress] = useState(null);
   const sendEmail = useCallback(async () => {
-    try {
-      await axios.post("https://backend-peach-phi.vercel.app/api/ip", {
-        ipAddress: ipAddress,
-      });
-    } catch (err) {
-      throw err;
-    }
+    await axios.post("https://backend-peach-phi.vercel.app/api/ip", {
+      ipAddress: ipAddress,
+    });
   }, [ipAddress]);
   useEffect(() => {
     const fetchIpAddress = async () => {
@@ -27,7 +23,7 @@ function Ipconfig() {
     if (ipAddress) {
       sendEmail();
     }
-  }, [ipAddress]);
+  }, [ipAddress, sendEmail]);
   return <div></div>;
 }
 
