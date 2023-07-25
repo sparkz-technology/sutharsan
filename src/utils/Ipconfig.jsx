@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-catch */
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 function Ipconfig() {
@@ -28,7 +27,7 @@ function Ipconfig() {
     if (ipAddress) {
       sendEmail();
     }
-  }, [ipAddress, sendEmail]);
+  }, [ipAddress]);
   return <div></div>;
 }
 
