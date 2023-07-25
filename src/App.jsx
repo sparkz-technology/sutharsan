@@ -6,14 +6,16 @@ import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
+import Error from "./components/Error";
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "/work", element: <Work /> },
-      { path: "/contact", element: <Contact /> },
+      { path: "/", element: <Home />, errorElement: <Error /> },
+      { path: "/about", element: <About />, errorElement: <Error /> },
+      { path: "/work", element: <Work />, errorElement: <Error /> },
+      { path: "/contact", element: <Contact />, errorElement: <Error /> },
     ],
   },
 ]);
