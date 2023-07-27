@@ -37,6 +37,7 @@ function PageNotFound() {
           padding: "10px 20px",
           borderRadius: "5px",
           border: "1px solid #ffff00",
+          textAlign: "center",
         }}
         to="/"
       >

@@ -1,6 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-useless-catch */
-// import { useEffect, useState } from "react";
 import styles from "./Nodemailer.module.css";
 import Button from "./Button";
 import LoaderBlur from "./LoaderBlur";
