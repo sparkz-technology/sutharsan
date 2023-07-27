@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static-build"
+    }
+  ],
   "routes": [
     { "src": "/about", "dest": "/about.html" },
     { "src": "/work", "dest": "/work.html" },
     { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/(.*)", "dest": "/404.html" }
-  ]
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "env": {
+    "DEBUG": "true"
+  }
 }
