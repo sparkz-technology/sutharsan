@@ -28,8 +28,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsloading(false);
-    }, 3000); // Set the delay time in milliseconds (2 seconds in this example)
-
+    }, 3000);
     return () => {
       clearTimeout(timer);
     };
