@@ -1,6 +1,6 @@
 {
   "version": 2,
-
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "routes": [
     { "src": "/about", "dest": "/about.html" },
     { "src": "/work", "dest": "/work.html" },
