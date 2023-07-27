@@ -24,7 +24,6 @@
   font-size: 50px;
   line-height: 20px;
   font-weight: 800;
-  /* vertical-align: baseline; */
   text-align: center;
   color: var(--color-Light-Slate);
   font-family: "Delicious Handrawn", cursive;
@@ -41,8 +40,6 @@
     font-family: "Space Mono", monospace;
   }
   .Contact p {
-    /* width: 60%; */
-    /* margin: auto; */
     width: 90%;
     margin: 0%;
     padding-left: 20px;
@@ -61,7 +58,6 @@
     font-size: 50px;
     line-height: 20px;
     font-weight: 800;
-    /* vertical-align: baseline; */
     text-align: center;
     color: var(--color-Light-Slate);
     font-family: "Delicious Handrawn", cursive;
