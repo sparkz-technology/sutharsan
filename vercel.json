@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "builds": {
-    "command": "npm run build",
-    "output": "build"
-  },
+
   "routes": [
     { "src": "/about", "dest": "/about.html" },
     { "src": "/work", "dest": "/work.html" },
