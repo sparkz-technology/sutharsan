@@ -1,14 +1,15 @@
+import styled from "styled-components";
+
 function LoaderBlur() {
+  const StyledLoaderBlur = styled.div`
+    display: flex;
+    align-items: center; // Vertical
+    justify-content: center; // Horizontal
+  `;
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <StyledLoaderBlur>
       <div className="loader"></div>
-    </div>
+    </StyledLoaderBlur>
   );
 }
 

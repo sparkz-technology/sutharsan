@@ -1,21 +1,21 @@
+import styled from "styled-components";
 function Loader() {
+  const StyledLoader = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center; // Vertical
+    justify-content: center; // Horizontal
+    background: linear-gradient(to top, #4c234a, #0f1532);
+    backdrop-filter: blur(4px);
+  `;
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "linear-gradient(to top, #4c234a, #0f1532)", // Add quotes here
-        backdropFilter: "blur(4px)",
-      }}
-    >
+    <StyledLoader>
       <div className="loader"></div>
-    </div>
+    </StyledLoader>
   );
 }
 
