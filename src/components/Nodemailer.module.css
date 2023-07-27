@@ -7,8 +7,8 @@
   text-align: center;
 }
 .Nodemailer input {
-  font-family: "Delicious Handrawn", cursive;
-  font-size: larger;
+  font-family: "Space Mono", monospace;
+  font-size: x-large;
   color: var(--color-Green);
   font-weight: 500;
   width: 60%;
@@ -29,10 +29,11 @@
   border-bottom: 5px solid var(--color-Green);
 }
 .Nodemailer input::placeholder {
+  font-family: "Delicious Handrawn", cursive;
   color: var(--color-Green);
 }
 .Nodemailer textarea {
-  font-family: "Delicious Handrawn", cursive;
+  font-family: "Space Mono", monospace;
   font-size: medium;
   color: var(--color-Green);
   font-weight: 200;
@@ -56,5 +57,6 @@
   border-bottom: 5px solid var(--color-Green);
 }
 .Nodemailer textarea::placeholder {
+  font-family: "Delicious Handrawn", cursive;
   color: var(--color-Green);
 }

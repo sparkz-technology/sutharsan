@@ -2,16 +2,16 @@ import { useNavigate, useRouteError } from "react-router-dom";
 import Button from "./Button";
 import styled from "styled-components";
 
+const Header = styled.div`
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 function Error() {
   const navigate = useNavigate();
   const error = useRouteError();
-  const Header = styled.div`
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  `;
 
   return (
     <>
