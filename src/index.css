@@ -43,43 +43,15 @@ body {
   }
 }
 
-/* ... Other CSS rules ... */
-
 a,
 h1,
 h3,
 strong,
 span {
-  /* font-size: 2rem;font-family: 'Delicious Handrawn', cursive; */
-  /* font-weight: 500; */
-  /* letter-spacing: 8px; */
-  /* text-align: center; */
-  /* opacity: 0; */
-  /* color: white; */
   animation: lightson 0.5s ease 2 forwards;
 }
 
 @keyframes lightson {
-  /* 0% {
-    opacity: 0;
-    text-shadow: 0px 0px 0px var(--anime), 0px 0px 0px var(--anime),
-      0px 0px 0px var(--anime);
-  }
-  20% {
-    opacity: 0.5;
-    text-shadow: 0px 0px 2.5px var(--anime), 0px 0px 5px var(--anime),
-      1px 1px 25px var(--anime);
-  }
-  40% {
-    opacity: 0;
-    text-shadow: 0px 0px 1px var(--anime), 0px 0px 2px var(--anime),
-      0px 0px 10px var(--anime);
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0px 0px 5px var(--anime), 0px 0px 10px var(--anime),
-      1px 1px 50px var(--anime);
-  } */
   100% {
     opacity: 1;
     text-shadow: 0px 0px 5px var(--anime), 0px 0px 10px var(--anime),
