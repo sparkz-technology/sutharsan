@@ -1,40 +1,23 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-useless-catch */
-import { useEffect, useState } from "react";
-import Axios from "axios";
+// import { useEffect, useState } from "react";
 import styles from "./Nodemailer.module.css";
 import Button from "./Button";
 import LoaderBlur from "./LoaderBlur";
+import useNodemailer from "../hooks/useNodemailer";
 function Nodemailer() {
-  const [message, setMessage] = useState("");
-  const [fName, setFName] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [issend, setIssend] = useState(true);
-  const [showMessage, setShowMessage] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowMessage(false);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, [errorMessage, successMessage]);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("");
-    setSuccessMessage("");
-    setErrorMessage("");
-    setFName("");
-    setIssend(false);
-    setShowMessage(true);
-    try {
-      setIsLoading(true);
-      await sendEmail(fName, message);
-      setIsLoading(false);
-      setSuccessMessage("Email sent successfully");
-    } catch (error) {
-      setErrorMessage("Something went wrong");
-    }
-  };
+  const {
+    handleSubmit,
+    message,
+    setMessage,
+    fName,
+    setFName,
+    successMessage,
+    errorMessage,
+    issend,
+    showMessage,
+    isLoading,
+  } = useNodemailer();
   return (
     <>
       {issend && (
@@ -72,13 +55,3 @@ function Nodemailer() {
 }
 
 export default Nodemailer;
-async function sendEmail(fName, message) {
-  try {
-    await Axios.post("https://backend-peach-phi.vercel.app/api/form", {
-      fName,
-      message,
-    });
-  } catch (err) {
-    throw err;
-  }
-}

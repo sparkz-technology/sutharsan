@@ -4,7 +4,8 @@ function PageNotFound() {
   return (
     <div
       style={{
-        height: "100vh",
+        height: "80vh",
+        // margin: "auto",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -21,8 +22,26 @@ function PageNotFound() {
       >
         404
       </h3>
-      <p>Page Not Found</p>
-      <Link to="/">Go Back</Link>
+      <p
+        style={{
+          fontWeight: "800",
+        }}
+      >
+        Page Not Found
+      </p>
+      <Link
+        style={{
+          fontWeight: "400",
+          color: "#fff",
+          textDecoration: "none",
+          padding: "10px 20px",
+          borderRadius: "5px",
+          border: "1px solid #ffff00",
+        }}
+        to="/"
+      >
+        Go Back
+      </Link>
     </div>
   );
 }
