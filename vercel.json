@@ -7,10 +7,10 @@
     }
   ],
   "routes": [
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/work", "dest": "/work.html" },
-    { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/about", "dest": "/about" },
+    { "src": "/work", "dest": "/work" },
+    { "src": "/contact", "dest": "/contact" },
+    { "src": "/(.*)", "dest": "/" }
   ],
   "env": {
     "DEBUG": "true"
