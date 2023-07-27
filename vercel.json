@@ -1,18 +1,24 @@
 {
-  "version": 2,
-  "builds": [
+  "redirects": [
     {
-      "src": "index.html",
-      "use": "@vercel/static-build"
+      "source": "/about",
+      "distination": "/about"
+    },
+    {
+      "source": "/contact",
+      "distination": "/contact"
+    },
+    {
+      "source": "/work",
+      "distination": "/work"
+    },
+    {
+      "source": "/",
+      "distination": "/"
+    },
+    {
+      "source": "/(.*)",
+      "distination": "/"
     }
-  ],
-  "routes": [
-    { "src": "/about", "dest": "/dist/about/index.html" },
-    { "src": "/work", "dest": "/dist/work/index.html" },
-    { "src": "/contact", "dest": "/dist/contact/index.html" },
-    { "src": "/(.*)", "dest": "/dist/index.html" }
-  ],
-  "env": {
-    "DEBUG": "true"
-  }
+  ]
 }
