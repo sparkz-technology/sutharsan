@@ -1,8 +1,13 @@
 {
+  "version": 2,
+  "builds": {
+    "command": "npm run build",
+    "output": "build"
+  },
   "routes": [
-    {
-      "src": "/.*",
-      "dest": "/index.html"
-    }
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/work", "dest": "/work.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/(.*)", "dest": "/404.html" }
   ]
 }
