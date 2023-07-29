@@ -4,6 +4,7 @@ nav {
   padding: 1rem 2rem; /* 3 */
   /* font-family: "Space Mono", monospace; */
   font-family: "Delicious Handrawn", cursive;
+  /* font-family: "Rubik", sans-serif; */
   font-size: 30px;
   line-height: 16.9px;
   margin-top: 0;
@@ -41,6 +42,7 @@ nav span {
 @media (max-width: 900px) {
   nav {
     /* flex-direction: column; 8 */
+    margin: 5px auto;
     align-items: center; /* 9 */
   }
   nav ul {
@@ -61,6 +63,7 @@ nav span {
 @media (max-width: 768px) {
   nav {
     padding: 0.5rem 1rem;
+    margin: 0 auto;
   }
   nav ul {
     margin-top: 0.5rem;
