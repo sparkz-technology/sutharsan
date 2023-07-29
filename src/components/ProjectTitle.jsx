@@ -4,7 +4,7 @@ function ProjectTitle({ name }) {
   return (
     <div className={styles.ProjectTitle}>
       <p>
-        Mini Project
+        Featured Project
         <br />
         <span>{name}</span>
       </p>

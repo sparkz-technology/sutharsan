@@ -79,6 +79,7 @@
     font-weight: 800;
     vertical-align: baseline;
     text-align: start;
+    font-family: "Roboto Mono", monospace;
     color: var(--color-Light-Slate);
     padding: 0 40px;
   }
