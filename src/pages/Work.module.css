@@ -1,6 +1,6 @@
 .Work div {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin: 0 0 0 0;
 }
 
@@ -84,5 +84,15 @@
   }
   .class {
     min-width: 0px;
+  }
+}
+@media (max-width: 1120px) {
+  .Work h1 {
+    padding: 0 40px;
+  }
+}
+@media (max-width: 900px) {
+  .Work div {
+    display: block;
   }
 }

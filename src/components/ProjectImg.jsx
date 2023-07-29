@@ -8,6 +8,7 @@ const StyledProjectImg = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0;
+  padding: 0;
 `;
 
 const StyledImg = styled(LazyLoadImage)`
@@ -16,6 +17,7 @@ const StyledImg = styled(LazyLoadImage)`
   min-height: 362px;
   max-width: 70%;
   max-height: 70%;
+  margin: auto;
   @media (max-width: 900px) {
     display: none;
   }
