@@ -78,20 +78,3 @@
     max-height: 100%;
   }
 }
-@media (max-width: 1120px) {
-  .Outlet div {
-    margin: 0rem;
-  }
-  .Social div {
-    position: fixed;
-    top: 21.5rem;
-    bottom: 0;
-    left: 40px;
-    z-index: 1;
-    display: none;
-  }
-  .AppLayout {
-    min-height: 100vh;
-    max-height: 100%;
-  }
-}
