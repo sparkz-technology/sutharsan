@@ -27,7 +27,7 @@ export default function useNodemailer() {
       setIsLoading(true);
       await sendEmail(fName, message);
       setIsLoading(false);
-      setSuccessMessage("Email sent successfully");
+      setSuccessMessage("Message sent successfully");
     } catch (error) {
       setErrorMessage("Something went wrong");
     }
