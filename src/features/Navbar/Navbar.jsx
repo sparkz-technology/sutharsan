@@ -8,6 +8,9 @@ const NavbarContainer = styled.nav`
     background-color: #333;
     color: #fff;
     padding: 1rem;
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const NavbarBrand = styled(NavLink)`
