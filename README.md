@@ -1,12 +1,8 @@
-# Portfolio - My Personal Website
+# React + Vite
 
-This is my personal portfolio website built using Vite and React. It showcases my projects, skills, and provides an overview of my background and experiences. The site is deployed using Vercel at [https://sutharsan.vercel.app/](https://sutharsan.vercel.app/).
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Technologies Used
+Currently, two official plugins are available:
 
-- React
-- Vite
-- HTML5
-- CSS3
-
-Thank you for visiting my portfolio! 🚀
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
