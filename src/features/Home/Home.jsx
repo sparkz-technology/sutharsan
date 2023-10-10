@@ -7,7 +7,7 @@ const HomeContainer = styled.div`
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    height: 200vh;
+    height: 100vh;
     background-color: #f5f5f5;
     padding: 0 10rem;
     @media screen and (max-width: 768px) {

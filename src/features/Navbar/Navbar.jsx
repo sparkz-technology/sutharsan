@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useOutSideClick } from '../../hook/useOutSideClick';
 
 const NavbarContainer = styled.nav`
     position: fixed;
@@ -67,6 +68,8 @@ const MobileMenu = styled.div`
     background-color: rgba(255, 255, 255, 0.452);
     backdrop-filter: blur(30px);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: ${props => (props.show ? 'translateY(0)' : 'translateY(-100%)')};
+
     
 `;
 
@@ -113,6 +116,9 @@ const Navbar = () => {
     const [scrolling, setScrolling] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [mobileView, setMobileView] = useState(false);
+    const ref = useOutSideClick(() => {
+        setShowMenu(false);
+    });
 
     useEffect(() => {
         const handleResize = () => {
@@ -151,7 +157,7 @@ const Navbar = () => {
             {mobileView ? (
                 showMenu ? (
                     <>
-                        <MobileMenu show={showMenu} style={{
+                        <MobileMenu show={showMenu} ref={ref} style={{
                             boxShadow: scrolling ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
                         }
                         }>
