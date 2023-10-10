@@ -1,11 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Home from "./features/Home/Home";
 import GlobalStyle from "./styles/GlobalStyle";
+import AppLayout from "./layout/AppLayout";
 
 
 const routes = createBrowserRouter(
-  [{ path: "/", element: <Home />, errorElement: <h1>404</h1> }]
+  [{ path: "/", element: <AppLayout />, errorElement: <h1>404</h1> }]
 );
 
 function App() {

@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 import Button from '../../ui/Button';
-import Navbar from '../Navbar/Navbar';
 
 const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    height: 100vh;
+    height: 200vh;
     background-color: #f5f5f5;
     padding: 0 10rem;
     @media screen and (max-width: 768px) {
@@ -49,7 +48,6 @@ const Description = styled.p`
 const Home = () => {
     return (
         <HomeContainer>
-            <Navbar />
             <Title>Hi, my name is</Title>
             <Subtitle>Sutharsan.
                 I am a web craftsman.</Subtitle>
