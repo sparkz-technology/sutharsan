@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useOutSideClick } from '../../hook/useOutSideClick';
+import isPropValid from '@emotion/is-prop-valid';
 
-const NavbarContainer = styled.nav`
+const NavbarContainer = styled('nav', {
+    shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'show',
+})`
     position: fixed;
     top: 20px;
     left: 100px;
@@ -19,9 +22,8 @@ const NavbarContainer = styled.nav`
     color: #0d0c22;
     padding: 1.5rem;
     background-color: rgba(255, 255, 255, 0.452);
-    
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    
+
     @media screen and (max-width: 768px) {
         display: block;
         left: 10px;
@@ -34,17 +36,21 @@ const NavbarBrand = styled(NavLink)`
     font-weight: bold;
     text-decoration: none;
     color: #0d0c22;
+    font-family: 'Allison', cursive;
 `;
 
-
-const NavbarLinks = styled.ul`
+const NavbarLinks = styled('ul', {
+    shouldForwardProp: isPropValid,
+})`
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 `;
 
-const NavbarLink = styled.li`
+const NavbarLink = styled('li', {
+    shouldForwardProp: isPropValid,
+})`
     margin-left: 1rem;
 `;
 
@@ -56,12 +62,14 @@ const StyledNavLink = styled(NavLink)`
     transition: color 0.3s ease-in-out;
 `;
 
-const MobileMenu = styled.div`
+const MobileMenu = styled('div', {
+    shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'show',
+})`
     position: fixed;
     top: 20px;
     right: 10px;
     left: 10px;
-    border-radius:50px;
+    border-radius: 50px;
     padding: 1.5rem;
     display: ${props => (props.show ? 'block' : 'none')};
     z-index: 1;
@@ -69,10 +77,7 @@ const MobileMenu = styled.div`
     backdrop-filter: blur(30px);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     transform: ${props => (props.show ? 'translateY(0)' : 'translateY(-100%)')};
-
-    
 `;
-
 
 const MobileMenuItem = styled(NavLink)`
     display: block;
@@ -82,17 +87,20 @@ const MobileMenuItem = styled(NavLink)`
     font-weight: bold;
     margin-bottom: 0.5rem;
 `;
-const MobileCloseMenu = styled.div`
+
+const MobileCloseMenu = styled('div', {
+    shouldForwardProp: isPropValid,
+})`
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
     cursor: pointer;
-
 `;
 
-
-const MobileOpenMenu = styled.div`
+const MobileOpenMenu = styled('div', {
+    shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'show',
+})`
     position: fixed;
     top: 20px;
     left: 10px;
@@ -108,9 +116,7 @@ const MobileOpenMenu = styled.div`
     background-color: rgba(255, 255, 255, 0.452);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     display:${props => (props.show ? 'none' : 'flex')};
-    
 `;
-
 
 const Navbar = () => {
     const [scrolling, setScrolling] = useState(false);
@@ -127,7 +133,7 @@ const Navbar = () => {
             } else {
                 setMobileView(false);
             }
-        }
+        };
 
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -159,10 +165,9 @@ const Navbar = () => {
                     <>
                         <MobileMenu show={showMenu} ref={ref} style={{
                             boxShadow: scrolling ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
-                        }
-                        }>
+                        }}>
                             <MobileCloseMenu >
-                                <NavbarBrand to="/">Sutharsan</NavbarBrand>
+                                <NavbarBrand to="/">{"< Sutharsan />"}</NavbarBrand>
                                 <AiOutlineClose onClick={() => setShowMenu(!showMenu)} size={30} />
                             </MobileCloseMenu>
                             {NavLinks.map((link, index) => (
@@ -179,9 +184,9 @@ const Navbar = () => {
                 ) : (
                     <MobileOpenMenu show={showMenu} style={{
                         boxShadow: scrolling ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
-                    }
-                    }>
-                        <NavbarBrand to="/">Sutharsan</NavbarBrand>
+                    }}>
+
+                        <NavbarBrand to="/">{"< Sutharsan />"}</NavbarBrand>
                         <GiHamburgerMenu onClick={() => setShowMenu(!showMenu)} size={30} />
                     </MobileOpenMenu>
                 )
@@ -189,10 +194,8 @@ const Navbar = () => {
                 <>
                     <NavbarContainer show={showMenu} style={{
                         boxShadow: scrolling ? '0 0 10px rgba(0, 0, 0, 0.5)' : 'none',
-                    }
-                    }>
-                        <NavbarBrand to="/">Sutharsan</NavbarBrand>
-
+                    }}>
+                        <NavbarBrand to="/">{"< Sutharsan />"}</NavbarBrand>
                         <NavbarLinks>
                             {NavLinks.map((link, index) => {
                                 return (
@@ -202,12 +205,10 @@ const Navbar = () => {
                                 );
                             })}
                         </NavbarLinks>
-
                     </NavbarContainer>
                 </>
             )}
         </>
-
     );
 };
 
