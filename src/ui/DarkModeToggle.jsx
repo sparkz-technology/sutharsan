@@ -10,6 +10,59 @@ const ButtonIcon = styled.button`
   font-size: 1.5rem;
   padding: 0;
   display: flex;
+  border-radius: 50%;
+  @media screen and (max-width: 768px) {
+    border-radius: 100%;
+    padding: 0.2rem;
+  }
+  &:active {
+    animation: spin 1s linear infinite;
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+  }
+  @keyframes spin {
+    10%{
+      transform: rotate(36deg);
+    }
+    20%{
+      transform: rotate(72deg);
+    }
+    30%{
+      transform: rotate(108deg);
+    }
+    40%{
+      transform: rotate(144deg);
+    }
+    50%{
+      transform: rotate(180deg);
+    }
+    60%{
+      transform: rotate(216deg);
+    }
+    70%{
+      transform: rotate(252deg);
+    }
+    80%{
+      transform: rotate(288deg);
+    }
+    90%{
+      transform: rotate(324deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+
+  }
+`;
+// Keyframes for SunIcon
+const SunIcon = styled(HiOutlineSun)`
+  color: var(--anime-moon);
+  `;
+
+const MoonIcon = styled(HiOutlineMoon)`
+color: var(--anime-sun);
+
+
 `;
 
 function DarkModeToggle() {
@@ -17,7 +70,7 @@ function DarkModeToggle() {
 
   return (
     <ButtonIcon onClick={toggleDarkMode}>
-      {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
+      {isDarkMode ? <SunIcon /> : <MoonIcon />}
     </ButtonIcon>
   );
 }

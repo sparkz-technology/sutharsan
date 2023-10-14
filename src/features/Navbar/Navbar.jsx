@@ -23,6 +23,7 @@ const NavbarContainer = styled("nav", {
   color: #0d0c22;
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.452);
+
   transition:
     background-color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
@@ -38,9 +39,11 @@ const NavbarBrand = styled(Link)`
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: #0d0c22;
   font-family: "Allison", cursive;
   cursor: pointer;
+  &.active-link {
+    color: var(--nav-active-color);
+  }
 `;
 
 const NavbarLinks = styled("ul", {
@@ -61,7 +64,6 @@ const NavbarLink = styled("li", {
 `;
 
 const StyledNavLink = styled(Link)`
-  color: var(--nav-color);
   text-decoration: none;
   font-size: 1rem;
   font-weight: bold;
@@ -94,7 +96,6 @@ const MobileMenu = styled("div", {
 const MobileMenuItem = styled(Link)`
   display: block;
   text-decoration: none;
-  color: #0d0c22;
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -127,7 +128,6 @@ const MobileOpenMenu = styled("div", {
   align-items: center;
   border-radius: 50px;
   backdrop-filter: blur(10px);
-  color: #0d0c22;
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.452);
   transition:
@@ -188,6 +188,7 @@ const Navbar = () => {
               ref={ref}
               style={{
                 boxShadow: scrolling ? "0 0 10px rgba(0, 0, 0, 0.5)" : "none",
+
               }}
             >
               <MobileCloseMenu>
@@ -198,6 +199,7 @@ const Navbar = () => {
                   spy={true}
                   exact="true"
                   offset={-80}
+                  activeClass="active-link"
                   onClick={() => setShowMenu(!showMenu)}
                 >
                   {"< Sutharsan />"}
@@ -233,6 +235,7 @@ const Navbar = () => {
             show={showMenu}
             style={{
               boxShadow: scrolling ? "0 0 10px rgba(0, 0, 0, 0.5)" : "none",
+
             }}
           >
             <NavbarBrand
@@ -242,6 +245,7 @@ const Navbar = () => {
               spy={true}
               exact="true"
               offset={-80}
+              activeClass="active-link"
               onClick={() => { showMenu ? setShowMenu(!showMenu) : null }}>
               {"< Sutharsan />"}
             </NavbarBrand>
@@ -257,6 +261,7 @@ const Navbar = () => {
             show={showMenu}
             style={{
               boxShadow: scrolling ? "0 0 10px rgba(0, 0, 0, 0.5)" : "none",
+
             }}
           >
             <NavbarBrand
@@ -266,6 +271,7 @@ const Navbar = () => {
               spy={true}
               exact="true"
               offset={-80}
+              activeClass="active-link"
             >
               {"< Sutharsan />"}
             </NavbarBrand>

@@ -19,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     :root{
+        --anime-sun: #ffdb00;
+        --anime-moon: #ffffff;
         &.dark-mode{
             body{
             background-color: rgb(0, 0, 0);
@@ -39,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
         }
         &.light-mode{
             body{
-                background-color: rgb(241, 241, 241);
+                background-color: rgb(240, 240, 240);
             }
             --text-color:#000000;
             --title-color:#962dff;
