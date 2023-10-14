@@ -100,7 +100,7 @@ function About() {
         </Info>
         <Profile>
           <img
-            src="https://sutharsan.vercel.app/assets/profile-14d8a71a.jpg"
+            src="https://raw.githubusercontent.com/sparkz-technology/sutharsan/version3/src/assets/profile.jpg"
             alt="Sutharsan"
           />
         </Profile>
