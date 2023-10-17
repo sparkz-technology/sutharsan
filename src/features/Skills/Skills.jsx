@@ -1,12 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import CircularProgressBar from "./CircularProgressBar";
+import CircularProgressBar from "../../ui/CircularProgressBar";
 
-const colors = {
-  primary: "#0077b6",
-  text: "#333",
-  background: "#f0f0f0",
-};
 
 const SkillsWrapper = styled.div`
   display: flex;
@@ -25,7 +20,6 @@ const Tabs = styled.div`
   align-items: center;
   padding: 0.5rem;
   border-radius: 8px;
-  /* background-color:${colors.background}; */
   background: rgba(255, 255, 255, 0.45);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(20px);
