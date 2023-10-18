@@ -1,32 +1,26 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import useGetUserData from './useGetUserData';
+import useUpdateUserData from './useUpdateUserData';
+import { useState } from 'react';
+{/* <p dangerouslySetInnerHTML={{ __html: about.text }} /> */ }
+
 
 const validationSchema = Yup.object().shape({
-    imageUrl: Yup.string().required('Image URL is required'),
     homeInfo: Yup.string().required('Home info is required'),
     aboutInfo: Yup.string().required('About info is required'),
     resumeLink: Yup.string().required('Resume link is required'),
     instagramLink: Yup.string().required('Instagram link is required'),
     githubLink: Yup.string().required('GitHub link is required'),
     linkedinLink: Yup.string().required('LinkedIn link is required'),
-    whatsAppLink: Yup.string().required('WhatsApp link is required'),
+    WhatsAppNumber: Yup.number().required('WhatsApp Number is required'),
     mail: Yup.string()
         .required('Email is required')
         .email('Invalid email address'),
 });
 
-const initialValues = {
-    imageUrl: '',
-    homeInfo: '',
-    aboutInfo: '',
-    resumeLink: '',
-    instagramLink: '',
-    githubLink: '',
-    linkedinLink: '',
-    whatsAppLink: '',
-    mail: '',
-};
+
 
 const Container = styled.div`
     text-align: center;
@@ -43,10 +37,20 @@ const FormWrapper = styled.div`
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    text-align: start;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+    }
 `;
 
 const Column = styled.div`
-    width: 48%; /* Adjust the width as needed to fit your design */
+    width: 48%; 
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 const InputLabel = styled.label`
@@ -61,6 +65,18 @@ const InputField = styled.input`
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+
+`;
+const TextareaField = styled.textarea`
+    width: 100%;
+    height:4rem;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
 `;
 
 const SubmitButton = styled.button`
@@ -73,12 +89,58 @@ const SubmitButton = styled.button`
     cursor: pointer;
 `;
 
-const Data = () => {
-    const handleSubmit = (values) => {
-        // Handle form submission here
-        console.log(values);
-    };
+const Image = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+`;
 
+const InputContainer = styled.div`
+    position: relative;
+    margin-bottom: 20px;
+`;
+const ErrorText = styled.div`
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -10px;    
+    left: 0;
+`;
+
+const Data = () => {
+
+    const { isFetching, userData, userDataError } = useGetUserData()
+    const { updateUserData, isUpdate } = useUpdateUserData()
+    const [file, setFile] = useState(null);
+
+    const handleSubmit = (values) => {
+        const formData = new FormData();
+        formData.append("homeInfo", values.homeInfo);
+        formData.append("aboutInfo", values.aboutInfo);
+        formData.append("resumeLink", values.resumeLink);
+        formData.append("instagramLink", values.instagramLink);
+        formData.append("githubLink", values.githubLink);
+        formData.append("linkedinLink", values.linkedinLink);
+        formData.append("WhatsAppNumber", values.WhatsAppNumber);
+        formData.append("mail", values.mail);
+        if (file) {
+            formData.append("file", file);
+        }
+        updateUserData(formData);
+    };
+    const initialValues = {
+        homeInfo: userData?.homeInfo,
+        aboutInfo: userData?.aboutInfo,
+        resumeLink: userData?.resumeLink,
+        instagramLink: userData?.instagramLink,
+        githubLink: userData?.githubLink,
+        linkedinLink: userData?.linkedinLink,
+        WhatsAppNumber: userData?.WhatsAppNumber,
+        mail: userData?.mail,
+    }
+    if (isFetching) return <div>Loading...</div>
+    if (userDataError) return <div>{userDataError.message}</div>
     return (
         <Container>
             <h1>Admin Data</h1>
@@ -91,96 +153,118 @@ const Data = () => {
                     <FormWrapper>
                         <Column>
                             <Form>
-                                <div>
-                                    <InputLabel htmlFor="imageUrl">Image URL</InputLabel>
-                                    <Field
-                                        name="imageUrl"
-                                        as={InputField}
-                                        placeholder="Image URL"
-                                    />
-                                </div>
-
-                                <div>
+                                <InputContainer>
+                                    <Image src={file ? URL.createObjectURL(file) : userData?.imageUrl} alt="profile" />
+                                    <input type="file" id="file" name="file" style={{ display: "none" }} onChange={(e) => { setFile(e.target.files[0]) }} />
+                                    <button type="button" onClick={() => document.getElementById('file').click()}>Upload</button>
+                                </InputContainer>
+                                <InputContainer>
                                     <InputLabel htmlFor="homeInfo">Home Info</InputLabel>
                                     <Field
                                         name="homeInfo"
-                                        as={InputField}
+                                        as={TextareaField}
                                         placeholder="Home Info"
+                                        disabled={isUpdate}
                                     />
-                                </div>
+                                    <ErrorMessage name="homeInfo" component={ErrorText} />
+                                </InputContainer>
 
-                                <div>
+                                <InputContainer>
                                     <InputLabel htmlFor="aboutInfo">About Info</InputLabel>
                                     <Field
                                         name="aboutInfo"
-                                        as={InputField}
+                                        as={TextareaField}
                                         placeholder="About Info"
-                                    />
-                                </div>
+                                        disabled={isUpdate}
 
-                                <div>
+                                    />
+                                    <ErrorMessage name="aboutInfo" component={ErrorText} />
+                                </InputContainer>
+
+                                <InputContainer>
                                     <InputLabel htmlFor="resumeLink">Resume Link</InputLabel>
                                     <Field
                                         name="resumeLink"
                                         as={InputField}
                                         placeholder="Resume Link"
+                                        disabled={isUpdate}
+
                                     />
-                                </div>
+                                    <ErrorMessage name="resumeLink" component={ErrorText} />
+                                </InputContainer>
                             </Form>
                         </Column>
 
                         <Column>
                             <Form>
-                                <div>
+                                <InputContainer>
                                     <InputLabel htmlFor="instagramLink">Instagram Link</InputLabel>
                                     <Field
                                         name="instagramLink"
                                         as={InputField}
                                         placeholder="Instagram Link"
-                                    />
-                                </div>
+                                        disabled={isUpdate}
 
-                                <div>
+                                    />
+                                    <ErrorMessage name="instagramLink" component={ErrorText} />
+                                </InputContainer>
+
+                                <InputContainer>
                                     <InputLabel htmlFor="githubLink">GitHub Link</InputLabel>
                                     <Field
                                         name="githubLink"
                                         as={InputField}
                                         placeholder="GitHub Link"
-                                    />
-                                </div>
+                                        disabled={isUpdate}
 
-                                <div>
+                                    />
+                                    <ErrorMessage name="githubLink" component={ErrorText} />
+                                </InputContainer>
+
+                                <InputContainer>
                                     <InputLabel htmlFor="linkedinLink">LinkedIn Link</InputLabel>
                                     <Field
                                         name="linkedinLink"
                                         as={InputField}
                                         placeholder="LinkedIn Link"
-                                    />
-                                </div>
+                                        disabled={isUpdate}
 
-                                <div>
-                                    <InputLabel htmlFor="whatsAppLink">WhatsApp Link</InputLabel>
+                                    />
+                                    <ErrorMessage name="linkedinLink" component={ErrorText} />
+                                </InputContainer>
+
+                                <InputContainer>
+                                    <InputLabel htmlFor="WhatsAppNumber">WhatsApp Number</InputLabel>
                                     <Field
-                                        name="whatsAppLink"
+                                        name="WhatsAppNumber"
                                         as={InputField}
-                                        placeholder="WhatsApp Link"
-                                    />
-                                </div>
+                                        placeholder="WhatsApp Number"
+                                        type="number"
+                                        disabled={isUpdate}
 
-                                <div>
+                                    />
+                                    <ErrorMessage name="WhatsAppNumber" component={ErrorText} />
+                                </InputContainer>
+
+                                <InputContainer>
                                     <InputLabel htmlFor="mail">Email</InputLabel>
                                     <Field
                                         name="mail"
                                         as={InputField}
                                         placeholder="Email"
+                                        disabled={isUpdate}
+
                                     />
-                                </div>
+                                    <ErrorMessage name="mail" component={ErrorText} />
+                                </InputContainer>
+                                <SubmitButton type="submit" disabled={isUpdate} >Submit</SubmitButton>
                             </Form>
+
                         </Column>
                     </FormWrapper>
                 )}
             </Formik>
-        </Container>
+        </Container >
     );
 };
 

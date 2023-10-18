@@ -57,3 +57,14 @@ export async function deleteProject(id) {
     const responce = await axiosInstance.delete(`project/${id}`);
     return responce.data;
 }
+
+export async function getUserData() {
+    const responce = await axiosInstance.get("/user");
+    return responce.data;
+}
+
+export async function updateUserData(data) {
+    console.log("Data:", data);
+    const responce = await axiosInstance.patch("/user", data);
+    return responce.data;
+}
