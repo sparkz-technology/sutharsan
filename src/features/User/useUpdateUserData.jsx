@@ -11,11 +11,11 @@ function useUpdateUserData() {
 
     const { mutate, isLoading } = useMutation(mutationFn, {
         onSuccess: () => {
-            toast.success('Skill updated successfully')
+            toast.success('User updated successfully')
             queryClient.invalidateQueries(queryKey)
         },
         onError: (error) => {
-            toast.error('Error updating skill')
+            toast.error('Error updating user')
             console.log(error)
         }
     })
