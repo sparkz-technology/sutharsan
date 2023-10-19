@@ -19,11 +19,16 @@ const NavbarContainer = styled("nav", {
   justify-content: space-between;
   align-items: center;
   border-radius: 50px;
-  backdrop-filter: blur(10px);
+  // backdrop-filter: blur(10px);
   color: #0d0c22;
   padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.452);
-
+  // background-color: rgba(255, 255, 255, 0.452);
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   transition:
     background-color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;

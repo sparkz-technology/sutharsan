@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useGetUserDetails from "../Data/useGetUserDetails";
 
 const StyledAbout = styled.section`
   display: flex;
@@ -86,23 +87,21 @@ const Profile = styled.aside`
 `;
 
 function About() {
+  const { userDetails } = useGetUserDetails()
+  const about = userDetails?.aboutInfo
+  const image = userDetails?.imageUrl
+
   return (
     <StyledAbout id="about">
       <Title>About Me</Title>
       <Container>
         <Info>
           <Text>
-            I&apos;m Sutharsan, a passionate MERN developer from Chennai
-            currently pursuing my Bachelor&apos;s degree in Computer Science.
-            Proficient in HTML, CSS, and JavaScript, I have hands-on experience
-            in creating dynamic web applications using React and Node.js.
+            <p dangerouslySetInnerHTML={{ __html: about }} />
           </Text>
         </Info>
         <Profile>
-          <img
-            src="https://raw.githubusercontent.com/sparkz-technology/sutharsan/version3/src/assets/profile.jpg"
-            alt="Sutharsan"
-          />
+          <img src={image} alt="Sutharsan" />
         </Profile>
       </Container>
     </StyledAbout>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import CircularProgressBar from "../../ui/CircularProgressBar";
+import useGetUserDetails from "../Data/useGetUserDetails";
 
 
 const SkillsWrapper = styled.div`
@@ -197,134 +198,6 @@ const SkillCardBack = styled.div`
   width: 150px;
 `;
 
-const skillsArray = [
-  {
-    src: "https://skillicons.dev/icons?i=html",
-    name: "html",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=css",
-    name: "css",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=js",
-    name: "javascript",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=ts",
-    name: "typescript",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=react",
-    name: "react",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=tailwind",
-    name: "tailwindcss",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=bootstrap",
-    name: "bootstrap",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=redux",
-    name: "redux",
-    type: "Frontend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=nodejs",
-    name: "nodejs",
-    type: "Backend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=express",
-    name: "express",
-    type: "Backend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=mongodb",
-    name: "mongodb",
-    type: "Backend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=supabase",
-    name: "supabase",
-    type: "Backend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=rabbitmq",
-    name: "rabbitmq",
-    type: "Backend",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=vite",
-    name: "vite",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=github",
-    name: "github",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=linux",
-    name: "linux",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=vscode",
-    name: "vscode",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=postman",
-    name: "postman",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=git",
-    name: "git",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=vercel",
-    name: "vercel",
-    type: "Others",
-    percentage: 90,
-  },
-  {
-    src: "https://skillicons.dev/icons?i=py",
-    name: "python",
-    type: "Others",
-    percentage: 90,
-  },
-];
 
 const TabTitle = [
   { name: "Frontend" },
@@ -334,9 +207,12 @@ const TabTitle = [
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState("Frontend");
-  const filteredSkills = skillsArray.filter(
-    (skill) => skill.type === activeTab,
+  const { userDetails } = useGetUserDetails()
+  const { skills } = userDetails
+  const filteredSkills = skills?.filter(
+    (skill) => skill.category === activeTab,
   );
+
 
   return (
     <Container id="skills">
@@ -355,12 +231,12 @@ const Skills = () => {
         </Tabs>
       </Header>
       <SkillsWrapper>
-        {filteredSkills.map((skill) => (
+        {filteredSkills?.map((skill) => (
           <SkillCard key={skill.name}>
             <div className="card-inner">
               <SkillCardFront className="front">
-                <img src={skill.src} alt={skill.name} />
-                <p>{skill.name}</p>
+                <img src={skill.imageUrl} alt={skill.name} />
+                <p>{skill.skill}</p>
               </SkillCardFront>
               <SkillCardBack className="back">
                 <CircularProgressBar

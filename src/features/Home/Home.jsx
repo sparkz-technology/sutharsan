@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ContactIcon from "./ContactIcon";
+import useGetUserDetails from "../Data/useGetUserDetails";
 
 const HomeContainer = styled.div`
   display: flex;
@@ -54,6 +55,9 @@ const Description = styled.p`
 `;
 
 const Home = () => {
+  const { userDetails } = useGetUserDetails()
+  const home = userDetails?.homeInfo
+
   return (
     <HomeContainer id="home">
       <Title>Hi, my name is</Title>
@@ -62,10 +66,8 @@ const Home = () => {
         <br />I am a web craftsman.
       </Subtitle>
       <Description>
-        I am an aspiring <b>MERN developer</b> with a strong passion for web
-        development. Currently pursuing a Bachelor&rsquo;s degree in Computer
-        Science, I am actively seeking exciting opportunities to contribute to
-        the field and apply my knowledge and expertise.
+        <p dangerouslySetInnerHTML={{ __html: home }} />
+
       </Description>
       <ContactIcon />
     </HomeContainer>

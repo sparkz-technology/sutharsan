@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import {
-  AiFillLinkedin as Instagram,
-  AiFillGithub as WhatsApp,
-  AiFillInstagram as Gmail,
+  AiFillLinkedin as Linkedin,
+  AiFillGithub as GitHub,
+  AiFillInstagram as Instagram,
 } from "react-icons/ai";
-import { IoLogoWhatsapp as WhatsappIcon } from "react-icons/io";
-import { BiLogoGmail as GmailIcon } from "react-icons/bi";
+import { IoLogoWhatsapp as WhatsApp } from "react-icons/io";
+import { BiLogoGmail as Gmail } from "react-icons/bi";
 
 import Button from "../../ui/Button";
+import useGetUserDetails from "../Data/useGetUserDetails";
 
 const Container = styled.div`
   display: flex;
@@ -34,68 +35,31 @@ const Icons = styled.div`
     gap: 0.5rem;
   }
 `;
-const ContactLink = [
-  {
-    name: "Linkedin",
-    link: "https://www.linkedin.com/in/sutharsang",
-  },
-  {
-    name: "Github",
-    link: "https://github.com/Sparkz-technology",
-  },
-  {
-    name: "Instagram",
-    link: "https://www.instagram.com/sutharsan_sparkz/",
-  },
-  {
-    name: "Whatsapp",
-    link: "https://wa.me/919894994994",
-  },
-  {
-    name: "Gmail",
-    link: "mailto:sutharsansparkz@gmail.com",
-  },
-];
-const ContactName = [
-  {
-    name: "Linkedin",
-    icon: <Instagram size={30} />,
-  },
-  {
-    name: "Github",
-    icon: <WhatsApp size={30} />,
-  },
-  {
-    name: "Instagram",
-    icon: <Gmail size={30} />,
-  },
-  {
-    name: "Whatsapp",
-    icon: <WhatsappIcon size={30} />,
-  },
-  {
-    name: "Gmail",
-    icon: <GmailIcon size={30} />,
-  },
-];
 
 function ContactIcon() {
+  const { userDetails } = useGetUserDetails()
+  const { mail, githubLink, linkedinLink, instagramLink, WhatsAppNumber, resumeLink } = userDetails
   return (
     <Container>
       <div>
-        <Button>Resume &#8594;</Button>
+        <Button onClick={() => window.open(resumeLink, "_blank")}>Resume &#8594;</Button>
       </div>
       <Icons>
-        {ContactName.map((item, index) => (
-          <a
-            href={ContactLink[index].link}
-            target="_blank"
-            rel="noreferrer"
-            key={index}
-          >
-            {item.icon}
-          </a>
-        ))}
+        <a href={linkedinLink} target="_blank" rel="noreferrer">
+          <Linkedin size={30} />
+        </a>
+        <a href={githubLink} target="_blank" rel="noreferrer">
+          <GitHub size={30} />
+        </a>
+        <a href={instagramLink} target="_blank" rel="noreferrer">
+          <Instagram size={30} />
+        </a>
+        <a href={`https://wa.me/${WhatsAppNumber}`} target="_blank" rel="noreferrer">
+          <WhatsApp size={30} />
+        </a>
+        <a href={`mailto:${mail}`} target="_blank" rel="noreferrer">
+          <Gmail size={30} />
+        </a>
       </Icons>
     </Container>
   );

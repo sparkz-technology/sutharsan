@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiFillGithub } from "react-icons/ai";
 import { BiLinkExternal } from "react-icons/bi";
+import useGetUserDetails from "../Data/useGetUserDetails";
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: 700;
@@ -111,36 +112,19 @@ const Info = styled.div`
   }
 `;
 
-const image = "https://www.liquidplanner.com/wp-content/uploads/2019/04/HiRes-17.jpg";
-const ProjectsList = [
-  {
-    title: "Chat App",
-    description:
-      "Chat App with React, Socket.io, Express, MongoDB, Redux, TANStack, and Cloudinary",
-    host: "https://chat-app-zeta-lyart.vercel.app",
-    github: "https://github.com/sparkz-technology/chat_app",
-    image,
-  },
-  {
-    title: "Comic Subscription",
-    description:
-      "Comic Subscription with React, Redux, Express, MongoDB, TanStack, RabbitMQ, and Stripe",
-    host: "https://comic-subscription.vercel.app",
-    github: "https://github.com/sparkz-technology/comic_subscription.git",
-    image,
-  },
-];
 
 function Projects() {
+  const { userDetails } = useGetUserDetails()
+  const { projects } = userDetails
   return (
     <Container id="projects">
       <Title>Projects</Title>
-      {ProjectsList.map((project, index) => {
+      {projects.map((project, index) => {
         return (
           <Card key={index}>
             <Image>
-              {project.image ?
-                <img src={project.image} alt={project.title} /> : <NullImage />}
+              {project.imageUrl ?
+                <img src={project.imageUrl} alt={project.title} /> : <NullImage />}
             </Image>
             <Info>
               <h2>{project.title}</h2>
