@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "https://backend-peach-phi.vercel.app";
 
 // create a new axios instance
 const axiosInstance = axios.create({
