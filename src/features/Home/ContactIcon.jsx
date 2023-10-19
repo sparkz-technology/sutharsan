@@ -24,6 +24,7 @@ const Icons = styled.div`
   align-items: center;
   gap: 1rem;
   svg {
+    outline: none;
     cursor: pointer;
     color: var(--icon-color);
   }

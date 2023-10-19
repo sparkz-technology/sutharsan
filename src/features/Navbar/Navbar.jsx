@@ -19,16 +19,14 @@ const NavbarContainer = styled("nav", {
   justify-content: space-between;
   align-items: center;
   border-radius: 50px;
-  // backdrop-filter: blur(10px);
-  color: #0d0c22;
+  // color: #0d0c22;
+  color: var(--nav-link-color);
   padding: 1.5rem;
-  // background-color: rgba(255, 255, 255, 0.452);
   background: rgba( 255, 255, 255, 0.15 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 20px );
   -webkit-backdrop-filter: blur( 20px );
-  border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid var(--border-color);
   transition:
     background-color 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
@@ -90,8 +88,12 @@ const MobileMenu = styled("div", {
   padding: 1.5rem;
   display: ${(props) => (props.show ? "block" : "none")};
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.452);
-  backdrop-filter: blur(30px);
+  color: var(--nav-link-color);
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border: 1px solid var(--border-color);
   transition:
     background-color 0.3s ease-in-out,
     transform 0.3s ease-in-out;
@@ -118,6 +120,8 @@ const MobileCloseMenu = styled("div", {
   align-items: center;
   margin-bottom: 1rem;
   cursor: pointer;
+  color: var(--nav-link-color);
+
 `;
 
 const MobileOpenMenu = styled("div", {
@@ -134,7 +138,12 @@ const MobileOpenMenu = styled("div", {
   border-radius: 50px;
   backdrop-filter: blur(10px);
   padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.452);
+  color: var(--nav-link-color);
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px );
+  border: 1px solid var(--border-color);
   transition:
     background-color 0.3s ease-in-out,
     transform 0.3s ease-in-out;

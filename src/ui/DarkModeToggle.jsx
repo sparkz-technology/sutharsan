@@ -11,6 +11,10 @@ const ButtonIcon = styled.button`
   padding: 0;
   display: flex;
   border-radius: 50%;
+  box-shadow: 0 0 3px 2px transparent; 
+  transition: all 0.2s ease-in-out;
+  outline: none;
+
   @media screen and (max-width: 768px) {
     border-radius: 100%;
     padding: 0.2rem;
@@ -20,49 +24,47 @@ const ButtonIcon = styled.button`
     transform-origin: center;
     transition: all 0.2s ease-in-out;
   }
+
   @keyframes spin {
-    10%{
+    10% {
       transform: rotate(36deg);
     }
-    20%{
+    20% {
       transform: rotate(72deg);
     }
-    30%{
+    30% {
       transform: rotate(108deg);
     }
-    40%{
+    40% {
       transform: rotate(144deg);
     }
-    50%{
+    50% {
       transform: rotate(180deg);
     }
-    60%{
+    60% {
       transform: rotate(216deg);
     }
-    70%{
+    70% {
       transform: rotate(252deg);
     }
-    80%{
+    80% {
       transform: rotate(288deg);
     }
-    90%{
+    90% {
       transform: rotate(324deg);
     }
     100% {
       transform: rotate(360deg);
     }
-
   }
 `;
-// Keyframes for SunIcon
+
 const SunIcon = styled(HiOutlineSun)`
   color: var(--anime-moon);
-  `;
+`;
 
 const MoonIcon = styled(HiOutlineMoon)`
-color: var(--anime-sun);
-
-
+  color: var(--anime-sun);
 `;
 
 function DarkModeToggle() {
