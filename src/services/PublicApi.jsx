@@ -7,3 +7,8 @@ export async function getuserDetails() {
     const responce = await axios.get(`${API_URL}user/details`);
     return responce.data;
 }
+
+export async function sendMail(data) {
+    const responce = await axios.post(`${API_URL}mail/message`, data);
+    return responce.data;
+}

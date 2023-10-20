@@ -232,10 +232,10 @@ const Skills = () => {
       </Header>
       <SkillsWrapper>
         {filteredSkills?.map((skill) => (
-          <SkillCard key={skill.name}>
+          <SkillCard key={skill.skill}>
             <div className="card-inner">
               <SkillCardFront className="front">
-                <img src={skill.imageUrl} alt={skill.name} />
+                <img src={skill.imageUrl} alt={skill.skill} />
                 <p>{skill.skill}</p>
               </SkillCardFront>
               <SkillCardBack className="back">

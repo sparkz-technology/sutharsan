@@ -24,10 +24,13 @@ const GlobalStyle = createGlobalStyle`
     :root{
         --anime-sun: #ffdb00;
         --anime-moon: #ffffff;
+        --loader-color: #963dff;
+
         &.dark-mode{
             body{
             background-color: rgb(0, 0, 0);
             }
+            --background-color: rgb(0, 0, 0);
             --nav-link-color:#ffffff;
             --text-color:#B4B4B3;
             --title-color:#962dff;
@@ -49,6 +52,7 @@ const GlobalStyle = createGlobalStyle`
             body{
                 background-color: rgb(240, 240, 240);
             }
+            --background-color:rgb(240, 240, 240);
             --nav-link-colo:#0d0c22;
             --text-color:#000000;
             --title-color:#962dff;

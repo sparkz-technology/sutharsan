@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { useOutSideClick } from "../../hook/useOutSideClick";
 // AiFillCloseCircle
 import { AiFillCloseCircle } from "react-icons/ai";
+import useSendMsg from "./useSendMsg";
+import MiniSpinner from "../../ui/MiniSpinner";
 const FormContainer = styled.div`
   width: 300px;
   margin: 0 auto;
@@ -43,6 +45,7 @@ const Input = styled.input`
   border: 2px solid #ccc;
   border-radius: 15px;
   font-size: 16px;
+  background-color: #fff;
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
@@ -52,7 +55,7 @@ const TextArea = styled.textarea`
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 15px;
-
+  background-color: #fff;
   font-size: 16px;
   @media screen and (max-width: 768px) {
     font-size: 14px;
@@ -85,7 +88,7 @@ const Row = styled.div`
   flex-direction: column;
   gap: 5px;
 `;
-const Button = styled.button`
+const CloseButton = styled.button`
   position: absolute;
   top: 0;
   right: 0;
@@ -93,20 +96,22 @@ const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   transition: background-color 0.3s;
+  color: #ff3434;
 `;
 
 const ContactForm = ({ handleShow }) => {
+  const { isSend, sendMsg } = useSendMsg(handleShow);
   const ref = useOutSideClick(() => {
     handleShow(false);
   });
   const formik = useFormik({
     initialValues: {
-      firstName: "",
+      name: "",
       email: "",
       message: "",
     },
     validationSchema: Yup.object({
-      firstName: Yup.string()
+      name: Yup.string()
         .trim()
         .max(15, "Must be 15 characters or less")
         .required("Required"),
@@ -117,31 +122,37 @@ const ContactForm = ({ handleShow }) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      handleShow(false);
+      const formDate = new FormData()
+      formDate.append('name', values.name)
+      formDate.append('email', values.email)
+      formDate.append('message', values.message)
+      sendMsg(formDate)
+
+
     },
   });
 
   return (
     <FormContainer ref={ref}>
-      <Button onClick={() => handleShow(false)}>
+      <CloseButton onClick={() => handleShow(false)}>
         <AiFillCloseCircle size={25} />
-      </Button>
+      </CloseButton>
       <Form onSubmit={formik.handleSubmit}>
         <Row>
-          <Label htmlFor="firstName">First Name</Label>
+          <Label htmlFor="name">First Name</Label>
           <Input
-            id="firstName"
+            id="name"
             type="text"
-            {...formik.getFieldProps("firstName")}
+            disabled={isSend}
+            {...formik.getFieldProps("name")}
           />
-          {formik.touched.firstName && formik.errors.firstName ? (
-            <ErrorText>{formik.errors.firstName}</ErrorText>
+          {formik.touched.name && formik.errors.name ? (
+            <ErrorText>{formik.errors.name}</ErrorText>
           ) : null}
         </Row>
         <Row>
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" type="email" {...formik.getFieldProps("email")} />
+          <Input id="email" type="email" disabled={isSend} {...formik.getFieldProps("email")} />
           {formik.touched.email && formik.errors.email ? (
             <ErrorText>{formik.errors.email}</ErrorText>
           ) : null}
@@ -152,13 +163,13 @@ const ContactForm = ({ handleShow }) => {
             id="message"
             type="text"
             {...formik.getFieldProps("message")}
+            disabled={isSend}
           />
           {formik.touched.message && formik.errors.message ? (
             <ErrorText>{formik.errors.message}</ErrorText>
           ) : null}
         </Row>
-
-        <SubmitButton type="submit">Submit</SubmitButton>
+        <SubmitButton disabled={isSend} type="submit"> {isSend ? <MiniSpinner /> : 'Send'}</SubmitButton>
       </Form>
     </FormContainer>
   );

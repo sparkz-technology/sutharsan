@@ -1,96 +1,72 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Chessboard</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <style>
-      .container {
-        display: grid;
-        width: 800px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000;
       }
-      .white {
-        height: 100px;
-        width: 100px;
-        background-color: #f0d95f;
-      }
-      .black {
-        height: 100px;
-        width: 100px;
-        background-color: #b58863;
-      }
-      /* Write your code here */
-      /* Each square should be 100px by 100px */
-      /* My colours for white: #f0d9b5, black: #b58863 */
-    </style>
-  </head>
 
+      .loader {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        animation: spin 2s linear infinite;
+      }
+
+      .rocket {
+        position: absolute;
+        font-size: 30px;
+        top: 30px;
+        left: 30px;
+      }
+
+      .planet {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script>
+      // Simulate loading process
+      setTimeout(() => {
+        // Remove the loader and display the content when loading is complete
+        const loader = document.querySelector('.loader');
+        loader.style.display = 'none';
+        // Show your content or perform any other actions
+        document.title = 'Loaded!';
+      }, 300000); // Change the time to match your actual loading time
+    </script>
+  </head>
   <body>
-    <div class="container">
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
-      <div class="black"></div>
-      <div class="white"></div>
+    <div class="loader">
+      <div class="rocket">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="planet"></div>
     </div>
   </body>
 </html>

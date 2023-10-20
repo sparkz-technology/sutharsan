@@ -97,13 +97,13 @@ function Contact() {
 
   return (
     <Container id="contact">
-      {/* <Title>Contact</Title> */}
-      {/* <Info> */}
-      {/* <Text> */}
-      {/* I&apos;m a student actively seeking web development job opportunities. If you have any questions or want to say hello, feel free to reach out. Let&apos;s connect and explore the world of web development together!{" "} */}
-      {/* <TextButton onClick={() => setShow(!show)}>let&apos;s connect.</TextButton> */}
-      {/* </Text> */}
-      {/* </Info> */}
+      {/* <Title>Contact</Title>
+      <Info>
+        <Text>
+          I&apos;m a student actively seeking web development job opportunities. If you have any questions or want to say hello, feel free to reach out. Let&apos;s connect and explore the world of web development together!{" "}
+          <TextButton onClick={() => setShow(!show)}>let&apos;s connect.</TextButton>
+        </Text>
+      </Info> */}
       <Button onClick={() => setShow(!show)}>
         <AiOutlineMessage size={30} />
       </Button>
