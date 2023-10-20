@@ -19,6 +19,24 @@ const Container = styled.footer`
     margin: 0;
     font-weight: 700;
   }
+  span{
+    color:var(--title-color);
+// change the color of the text here like gradient in anmation
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 2s linear infinite;
+    @keyframes animate {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      100% {
+        filter: hue-rotate(360deg);
+      }
+    }
+    
+  }
   @media screen and (max-width: 768px) {
     font-size: 0.8rem;
   }
@@ -27,7 +45,7 @@ const Container = styled.footer`
 function Footer() {
   return (
     <Container>
-      <p>Designed and built by Sutharsan</p>
+      <p>Designed and built by <span>Sutharsan G</span></p>
     </Container>
   );
 }

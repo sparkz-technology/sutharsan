@@ -169,7 +169,7 @@ const Title = styled.h1`
 `;
 
 const Container = styled.div`
-  height: 500px;
+  /* height: 500px; */
   padding: 2rem 10rem;
 
   @media screen and (max-width: 768px) {

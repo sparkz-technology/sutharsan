@@ -30,6 +30,7 @@ const Subtitle = styled.h1`
   margin-bottom: 2rem;
   text-align: start;
   color: var(--title-color);
+  position: relative;
   font-family:
     Roboto Mono,
     monospace;
@@ -44,7 +45,6 @@ const Description = styled.p`
   margin-bottom: 2rem;
   text-align: start;
   color: var(--text-color);
-
   font-family:
     Roboto Mono,
     monospace;
@@ -54,13 +54,16 @@ const Description = styled.p`
   }
 `;
 
+
 const Home = () => {
   const { userDetails } = useGetUserDetails()
   const home = userDetails?.homeInfo
 
   return (
     <HomeContainer id="home">
-      <Title>Hi, my name is</Title>
+
+      <Title>Hi, my name is
+      </Title>
       <Subtitle>
         Sutharsan.
         <br />I am a web craftsman.
@@ -70,7 +73,7 @@ const Home = () => {
 
       </Description>
       <ContactIcon />
-    </HomeContainer>
+    </HomeContainer >
   );
 };
 

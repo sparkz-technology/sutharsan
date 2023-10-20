@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
         -ms-overflow-style: none;
         scrollbar-width: none;
         user-select: none;
+        
         &::-webkit-scrollbar {
             display: none;
         }
