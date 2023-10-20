@@ -148,7 +148,7 @@ function Projects() {
                   <a href={project.github} target="_blank" rel="noreferrer">
                     <AiFillGithub size={30} />
                   </a>
-                  <a href={project.host} target="_blank" rel="noreferrer">
+                  <a href={project.website} target="_blank" rel="noreferrer">
                     <BiLinkExternal size={30} />
                   </a>
                 </Links>
