@@ -25,20 +25,22 @@ const validationSchema = Yup.object().shape({
 const Container = styled.div`
     text-align: center;
     gap: 10px;
+    width: 100%;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
+    background-color: #fff;
+
 `;
 
 const FormWrapper = styled.div`
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #fff;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     text-align: start;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     @media (max-width: 768px) {
         flex-direction: column;
@@ -143,7 +145,6 @@ const Data = () => {
     if (userDataError) return <div>{userDataError.message}</div>
     return (
         <Container>
-            <h1>Admin Data</h1>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
