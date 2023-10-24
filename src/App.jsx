@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from "react-hot-toast";
@@ -15,11 +15,12 @@ const routes = createBrowserRouter([
   { path: "/", element: <AppLayout />, errorElement: <h1>404</h1> },
   {
     path: "/admin", element: <AdminLayout />, errorElement: <h1>404</h1>, children: [
-      { path: "profile", element: <Data /> },
+      { index: true, element: <Navigate to="/admin/profile" /> },
+      { path: "profile", element: <Data />, index: true },
       { path: "skills", element: <GetSkills /> },
       { path: "projects", element: <GetProjects /> },
-
-    ]
+    ],
+    // when a user goes to /admin, they will be redirected to /admin/profile
   }
 ]);
 
@@ -27,7 +28,7 @@ function App() {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
-        refetchOnWindowFocus: false,
+        refetchOnWindowFocus: false,// this is to prevent refetching data when the user switches tabs
         retry: false,
       },
     },

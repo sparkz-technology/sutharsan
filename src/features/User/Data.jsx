@@ -26,7 +26,6 @@ const Container = styled.div`
     text-align: center;
     gap: 10px;
     width: 100%;
-    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
     background-color: #fff;
 
 `;

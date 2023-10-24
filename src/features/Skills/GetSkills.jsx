@@ -5,9 +5,14 @@ import ModalButton from "../../ui/ModalButton";
 import SkillForm from "./SkillForm";
 import useDeleteSkill from "./useDeleteSkill";
 const Container = styled.div`
-  max-width: 800px;
+  /* max-width: 800px; */
+  width:100%;
   margin: 0 auto;
   padding: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  
 `;
 
 const SkillsTable = styled.table`
