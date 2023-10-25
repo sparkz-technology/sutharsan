@@ -26,12 +26,13 @@ const Container = styled.div`
     text-align: center;
     gap: 10px;
     width: 100%;
-    background-color: #fff;
+    padding: 20px;  
 
 `;
 
 const FormWrapper = styled.div`
     /* max-width: 800px; */
+    background-color: #fff;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;

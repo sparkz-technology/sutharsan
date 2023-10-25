@@ -6,7 +6,7 @@ import useDeleteProject from "./useDeleteProject";
 import useGetProjects from "./useGetProjects";
 import ProjectForm from "./ProjectForm";
 const Container = styled.div`
-  max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
 `;
@@ -133,75 +133,75 @@ const AddButton = styled.button`
 `;
 
 function GetProjects() {
-    const { isFetching, projects, projectsError } = useGetProjects()
-    // const { deleteSkill, isDeleting } = useDeleteSkill();
-    const { deleteProject, isDeleting } = useDeleteProject()
+  const { isFetching, projects, projectsError } = useGetProjects()
+  // const { deleteSkill, isDeleting } = useDeleteSkill();
+  const { deleteProject, isDeleting } = useDeleteProject()
 
-    return (
-        <Container>
-            {projectsError && <div>{projectsError.message}</div>}
-            {isFetching ? (
-                <div>Loading...</div>
-            ) : (
-                <ProjectsTable>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Image</th>
-                            <th>Description</th>
-                            <th>Github</th>
-                            <th>Website</th>
-                            <th>Technologies</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {projects?.map((project) => (
-                            <tr key={project._id}>
-                                <td data-label="Title"> {project.title}</td>
-                                <td data-label="Image">
-                                    <img src={project.imageUrl} alt={project.title} />
-                                </td>
-                                <td data-label="Description"> {project.description}</td>
-                                <td data-label="Github"> {project.github}</td>
-                                <td data-label="Website"> {project.website}</td>
-                                <td data-label="Technologies">
-                                    <Actions >
-                                        {project.technologies}
-                                        <ActionButtons>
-                                            <ModalButton
-                                                addButtonComponent={
-                                                    <EditButton >
-                                                        <EditIcon />
-                                                    </EditButton>
-                                                }
-                                                formComponent={<ProjectForm projectToUpdate={project} />}
-                                                type="editProject"
-                                            />
-                                            <DeleteButton onClick={() => deleteProject(project._id)} disabled={isDeleting}
-                                            >{
-                                                    isDeleting ? (
-                                                        <div>Deleting...</div>
-                                                    ) : (
-                                                        <div>  <DeleteIcon /></div>
-                                                    )
-                                                }
-                                            </DeleteButton>
-                                        </ActionButtons>
-                                    </Actions>
-                                </td>
+  return (
+    <Container>
+      {projectsError && <div>{projectsError.message}</div>}
+      {isFetching ? (
+        <div>Loading...</div>
+      ) : (
+        <ProjectsTable>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Image</th>
+              <th>Description</th>
+              <th>Github</th>
+              <th>Website</th>
+              <th>Technologies</th>
+            </tr>
+          </thead>
+          <tbody>
+            {projects?.map((project) => (
+              <tr key={project._id}>
+                <td data-label="Title"> {project.title}</td>
+                <td data-label="Image">
+                  <img src={project.imageUrl} alt={project.title} />
+                </td>
+                <td data-label="Description"> {project.description}</td>
+                <td data-label="Github"> {project.github}</td>
+                <td data-label="Website"> {project.website}</td>
+                <td data-label="Technologies">
+                  <Actions >
+                    {project.technologies}
+                    <ActionButtons>
+                      <ModalButton
+                        addButtonComponent={
+                          <EditButton >
+                            <EditIcon />
+                          </EditButton>
+                        }
+                        formComponent={<ProjectForm projectToUpdate={project} />}
+                        type="editProject"
+                      />
+                      <DeleteButton onClick={() => deleteProject(project._id)} disabled={isDeleting}
+                      >{
+                          isDeleting ? (
+                            <div>Deleting...</div>
+                          ) : (
+                            <div>  <DeleteIcon /></div>
+                          )
+                        }
+                      </DeleteButton>
+                    </ActionButtons>
+                  </Actions>
+                </td>
 
-                            </tr>
-                        ))}
-                    </tbody>
-                </ProjectsTable>
-            )}
-            <ModalButton
-                addButtonComponent={<AddButton>Add Projects</AddButton>}
-                formComponent={<ProjectForm />}
-                type="addProject"
-            />
-        </Container>
-    );
+              </tr>
+            ))}
+          </tbody>
+        </ProjectsTable>
+      )}
+      <ModalButton
+        addButtonComponent={<AddButton>Add Projects</AddButton>}
+        formComponent={<ProjectForm />}
+        type="addProject"
+      />
+    </Container>
+  );
 }
 
 export default GetProjects;

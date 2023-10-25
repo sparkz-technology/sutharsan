@@ -4,18 +4,22 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const SideBarContainer = styled.div`
-    background-color: #333; 
     height: 100vh;
     padding-top: 60px;
     display: flex;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border: 1px solid var(--border-color);
     box-sizing: border-box;
     @media (max-width: 768px) {
         width: 100%;
+        height: fit-content;
         position: fixed;
         top: 0;
         left: 0;
-        transform: ${({ openSidebar }) => openSidebar ? "translateX(0)" : "translateX(-100%)"};
+        transform: ${({ openSidebar }) => openSidebar ? "translateY(0)" : "translateY(-100%)"};
         transition: all 0.2s;
         z-index: 1;
 
@@ -30,8 +34,8 @@ const TabList = styled.ul`
     flex-direction: column;
     gap: 10px;
     @media (max-width: 768px) {
-        justify-content: center;
-        align-items: center;
+        justify-content: start;
+        /* align-items: center; */
         width: 100%;
     }
 
@@ -42,25 +46,36 @@ const Tab = styled(NavLink)`
     padding: 10px 20px;
     cursor: pointer;
     font-weight: 600;
-    color: #fff; 
+    color:var(--nav-link-color);
     display: flex;
     align-items: center;
     gap: 10px;
     transition: all 0.2s;
     text-decoration: none;
     &:hover {
-        background-color: #444; 
+        color:var(--nav-active-color);
     }
     &:first-child{
         margin-top: 10px;
     }
     &.active {
-        background-color: #444;
+        color:var(--nav-active-color);
     }
     @media (max-width: 768px) {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 0;
+        width: 100px;
+        justify-content: start;
+        align-items: flex-start;
+        &:hover {
+            background-color: transparent;
+        }
+        &.active {
+            background-color: transparent;
+        }
+        &:last-child
+        {
+            margin-bottom: 10px;
+            
+         }
 
     }
 `;

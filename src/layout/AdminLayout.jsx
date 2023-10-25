@@ -50,7 +50,6 @@ import { useState } from "react";
 
 const StyledAppLayout = styled.div`
   display: grid;
-  /* grid-template-columns: 26rem 1fr; */
   grid-template-columns: auto 1fr;
 
   grid-template-rows: auto 1fr;

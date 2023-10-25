@@ -5,16 +5,16 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Open Sans', sans-serif;
-        backdrop-filter: bulr(40px);
+    }
+    * {
+        box-sizing: border-box;
         overflow: -moz-scrollbars-none;
         -ms-overflow-style: none;
         scrollbar-width: none;
         user-select: none;
-        
         &::-webkit-scrollbar {
             display: none;
         }
-
     }
 
 

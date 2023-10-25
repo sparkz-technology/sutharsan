@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import PropTypes from 'prop-types';
+import DarkModeToggle from "../../ui/DarkModeToggle";
 
 function Header({ openSidebar, setOpenSidebar }) {
     Header.propTypes = {
@@ -11,10 +12,11 @@ function Header({ openSidebar, setOpenSidebar }) {
         <StyledHeader>
             <SubHeader>
                 <Title>
-                    <h1> Dashboard </h1>
+                    <h1>Admin Dashboard</h1>
                 </Title>
             </SubHeader>
             <MenuToggle>
+                <DarkModeToggle />
                 {
                     openSidebar ? (
                         <AiOutlineClose
@@ -37,12 +39,15 @@ export default Header
 
 const StyledHeader = styled.div`
     height: 60px;
-    background-color: #fff;
     display: flex;
     align-items: center;
     padding: 0 20px;
     gap: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba( 255, 255, 255, 0.15 );
+    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border: 1px solid var(--border-color);
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -57,7 +62,10 @@ const Title = styled.div`
     h1 {
         font-size: 20px;
         font-weight: 500;
-        color: #333; /* Change text color */
+        color: var(--title-color);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
     }
 
     @media (max-width: 768px) {
@@ -78,5 +86,18 @@ const SubHeader = styled.div`
 
 const MenuToggle = styled.div`
     cursor: pointer;
-    display: block;
+    display: flex;  
+    align-items: center;
+    gap: 20px;
+    svg:nth-child(2) {
+        display: none;
+    }
+    @media (max-width: 768px) {
+        svg:nth-child(2) {
+            display: block;
+        }
+        
+    }
+
+    
 `;
