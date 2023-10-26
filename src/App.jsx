@@ -9,15 +9,17 @@ import { DarkModeProvider } from "./features/Navbar/DarkModeContext";
 import AdminLayout from "./layout/AdminLayout";
 import Data from "./features/User/Data";
 import GetProjects from "./features/Projects/GetProject";
-import GetSkills from "./features/Skills/GetSkills";
+import SkillsTable from "./features/Skills/SkillsTable";
+import Table from "./ui/Table";
 
 const routes = createBrowserRouter([
   { path: "/", element: <AppLayout />, errorElement: <h1>404</h1> },
+  { path: "/table", element: <Table />, errorElement: <h1>404</h1> },
   {
     path: "/admin", element: <AdminLayout />, errorElement: <h1>404</h1>, children: [
       { index: true, element: <Navigate to="/admin/profile" /> },
       { path: "profile", element: <Data />, index: true },
-      { path: "skills", element: <GetSkills /> },
+      { path: "skills", element: <SkillsTable /> },
       { path: "projects", element: <GetProjects /> },
     ],
     // when a user goes to /admin, they will be redirected to /admin/profile

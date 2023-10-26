@@ -43,11 +43,9 @@ const StyledHeader = styled.div`
     align-items: center;
     padding: 0 20px;
     gap: 20px;
-    background: rgba( 255, 255, 255, 0.15 );
-    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
-    backdrop-filter: blur( 20px );
-    -webkit-backdrop-filter: blur( 20px );
     border: 1px solid var(--border-color);
+    background-color: var(--container-background-color);
+    color: var(--sub-text-color);
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -62,7 +60,6 @@ const Title = styled.div`
     h1 {
         font-size: 20px;
         font-weight: 500;
-        color: var(--title-color);
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
         font-size: 20px;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useGetUserData from './useGetUserData';
 import useUpdateUserData from './useUpdateUserData';
 import { useState } from 'react';
+import { BiSolidCamera } from 'react-icons/bi';
 {/* <p dangerouslySetInnerHTML={{ __html: about.text }} /> */ }
 
 
@@ -27,16 +28,15 @@ const Container = styled.div`
     gap: 10px;
     width: 100%;
     padding: 20px;  
-
-`;
+    
+    `;
 
 const FormWrapper = styled.div`
-    /* max-width: 800px; */
-    background-color: #fff;
+    border-radius: 4px;
+    background-color: var(--container-background-color);
+    border: 1px solid var(--border-color);
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -57,38 +57,57 @@ const Column = styled.div`
 
 const InputLabel = styled.label`
     display: block;
-    font-weight: bold;
     margin-bottom: 5px;
-`;
+    color:var(--sub-text-color);
+    `;
 
 const InputField = styled.input`
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
+    color:var(--sub-text-color);
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: var(--container-background-color);
 
 `;
 const TextareaField = styled.textarea`
     width: 100%;
-    height:4rem;
+    height:7rem;
+    resize: none;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: var(--container-background-color);
+    color:var(--sub-text-color);
+    
 
 `;
 
 const SubmitButton = styled.button`
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    font-weight: bold;
     cursor: pointer;
+    &:hover{
+        background-color: var(--button-background-hover-color);
+        color: var(--button-text-active-color);
+    }
+    &:disabled{
+        background-color: #ccc;
+        color: #000;
+        cursor: not-allowed;
+    }
+    
 `;
 
 const Image = styled.img`
@@ -109,6 +128,27 @@ const ErrorText = styled.div`
     bottom: -10px;    
     left: 0;
 `;
+
+const Title = styled.h3`
+    text-align: start;
+    color:var(--sub-text-color);
+    margin: 1rem 0;
+`;
+
+const UploadButton = styled.button`
+        background-color: var(--container-background-color);
+    color: var(--icon-color);
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+    border: none;
+    border-radius: 50%;
+    svg{
+
+        font-size:1.5rem;
+    }
+`;
+
 
 const Data = () => {
 
@@ -145,6 +185,9 @@ const Data = () => {
     if (userDataError) return <div>{userDataError.message}</div>
     return (
         <Container>
+            <Title >
+                Personal Data
+            </Title>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -157,7 +200,9 @@ const Data = () => {
                                 <InputContainer>
                                     <Image src={file ? URL.createObjectURL(file) : userData?.imageUrl} alt="profile" />
                                     <input type="file" id="file" name="file" style={{ display: "none" }} onChange={(e) => { setFile(e.target.files[0]) }} />
-                                    <button type="button" onClick={() => document.getElementById('file').click()}>Upload</button>
+                                    <UploadButton type="button" onClick={() => document.getElementById('file').click()}>
+                                        <BiSolidCamera />
+                                    </UploadButton>
                                 </InputContainer>
                                 <InputContainer>
                                     <InputLabel htmlFor="homeInfo">Home Info</InputLabel>

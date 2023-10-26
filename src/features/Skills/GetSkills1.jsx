@@ -4,8 +4,8 @@ import useGetSkills from "./useGetSkills";
 import ModalButton from "../../ui/ModalButton";
 import SkillForm from "./SkillForm";
 import useDeleteSkill from "./useDeleteSkill";
+import { useState } from "react";
 const Container = styled.div`
-  /* max-width: 800px; */
   width:100%;
   margin: 0 auto;
   padding: 20px;
@@ -153,12 +153,21 @@ const AddButton = styled.button`
   }
 `;
 
+const Title = styled.h3`
+  text-align: start;
+    color:var(--sub-text-color);
+    margin: 1rem 0;
+`;
+
 function GetSkills() {
   const { isFetching, skills, skillsError } = useGetSkills();
   const { deleteSkill, isDeleting } = useDeleteSkill();
 
+  const [deleteId, setDeleteId] = useState(null);
+
   return (
     <Container>
+      <Title>Skills</Title>
       {skillsError && <div>{skillsError.message}</div>}
       {isFetching ? (
         <div>Loading...</div>
@@ -193,9 +202,13 @@ function GetSkills() {
                         formComponent={<SkillForm skillToUpdate={skill} />}
                         type="editSkill"
                       />
-                      <DeleteButton onClick={() => deleteSkill(skill._id)} disabled={isDeleting}
+                      <DeleteButton disabled={isDeleting}
+                        onClick={() => {
+                          deleteSkill(skill._id)
+                          setDeleteId(skill._id)
+                        }}
                       >{
-                          isDeleting ? (
+                          deleteId === skill._id ? (
                             <div>Deleting...</div>
                           ) : (
                             <div>  <DeleteIcon /></div>

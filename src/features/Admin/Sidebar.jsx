@@ -7,12 +7,10 @@ const SideBarContainer = styled.div`
     height: 100vh;
     padding-top: 60px;
     display: flex;
-    background: rgba( 255, 255, 255, 0.15 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 20px );
-    -webkit-backdrop-filter: blur( 20px );
     border: 1px solid var(--border-color);
     box-sizing: border-box;
+    background-color: var(--container-background-color);
+
     @media (max-width: 768px) {
         width: 100%;
         height: fit-content;
@@ -35,7 +33,6 @@ const TabList = styled.ul`
     gap: 10px;
     @media (max-width: 768px) {
         justify-content: start;
-        /* align-items: center; */
         width: 100%;
     }
 
@@ -46,36 +43,51 @@ const Tab = styled(NavLink)`
     padding: 10px 20px;
     cursor: pointer;
     font-weight: 600;
-    color:var(--nav-link-color);
+    color:var(--sidebar-link-color);
     display: flex;
     align-items: center;
     gap: 10px;
     transition: all 0.2s;
     text-decoration: none;
+    border-radius: 5px;
+    
     &:hover {
-        color:var(--nav-active-color);
+        color:var(--active-sidebar-link-color);
+        background-color:var(--main-background-color);
+        svg{
+            color:var(--icon-hover-color);
+        }
+
+
     }
     &:first-child{
         margin-top: 10px;
     }
     &.active {
-        color:var(--nav-active-color);
+        color:var(--active-sidebar-link-color);
+        background-color:var(--main-background-color);
+        border-left: 3px solid var(--active-sidebar-link-color);
+
+        svg{
+            color:var(--icon-hover-color);
+        }
+
     }
+    svg{
+        font-size: 20px;
+        color:#8a8a8a;
+        transition: all 0.2s;
+    }
+    &:last-child{
+        margin-bottom: 10px;
+    }
+    
+    
     @media (max-width: 768px) {
-        width: 100px;
+        width: 100%;
         justify-content: start;
         align-items: flex-start;
-        &:hover {
-            background-color: transparent;
-        }
-        &.active {
-            background-color: transparent;
-        }
-        &:last-child
-        {
-            margin-bottom: 10px;
-            
-         }
+        
 
     }
 `;

@@ -47,6 +47,10 @@ const GlobalStyle = createGlobalStyle`
             --button-text-color:#fff;
             --button-text-active-color:#fff;
             --border-color:rgba( 255, 255, 255, 0.18 );
+            --container-background-color: #18212f;
+            --main-background-color: #111827;
+            --sidebar-link-color: #d8d4d4;
+            --active-sidebar-link-color: #fff;  
 
         }
         &.light-mode{
@@ -60,7 +64,7 @@ const GlobalStyle = createGlobalStyle`
             --card-des-color:#11171d;
             --sub-text-color:#000000;
             --box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-            --icon-color:#131111;
+            --icon-color:#9ca3af;
             --icon-hover-color:#962dff;
             --nav-color:#0d0c22;
             --nav-active-color:#962dff;
@@ -70,7 +74,10 @@ const GlobalStyle = createGlobalStyle`
             --button-text-color:#fff;
             --button-text-active-color:#962dff;
             --border-color:rgba( 0, 0, 0, 0.18 );
-
+            --container-background-color: #fff;
+            --main-background-color: #f9fafb;
+            --sidebar-link-color:#2b3136;
+            --active-sidebar-link-color:#0a0909;
         }
 
         }
