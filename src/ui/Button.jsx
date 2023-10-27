@@ -26,6 +26,12 @@ const Button = styled.button`
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
     transform: translateY(0px);
   }
+  &:disabled {
+    background-color: var(--button-background-color);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transform: translateY(0px);
+    cursor: not-allowed;
+  }
 
   &:focus {
     outline: none;

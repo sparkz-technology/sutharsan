@@ -7,8 +7,8 @@ import GlobalStyle from "./styles/GlobalStyle";
 import AppLayout from "./layout/AppLayout";
 import { DarkModeProvider } from "./features/Navbar/DarkModeContext";
 import AdminLayout from "./layout/AdminLayout";
-import Data from "./features/User/Data";
-import GetProjects from "./features/Projects/GetProject";
+import UserDataTable from "./features/User/UserDataTable";
+import ProjectTable from "./features/Projects/ProjectTable";
 import SkillsTable from "./features/Skills/SkillsTable";
 import Table from "./ui/Table";
 
@@ -18,11 +18,10 @@ const routes = createBrowserRouter([
   {
     path: "/admin", element: <AdminLayout />, errorElement: <h1>404</h1>, children: [
       { index: true, element: <Navigate to="/admin/profile" /> },
-      { path: "profile", element: <Data />, index: true },
+      { path: "profile", element: <UserDataTable />, index: true },
       { path: "skills", element: <SkillsTable /> },
-      { path: "projects", element: <GetProjects /> },
+      { path: "projects", element: <ProjectTable /> },
     ],
-    // when a user goes to /admin, they will be redirected to /admin/profile
   }
 ]);
 

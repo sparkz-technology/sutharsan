@@ -23,7 +23,9 @@ const StyledHeader = styled.div`
     align-items: center;
     justify-content: space-between;
     @media (max-width: 768px) {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        padding: 0.8rem 0.5rem ;
+        grid-gap: 0.8rem;
     }
     
     `;
@@ -43,7 +45,8 @@ const StyledRow = styled.div`
     }
     @media (max-width: 768px) {
         font-size: 1rem;
-        padding: 0.3rem 2.6rem ;
+        padding: 0.2rem 0.5rem ;
+        grid-gap: 0.8rem;
     }
   
 `;

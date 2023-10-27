@@ -26,6 +26,11 @@ const GlobalStyle = createGlobalStyle`
         --anime-sun: #ffdb00;
         --anime-moon: #ffffff;
         --loader-color: #963dff;
+        --tag-color: #962dff;
+        --tag-text-color: #fff;
+        --tag-hover-color: #9b43f3;
+        --loader-background-color: #929292;
+        --tag-hover-text-color: #ffffffe1;
 
         &.dark-mode{
             body{

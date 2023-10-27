@@ -5,6 +5,8 @@ import useGetUserData from './useGetUserData';
 import useUpdateUserData from './useUpdateUserData';
 import { useState } from 'react';
 import { BiSolidCamera } from 'react-icons/bi';
+import Button from '../../ui/Button';
+import Spinner from '../../ui/Spinner';
 {/* <p dangerouslySetInnerHTML={{ __html: about.text }} /> */ }
 
 
@@ -87,28 +89,6 @@ const TextareaField = styled.textarea`
 
 `;
 
-const SubmitButton = styled.button`
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
-    font-weight: bold;
-    cursor: pointer;
-    &:hover{
-        background-color: var(--button-background-hover-color);
-        color: var(--button-text-active-color);
-    }
-    &:disabled{
-        background-color: #ccc;
-        color: #000;
-        cursor: not-allowed;
-    }
-    
-`;
 
 const Image = styled.img`
     width: 100px;
@@ -139,7 +119,7 @@ const UploadButton = styled.button`
         background-color: var(--container-background-color);
     color: var(--icon-color);
     position: absolute;
-    bottom: 10%;
+    bottom: 0;
     left: 15%;
     border: none;
     border-radius: 50%;
@@ -150,7 +130,7 @@ const UploadButton = styled.button`
 `;
 
 
-const Data = () => {
+const UserDataTable = () => {
 
     const { isFetching, userData, userDataError } = useGetUserData()
     const { updateUserData, isUpdate } = useUpdateUserData()
@@ -181,7 +161,7 @@ const Data = () => {
         WhatsAppNumber: userData?.WhatsAppNumber,
         mail: userData?.mail,
     }
-    if (isFetching) return <div>Loading...</div>
+    if (isFetching) return <Spinner />
     if (userDataError) return <div>{userDataError.message}</div>
     return (
         <Container>
@@ -303,7 +283,7 @@ const Data = () => {
                                     />
                                     <ErrorMessage name="mail" component={ErrorText} />
                                 </InputContainer>
-                                <SubmitButton type="submit" disabled={isUpdate} >Submit</SubmitButton>
+                                <Button type="submit" disabled={isUpdate} >Submit</Button>
                             </Form>
 
                         </Column>
@@ -314,4 +294,4 @@ const Data = () => {
     );
 };
 
-export default Data;
+export default UserDataTable;

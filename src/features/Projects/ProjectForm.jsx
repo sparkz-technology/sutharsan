@@ -4,6 +4,9 @@ import * as Yup from 'yup';
 import styled from 'styled-components';
 import useCreateProject from './useCreateProject';
 import useUpdateProject from './useUpdateProject';
+import Button from '../../ui/Button';
+import Input from '../../ui/Input';
+import Label from '../../ui/Label';
 
 
 
@@ -27,6 +30,27 @@ const updateValidationSchema = Yup.object().shape({
 const Image = styled.img`
     width: 100px;
     height: 100px;
+`;
+const Row = styled.div`
+    position: relative;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+`;
+const Error = styled(ErrorMessage)`   
+    color: red;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+`;
+
+const Column = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+const Table = styled.div`
+    display: flex;
+    gap: 1rem;
 `;
 
 const ProjectForm = ({ projectToUpdate = {} }) => {
@@ -65,35 +89,45 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
         >
             {({ setFieldValue, values }) => (
                 <Form>
-                    <div>
-                        <label htmlFor="title">Title</label>
-                        <Field type="text" id="title" name="title" disabled={isWorking} />
-                        <ErrorMessage name="title" component="div" />
-                    </div>
+                    <Table>
+                        <Column>
+                            <Row>
+                                <Label htmlFor="title">Title</Label>
+                                <Field type="text" id="title" name="title" disabled={isWorking} as={Input} />
+                                <Error name="title" component="div" />
+                            </Row>
 
-                    <div>
-                        <label htmlFor="description">Description</label>
-                        <Field type="text" id="description" name="description" disabled={isWorking} />
-                        <ErrorMessage name="description" component="div" />
+                            <Row>
+                                <Label htmlFor="description">Description</Label>
+                                <Field type="text" id="description" name="description" disabled={isWorking} as={Input} />
+                                <Error name="description" component="div" />
 
-                    </div>
+                            </Row>
 
-                    <div>
-                        <label htmlFor="github">github</label>
-                        <Field type="text" id="github" name="github" disabled={isWorking} />
-                        <ErrorMessage name="github" component="div" />
-                    </div>
-                    <div>
-                        <label htmlFor="website">website</label>
-                        <Field type="text" id="website" name="website" disabled={isWorking} />
-                        <ErrorMessage name="website" component="div" />
-                    </div>
-                    <div>
-                        <label htmlFor="technologies">technologies</label>
-                        <Field type="text" id="technologies" name="technologies" disabled={isWorking} />
-                        <ErrorMessage name="technologies" component="div" />
-                    </div>
-                    <div>
+
+                        </Column>
+                        <Column>
+                            <Row>
+                                <Label htmlFor="website">Website</Label>
+                                <Field type="text" id="website" name="website" disabled={isWorking} as={Input} />
+                                <Error name="website" component="div" />
+                            </Row>
+                            <Row>
+                                <Label htmlFor="github">Github</Label>
+                                <Field type="text" id="github" name="github" disabled={isWorking} as={Input} />
+                                <Error name="github" component="div" />
+                            </Row>
+
+                        </Column>
+                    </Table>
+                    <Row>
+                        <Label htmlFor="technologies">Technologies</Label>
+                        <Field type="text" id="technologies" name="technologies" disabled={isWorking} as={Input} />
+                        <Error name="technologies" component="div" />
+                    </Row>
+
+
+                    <Row>
                         {
                             isUpdateSession ? (
                                 <>
@@ -105,8 +139,8 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
                                             )
 
                                     }
-                                    <label htmlFor="file">File</label>
-                                    <input
+                                    <Label htmlFor="file">File</Label>
+                                    <Input
                                         type="file"
                                         id="file"
                                         name="file"
@@ -115,7 +149,7 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
                                         }}
                                         disabled={isWorking}
                                     />
-                                    <ErrorMessage name="file" component="div" />
+                                    <Error name="file" component="div" />
                                 </>
                             ) : (
                                 <>{
@@ -125,8 +159,8 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
                                     )
 
                                 }
-                                    <label htmlFor="file">File</label>
-                                    <input
+                                    <Label htmlFor="file">File</Label>
+                                    <Input
                                         type="file"
                                         id="file"
                                         name="file"
@@ -135,16 +169,17 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
                                         }}
                                         disabled={isWorking}
                                     />
-                                    <ErrorMessage name="file" component="div" />
+                                    <Error name="file" component="div" />
                                 </>
                             )
                         }
-                    </div>
-                    <div>
-                        <button type="submit" disabled={isWorking}>
+                    </Row>
+
+                    <Row>
+                        <Button type="submit" disabled={isWorking}>
                             {isUpdateSession ? 'Update' : 'Create'}
-                        </button>
-                    </div>
+                        </Button>
+                    </Row>
                 </Form>
             )}
         </Formik >

@@ -5,6 +5,9 @@ import styled from 'styled-components';
 
 import useUpdateSkill from './useUpdateSkill';
 import useCreateSkill from './useCreateSkill';
+import Label from '../../ui/Label';
+import Button from '../../ui/Button';
+import Input from '../../ui/Input';
 
 
 const validationSchema = Yup.object().shape({
@@ -21,8 +24,22 @@ const updateValidationSchema = Yup.object().shape({
 });
 
 const Image = styled.img`
-    width: 100px;
-    height: 100px;
+    display: block;
+    width: 60px;
+    height: 60px;
+`;
+
+const Row = styled.div`
+    position: relative;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+`;
+const Error = styled(ErrorMessage)`   
+    color: red;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
 `;
 
 const SkillForm = ({ skillToUpdate = {} }) => {
@@ -57,32 +74,37 @@ const SkillForm = ({ skillToUpdate = {} }) => {
             onSubmit={handleSubmit}
         >
             {({ setFieldValue, values }) => (
-                <Form>
-                    <div>
-                        <label htmlFor="skill">Skill</label>
-                        <Field type="text" id="skill" name="skill" disabled={isWorking} />
-                        <ErrorMessage name="skill" component="div" />
-                    </div>
+                <Form autoComplete="off">
+                    <Row>
+                        <Label htmlFor="skill">Skill</Label>
+                        <Field type="text" id="skill" name="skill" disabled={isWorking} as={Input} />
+                        <Error name="skill" component="div" />
+                    </Row>
 
-                    <div>
-                        <label htmlFor="percentage">Percentage</label>
-                        <Field type="number" id="percentage" name="percentage" disabled={isWorking} />
-                        <ErrorMessage name="percentage" component="div" />
-                    </div>
+                    <Row>
+                        <Label htmlFor="percentage">Percentage</Label>
+                        <Field type="number" id="percentage" name="percentage" disabled={isWorking} as={Input} />
+                        <Error name="percentage" component="div" />
+                    </Row>
 
-                    <div>
-                        <label htmlFor="category">Category</label>
-                        <Field type="text" id="category" name="category" disabled={isWorking} />
-                        <ErrorMessage name="category" component="div" />
-                    </div>
+                    <Row>
+                        <Label htmlFor="category">Category</Label>
+                        <Field type="text" id="category" name="category" disabled={isWorking} as={Input} />
+                        <Error name="category" component="div" />
+                    </Row>
 
-                    <div>
+                    <Row>
                         {
                             isUpdateSession ? (
-                                <>
-                                    <Image src={skill.imageUrl} alt={skill.skill} />
-                                    <label htmlFor="file">File</label>
-                                    <input
+                                <> {
+                                    values.file ? (
+                                        <Image src={URL.createObjectURL(values.file)} alt={values.file.name} />
+                                    ) : (
+                                        <Image src={skill.imageUrl} alt={skill.skill} />
+                                    )
+                                }
+                                    <Label htmlFor="file">File</Label>
+                                    <Input
                                         type="file"
                                         id="file"
                                         name="file"
@@ -91,7 +113,7 @@ const SkillForm = ({ skillToUpdate = {} }) => {
                                         }}
                                         disabled={isWorking}
                                     />
-                                    <ErrorMessage name="file" component="div" />
+                                    <Error name="file" component="div" />
                                 </>
                             ) : (
                                 <>{
@@ -101,8 +123,8 @@ const SkillForm = ({ skillToUpdate = {} }) => {
                                     )
 
                                 }
-                                    <label htmlFor="file">File</label>
-                                    <input
+                                    <Label htmlFor="file">File</Label>
+                                    <Input
                                         type="file"
                                         id="file"
                                         name="file"
@@ -111,16 +133,16 @@ const SkillForm = ({ skillToUpdate = {} }) => {
                                         }}
                                         disabled={isWorking}
                                     />
-                                    <ErrorMessage name="file" component="div" />
+                                    <Error name="file" component="div" />
                                 </>
                             )
                         }
-                    </div>
-                    <div>
-                        <button type="submit" disabled={isWorking}>
+                    </Row>
+                    <Row>
+                        <Button type="submit" disabled={isWorking}>
                             {isUpdateSession ? 'Update' : 'Create'}
-                        </button>
-                    </div>
+                        </Button>
+                    </Row>
                 </Form>
             )}
         </Formik >

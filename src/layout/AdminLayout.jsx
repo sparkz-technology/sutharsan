@@ -20,6 +20,7 @@ const Main = styled.main`
   background-color:var(--main-background-color);
   padding: 2.5rem 4.8rem 6.4rem;
   overflow: scroll; 
+  height: 100vh;
   @media (max-width: 768px) {
     padding:2.5rem 0.5rem 6.4rem;// means 4rem top 2.4rem right 6.4rem bottom
   }

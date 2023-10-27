@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ModalButton from "../../ui/ModalButton";
 import SkillForm from "./SkillForm";
 import Button from "../../ui/Button"
+import Spinner from "../../ui/Spinner";
 
 const Container = styled.div`
   width:100%;
@@ -34,17 +35,15 @@ function SkillsTable() {
     if (skillsError) {
         return <div>{skillsError.message}</div>;
     }
-    if (isFetching) {
-        return <div>Loading...</div>;
-    }
+    if (isFetching) return <Spinner />
 
     return (
         <Container>
             <Title>Skills</Title>
             <Table columns=" 1fr 1fr 1fr 1fr 0.1fr">
                 <Table.Header >
-                    <div>Skill</div>
                     <div>Image</div>
+                    <div>Skill</div>
                     <div>Percentage</div>
                     <div>Category</div>
                     <div></div>

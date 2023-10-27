@@ -5,7 +5,6 @@ import SkillForm from "./SkillForm";
 import useDeleteSkill from "./useDeleteSkill";
 import styled from "styled-components";
 import { BiDotsVertical } from "react-icons/bi";
-import { useOutSideClick } from "../../hook/useOutSideClick";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 
 /* eslint-disable react/prop-types */
@@ -40,7 +39,6 @@ const Dropdown = styled.div`
   border: 1px solid var(--border-color);
   border-radius: 7px;
   padding: 0.2rem;
-  z-index: 100;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -81,18 +79,16 @@ function SkillsRow({ skill }) {
     const { deleteSkill, isDeleting } = useDeleteSkill();
     const [deleteId, setDeleteId] = useState(null);
     const [open, setOpen] = useState(false);
-    const ref = useOutSideClick(() => setOpen(false));
 
     return (
         <Row key={skill._id}>
-            <div>{skill.skill}</div>
             <div>
                 <Img src={skill.imageUrl} alt={skill.skill} />
             </div>
+            <div>{skill.skill}</div>
             <div>{skill.percentage}</div>
             <div>{skill.category}</div>
-
-            <DotsContainer ref={ref}>
+            <DotsContainer  >
                 <div onClick={() => setOpen(!open)}>
                     <BiDotsVertical />
                 </div>
@@ -102,7 +98,7 @@ function SkillsRow({ skill }) {
                             addButtonComponent={
                                 <StyledButton>
                                     <FiEdit />
-                                    <button>Edit</button>
+                                    <button >Edit</button>
                                 </StyledButton>
                             }
                             formComponent={<SkillForm skillToUpdate={skill} />}
