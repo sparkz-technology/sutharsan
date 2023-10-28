@@ -55,7 +55,9 @@ const GlobalStyle = createGlobalStyle`
             --container-background-color: #18212f;
             --main-background-color: #111827;
             --sidebar-link-color: #d8d4d4;
-            --active-sidebar-link-color: #fff;  
+            --active-sidebar-link-color: #fff;
+            --github-button-color: #fff;
+            --github-text-color: #000;  
 
         }
         &.light-mode{
@@ -83,6 +85,8 @@ const GlobalStyle = createGlobalStyle`
             --main-background-color: #f9fafb;
             --sidebar-link-color:#2b3136;
             --active-sidebar-link-color:#0a0909;
+            --github-button-color: #000;
+            --github-text-color: #fff;
         }
 
         }

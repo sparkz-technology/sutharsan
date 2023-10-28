@@ -46,8 +46,8 @@ function Projects() {
     <Container id="projects">
       <Title>Projects</Title>
       <CardContainer>
-        {projects.map((project) => {
-          return <ProjectCard key={project.id} project={project} />;
+        {projects.map((project, index) => {
+          return <ProjectCard key={index} project={project} />;
         })}
       </CardContainer>
     </Container>

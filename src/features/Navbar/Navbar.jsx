@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useOutSideClick } from "../../hook/useOutSideClick";
 import isPropValid from "@emotion/is-prop-valid";
 import DarkModeToggle from "../../ui/DarkModeToggle";
+import LoginToggle from "../Login/LoginToggle";
 
 const NavbarContainer = styled("nav", {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "show",
@@ -47,6 +48,9 @@ const NavbarBrand = styled(Link)`
   &.active-link {
     color: var(--nav-active-color);
   }
+  &:hover {
+      color: var(--nav-active-color);
+    }
 `;
 
 const NavbarLinks = styled("ul", {
@@ -75,6 +79,9 @@ const StyledNavLink = styled(Link)`
   &.active-link {
     color: var(--nav-active-color);
   }
+  &:hover {
+      color: var(--nav-active-color);
+    }
 `;
 
 const MobileMenu = styled("div", {
@@ -110,6 +117,9 @@ const MobileMenuItem = styled(Link)`
   &.active-link {
     color: var(--nav-active-color);
   }
+  &:hover {
+      color: var(--nav-active-color);
+    }
 `;
 
 const MobileCloseMenu = styled("div", {
@@ -153,6 +163,8 @@ const ToggleContainer = styled.div`
 display: flex;
 gap: 1rem;
 `;
+
+
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -227,6 +239,7 @@ const Navbar = () => {
                 </ToggleContainer>
 
               </MobileCloseMenu>
+              <LoginToggle />
               {NavLinks.map((link, index) => (
                 <MobileMenuItem
                   key={index}
@@ -290,6 +303,7 @@ const Navbar = () => {
               {"< Sutharsan />"}
             </NavbarBrand>
             <NavbarLinks>
+              <LoginToggle />
               {NavLinks.map((link, index) => {
                 return (
                   <NavbarLink key={index}>

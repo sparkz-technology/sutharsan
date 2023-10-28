@@ -6,6 +6,7 @@ const spin = keyframes`
     }
 `;
 
+
 const SpinnerAnimation = styled.div`
     border: 4px solid transparent;
     border-top-color: var(--loader-color);

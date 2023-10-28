@@ -1,11 +1,18 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const API_URL = "https://backend-peach-phi.vercel.app";
+// const API_URL = "http://localhost:8000/";
 
 // create a new axios instance
 const axiosInstance = axios.create({
     baseURL: API_URL,
     timeout: 30000,
+    headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`,
+        "Content-Type": "application/json",
+        accept: "application/json",
+    },
 });
 
 // before a request is made start the nprogress
@@ -13,6 +20,11 @@ const axiosInstance = axios.create({
 //     //   NProgress.start();
 //     return config;
 // });
+export async function login() {
+    const responce = await axiosInstance.get("auth/github");
+    return responce.data;
+}
+
 export async function getSkills() {
     const responce = await axiosInstance.get("/skill");
     return responce.data;

@@ -10,13 +10,18 @@ import AdminLayout from "./layout/AdminLayout";
 import UserDataTable from "./features/User/UserDataTable";
 import ProjectTable from "./features/Projects/ProjectTable";
 import SkillsTable from "./features/Skills/SkillsTable";
-import Table from "./ui/Table";
+import Login from "./features/Login/Login";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const routes = createBrowserRouter([
   { path: "/", element: <AppLayout />, errorElement: <h1>404</h1> },
-  { path: "/table", element: <Table />, errorElement: <h1>404</h1> },
+  { path: "/login", element: <Login /> },
   {
-    path: "/admin", element: <AdminLayout />, errorElement: <h1>404</h1>, children: [
+    path: "/admin", element:
+      <ProtectedRoute >
+        <AdminLayout />
+      </ProtectedRoute>,
+    errorElement: <h1>404</h1>, children: [
       { index: true, element: <Navigate to="/admin/profile" /> },
       { path: "profile", element: <UserDataTable />, index: true },
       { path: "skills", element: <SkillsTable /> },
