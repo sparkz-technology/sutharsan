@@ -31,7 +31,7 @@ function BackButton() {
 
     return (
         <>
-            <Button onClick={() => navigate(-1)}>
+            <Button onClick={() => navigate("/")}>
                 <IoChevronBack size={20} />
             </Button>
         </ >
