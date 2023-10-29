@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const API_URL = "https://backend-peach-phi.vercel.app";
+const API_URL = "https://backend-peach-phi.vercel.app/";
 // const API_URL = "http://localhost:8000/";
 
 // create a new axios instance
