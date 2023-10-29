@@ -18,9 +18,9 @@ const routes = createBrowserRouter([
   { path: "/login", element: <Login /> },
   {
     path: "/admin", element:
-      <ProtectedRoute >
-        <AdminLayout />
-      </ProtectedRoute>,
+      // <ProtectedRoute >
+      <AdminLayout />,
+    // </ProtectedRoute>,
     errorElement: <h1>404</h1>, children: [
       { index: true, element: <Navigate to="/admin/profile" /> },
       { path: "profile", element: <UserDataTable />, index: true },
