@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Header from "../features/Admin/Header";
 import { useState } from "react";
 
+
 const StyledAppLayout = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
@@ -37,6 +38,7 @@ const Container = styled.div`
 
 function AppLayout() {
   const [openSidebar, setOpenSidebar] = useState(false);
+
   return (<>
     <Header openSidebar={openSidebar} setOpenSidebar={setOpenSidebar} />
     <StyledAppLayout>

@@ -16,7 +16,10 @@ import Success from "./Pages/Success";
 
 const routes = createBrowserRouter([
   { path: "/", element: <AppLayout />, errorElement: <h1>404</h1> },
-  { path: "/login", element: <Login /> },
+  {
+    path: "/login", element: <Login />,
+
+  },
   { path: "/success/:token", element: <Success /> },
   {
     path: "/admin", element:
@@ -25,7 +28,12 @@ const routes = createBrowserRouter([
     // </ProtectedRoute>,
     errorElement: <h1>404</h1>, children: [
       { index: true, element: <Navigate to="/admin/profile" /> },
-      { path: "profile", element: <UserDataTable />, index: true },
+      {
+        path: "profile", element: <UserDataTable />,
+        children: [
+          { path: ":token", element: <Login /> }
+        ]
+      },
       { path: "skills", element: <SkillsTable /> },
       { path: "projects", element: <ProjectTable /> },
     ],
