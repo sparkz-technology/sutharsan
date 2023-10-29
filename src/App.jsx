@@ -12,15 +12,17 @@ import ProjectTable from "./features/Projects/ProjectTable";
 import SkillsTable from "./features/Skills/SkillsTable";
 import Login from "./features/Login/Login";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import Success from "./Pages/Success";
 
 const routes = createBrowserRouter([
   { path: "/", element: <AppLayout />, errorElement: <h1>404</h1> },
   { path: "/login", element: <Login /> },
+  { path: "/success/:token", element: <Success /> },
   {
     path: "/admin", element:
-      <ProtectedRoute >
-        <AdminLayout />
-      </ProtectedRoute>,
+      // <ProtectedRoute >
+      <AdminLayout />,
+    // </ProtectedRoute>,
     errorElement: <h1>404</h1>, children: [
       { index: true, element: <Navigate to="/admin/profile" /> },
       { path: "profile", element: <UserDataTable />, index: true },
