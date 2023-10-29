@@ -1,16 +1,21 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const API_URL = "https://backend-peach-phi.vercel.app/";
-// const API_URL = "http://localhost:8000/";
+// const API_URL = "https://backend-peach-phi.vercel.app/";
+const API_URL = "http://localhost:8000/";
 
 // create a new axios instance
 const axiosInstance = axios.create({
     baseURL: API_URL,
     timeout: 30000,
+    Credentials: true,
     headers: {
+
+        "Authorization": "Bearer " + Cookies.get("token"),
         "Content-Type": "application/json",
         accept: "application/json",
     },
+
     withCredentials: true,
 });
 
