@@ -58,7 +58,6 @@ const Body = styled.div`
 
 
 function Login() {
-
     function handleLogin() {
         window.location.href = 'https://github.com/login/oauth/authorize?client_id=be5a9847d65b1697867d&scope=user';
     };
