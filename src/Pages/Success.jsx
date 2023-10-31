@@ -47,22 +47,30 @@ const Loader = styled.div`
 `;
 function Success() {
   const { token } = useParams();
-  Cookies.set("token", token);
+  console.log("Token:", token);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (token) {
+      // Set the token in the cookies
+      Cookies.set("token", token);
+    } else {
+      // Handle the case where there is no token available
+      navigate("/login");
+    }
+
+    // Check for the token after a delay
     const checkToken = setTimeout(() => {
-      const tokenFromCookie = Cookies.get("token");
-      if (tokenFromCookie) {
+      if (Cookies.get("token")) {
         navigate("/admin/profile");
       } else {
         navigate("/login");
       }
-    }, 5000); // Waiting for 1 second, adjust as needed
+    }, 5000); // Waiting for 5 seconds
 
     return () => clearTimeout(checkToken); // Clear the timeout on component unmount
-  }, [navigate]);
+  }, [navigate, token]);
 
   return (
     <Container>
@@ -70,7 +78,7 @@ function Success() {
       <Loader />
       <Subtitle>Login successful. Redirecting to Admin Dashboard...</Subtitle>
     </Container>
-  )
+  );
 }
 
 export default Success;
