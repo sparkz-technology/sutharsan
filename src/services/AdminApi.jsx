@@ -1,96 +1,105 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-// const API_URL = "http://localhost:8000/";
 const API_URL = "https://backend-peach-phi.vercel.app/";
 
-
-const axiosInstance = axios.create({
-    baseURL: API_URL,
-    timeout: 30000,
-    headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-    },
-});
-
-const updateAuthorizationHeader = () => {
-    const token = Cookies.get("token");
-    if (token) {
-        axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    }
-};
-
-updateAuthorizationHeader();
-
-axiosInstance.interceptors.request.use(
-    (config) => {
-        updateAuthorizationHeader();
-        return config;
-    },
-    (error) => {
-        return Promise.reject(error);
-    }
-);
-
 export async function login() {
-    const responce = await axiosInstance.get("auth/github");
-    return responce.data;
+    const response = await axios.get(`${API_URL}auth/github`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
 }
 
 export async function getSkills() {
-    const responce = await axiosInstance.get("/skill");
-    return responce.data;
+    const response = await axios.get(`${API_URL}skill`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
 }
 
 export async function createSkill(data) {
-    const responce = await axiosInstance.post("/skill", data);
-    return responce.data;
+    const response = await axios.post(`${API_URL}skill`, data, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
 }
 
 export async function updateSkill(data) {
-    const id = data.get("id");
-    const responce = await axiosInstance.patch(`skill/${id}`, data);
-    return responce.data;
+    const id = data.id;
+    const response = await axios.patch(`${API_URL}skill/${id}`, data, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
 }
 
 export async function deleteSkill(id) {
-    const responce = await axiosInstance.delete(`skill/${id}`);
-    return responce.data;
-}
-
-export async function getProjects() {
-    const responce = await axiosInstance.get("/project");
-    return responce.data;
-}
-
-export async function createProject(data) {
-    const responce = await axiosInstance.post("/project", data);
-    return responce.data;
-}
-
-export async function updateProject(data) {
-    const id = data.get("id");
-    const responce = await axiosInstance.patch(`project/${id}`, data);
-    return responce.data;
-}
-
-export async function deleteProject(id) {
-    const responce = await axiosInstance.delete(`project/${id}`);
-    return responce.data;
-}
-
-export async function getUserData() {
-    const responce = await axios.get(`${API_URL}user`, {
+    const response = await axios.delete(`${API_URL}skill/${id}`, {
         headers: {
             Authorization: `Bearer ${Cookies.get("token")}`,
-        }
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
     });
+    return response.data;
+}
 
-    return responce.data;
+// Functions for projects...
+
+export async function getProjects() {
+    const response = await axios.get(`${API_URL}project`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
+}
+
+// Functions for updating/deleting projects...
+
+export async function getUserData() {
+    const response = await axios.get(`${API_URL}user`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
 }
 
 export async function updateUserData(data) {
-    const responce = await axiosInstance.patch("/user", data);
-    return responce.data;
+    const response = await axios.patch(`${API_URL}user`, data, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+        withCredentials: true,
+    });
+    return response.data;
 }
