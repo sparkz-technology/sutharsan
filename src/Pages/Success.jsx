@@ -1,24 +1,63 @@
-import Cookies from "js-cookie";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+`;
+
+const Subtitle = styled.h2`
+  font-size: 1.5em;
+  color: #555;
+  margin-top: 20px;
+`;
+
+const Loader = styled.div`
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px 0;
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
 function Success() {
     const { token } = useParams();
     Cookies.set("token", token);
-    console.log(token);
+    const navigate = useNavigate();
     useEffect(() => {
-        window.location.replace("/admin/profile");
-
-    }, [token]);
+        // if (token) {
+        //     navigate("/admin/profile");
+        // }
+        // else {
+        //     navigate("/login");
+        // }
+    }, [token, navigate]);
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-            <h1>Success</h1>
-            {
-                token && <h2> login success</h2>
-            }
-
-        </div>
+        <Container>
+            <Title>Welcome, Admin</Title>
+            <Loader />
+            <Subtitle>Login successful. Redirecting to Admin Dashboard...</Subtitle>
+        </Container>
     )
 }
 
