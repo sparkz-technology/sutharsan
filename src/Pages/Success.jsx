@@ -48,15 +48,21 @@ const Loader = styled.div`
 function Success() {
   const { token } = useParams();
   Cookies.set("token", token);
+
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (token) {
-      navigate("/admin/profile");
-    }
-    else {
-      navigate("/login");
-    }
-  }, [token, navigate]);
+    const checkToken = setTimeout(() => {
+      const tokenFromCookie = Cookies.get("token");
+      if (tokenFromCookie) {
+        navigate("/admin/profile");
+      } else {
+        navigate("/login");
+      }
+    }, 5000); // Waiting for 1 second, adjust as needed
+
+    return () => clearTimeout(checkToken); // Clear the timeout on component unmount
+  }, [navigate]);
 
   return (
     <Container>
@@ -67,4 +73,4 @@ function Success() {
   )
 }
 
-export default Success
+export default Success;
