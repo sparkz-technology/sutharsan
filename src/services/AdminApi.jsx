@@ -12,7 +12,6 @@ const axiosInstance = axios.create({
         "Content-Type": "application/json",
         accept: "application/json",
     },
-    withCredentials: true,
 });
 
 const updateAuthorizationHeader = () => {
@@ -83,10 +82,7 @@ export async function deleteProject(id) {
 
 export async function getUserData() {
     const responce = await axios.get(`${API_URL}user`, {
-        withCredentials: true,
         headers: {
-            "Content-Type": "application/json",
-            accept: "application/json",
             Authorization: `Bearer ${Cookies.get("token")}`,
         }
     });
