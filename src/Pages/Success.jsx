@@ -15,19 +15,25 @@ const Container = styled.div`
 
 const Title = styled.h1`
   font-size: 2.5em;
-  color: #333;
+  color: var(--sub-text-color);
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
 `;
 
 const Subtitle = styled.h2`
   font-size: 1.5em;
-  color: #555;
+  color: var(--sub-text-color);
   margin-top: 20px;
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 const Loader = styled.div`
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #3498db;
+  border-top: 4px solid var(--title-color);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -40,25 +46,25 @@ const Loader = styled.div`
   }
 `;
 function Success() {
-    const { token } = useParams();
-    Cookies.set("token", token);
-    const navigate = useNavigate();
-    useEffect(() => {
-        // if (token) {
-        //     navigate("/admin/profile");
-        // }
-        // else {
-        //     navigate("/login");
-        // }
-    }, [token, navigate]);
+  const { token } = useParams();
+  Cookies.set("token", token);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate("/admin/profile");
+    }
+    else {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
-    return (
-        <Container>
-            <Title>Welcome, Admin</Title>
-            <Loader />
-            <Subtitle>Login successful. Redirecting to Admin Dashboard...</Subtitle>
-        </Container>
-    )
+  return (
+    <Container>
+      <Title>Welcome, Admin</Title>
+      <Loader />
+      <Subtitle>Login successful. Redirecting to Admin Dashboard...</Subtitle>
+    </Container>
+  )
 }
 
 export default Success
