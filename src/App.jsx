@@ -12,7 +12,7 @@ import ProjectTable from "./features/Projects/ProjectTable";
 import SkillsTable from "./features/Skills/SkillsTable";
 import Login from "./features/Login/Login";
 import ProtectedRoute from "./ui/ProtectedRoute";
-import Success from "./Pages/Success";
+import Success from "./Pages/Success/";
 
 const routes = createBrowserRouter([
   { path: "/", element: <AppLayout />, errorElement: <h1>404</h1> },

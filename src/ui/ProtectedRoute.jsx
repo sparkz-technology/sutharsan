@@ -8,9 +8,9 @@ function ProtectedRoute({ children }) {
     const navigate = useNavigate();
     useEffect(() => {
         const token = Cookies.get('token');
-        if (!token) {
-            navigate('/login');
-        }
+        console.log(token);
+        token ? navigate("/admin/profile") : navigate("/login");
+
     }, [navigate]);
 
     return <>{children}</>;

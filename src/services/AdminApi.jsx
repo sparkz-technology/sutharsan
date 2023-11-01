@@ -1,20 +1,18 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 
 // const API_URL = "http://localhost:8000/";
 const API_URL = "https://backend-peach-phi.vercel.app/";
 
-
 const axiosInstance = axios.create({
     baseURL: API_URL,
     timeout: 30000,
-    credentials: "include",
+    withCredentials: true,
+
     headers: {
-        Authorization: `Bearer ${Cookies.get("token")}`,
         "Content-Type": "application/json",
         accept: "application/json",
     },
-    withCredentials: true,
+
 });
 
 
@@ -35,12 +33,12 @@ export async function createSkill(data) {
 
 export async function updateSkill(data) {
     const id = data.get("id");
-    const responce = await axiosInstance.patch(`skill/${id}`, data);
+    const responce = await axiosInstance.patch(`skill/ ${id}`, data);
     return responce.data;
 }
 
 export async function deleteSkill(id) {
-    const responce = await axiosInstance.delete(`skill/${id}`);
+    const responce = await axiosInstance.delete(`skill / ${id}`);
     return responce.data;
 }
 
@@ -56,12 +54,12 @@ export async function createProject(data) {
 
 export async function updateProject(data) {
     const id = data.get("id");
-    const responce = await axiosInstance.patch(`project/${id}`, data);
+    const responce = await axiosInstance.patch(`project / ${id}`, data);
     return responce.data;
 }
 
 export async function deleteProject(id) {
-    const responce = await axiosInstance.delete(`project/${id}`);
+    const responce = await axiosInstance.delete(`project / ${id}`);
     return responce.data;
 }
 

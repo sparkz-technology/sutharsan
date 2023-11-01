@@ -50,27 +50,13 @@ function Success() {
   console.log("Token:", token);
 
   const navigate = useNavigate();
-
+  localStorage.setItem("token", token);
+  const Auth = Cookies.set('token', token);
   useEffect(() => {
-    if (token) {
-      // Set the token in the cookies
-      Cookies.set("token", token);
-    } else {
-      // Handle the case where there is no token available
-      navigate("/login");
-    }
 
-    // Check for the token after a delay
-    const checkToken = setTimeout(() => {
-      if (Cookies.get("token")) {
-        navigate("/admin/profile");
-      } else {
-        navigate("/login");
-      }
-    }, 5000); // Waiting for 5 seconds
+    Auth ? navigate("/admin/profile") : navigate("/login");
 
-    return () => clearTimeout(checkToken); // Clear the timeout on component unmount
-  }, [navigate, token]);
+  }, [navigate, Auth]);
 
   return (
     <Container>
