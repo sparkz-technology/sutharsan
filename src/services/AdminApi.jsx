@@ -7,9 +7,11 @@ const API_URL = "https://backend-peach-phi.vercel.app/";
 const axiosInstance = axios.create({
     baseURL: API_URL,
     timeout: 30000,
-    withCredentials: "include", // send cookies when cross-domain requests
-
+    withCredentials: true,
+    crossdomain: true,//to allow cross origin request from localhost to vercel app  
+    credentials: 'include',
     headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
         "Content-Type": "application/json",
         accept: "application/json",
     },
