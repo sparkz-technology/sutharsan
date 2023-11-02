@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
+import { login } from '../services/AdminApi';
 
 const Container = styled.div`
   display: flex;
@@ -47,22 +49,42 @@ const Loader = styled.div`
 `;
 function Success() {
   const { token } = useParams();
-  console.log("Token:", token);
+
 
   const navigate = useNavigate();
-  localStorage.setItem("token", token);
-  const Auth = Cookies.set('token', token);
+
+  const queryKey = ["login"];
+  const queryFn = () => login(token)
+  const { data, isLoading, isError } = useQuery(queryKey, queryFn,
+    {
+      enabled: !!token,
+      retry: false,
+      staleTime: 0,
+    }
+  );
+
   useEffect(() => {
+    if (data) {
+      console.log("Data:", data);
+      Cookies.set('token', data.token);
+      localStorage.setItem("token", data.token);
+      navigate('/admin');
+    }
+    if (isError) {
+      navigate('/');
+    }
+  }, [data, isError, navigate]);
 
-    Auth ? navigate("/admin/profile") : navigate("/login");
 
-  }, [navigate, Auth]);
+
 
   return (
     <Container>
       <Title>Welcome, Admin</Title>
       <Loader />
-      <Subtitle>Login successful. Redirecting to Admin Dashboard...</Subtitle>
+      {
+        isLoading ? <Subtitle>Logging in...</Subtitle> : <Subtitle>Redirecting...</Subtitle>
+      }
     </Container>
   );
 }

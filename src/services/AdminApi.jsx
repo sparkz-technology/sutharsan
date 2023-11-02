@@ -1,78 +1,79 @@
 import axios from "axios";
 
-// const API_URL = "http://localhost:8000/";
-const API_URL = "https://backend-peach-phi.vercel.app/";
+const API_URL = "http://localhost:8000/";
+// const API_URL = "https://backend-peach-phi.vercel.app/";
 
 
-const axiosInstance = axios.create({
-    baseURL: API_URL,
-    timeout: 30000,
-    withCredentials: true,
-    crossdomain: true,//to allow cross origin request from localhost to vercel app  
-    credentials: 'include',
-    headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        "Content-Type": "application/json",
-        accept: "application/json",
-    },
-
-});
+const createAxiosInstance = () => {
+    return axios.create({
+        baseURL: API_URL,
+        timeout: 30000,
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json",
+            accept: "application/json",
+        },
+    });
+};
 
 
-// export async function login() {
-//     const responce = await axiosInstance.get("auth/github");
-//     return responce.data;
-// }
+export async function login(token) {
+    const response = await axios.post(`${API_URL}auth/github`, { accessToken: token });
+    if (response.status === 200) {
+        createAxiosInstance()
+    }
+    return response.data;
+}
 
 export async function getSkills() {
-    const responce = await axiosInstance.get("/skill");
+    const responce = await createAxiosInstance().get("/skill");
     return responce.data;
 }
 
 export async function createSkill(data) {
-    const responce = await axiosInstance.post("/skill", data);
+    const responce = await createAxiosInstance().post("/skill", data);
     return responce.data;
 }
 
 export async function updateSkill(data) {
     const id = data.get("id");
-    const responce = await axiosInstance.patch(`skill/ ${id}`, data);
+    const responce = await createAxiosInstance().patch(`skill/ ${id}`, data);
     return responce.data;
 }
 
 export async function deleteSkill(id) {
-    const responce = await axiosInstance.delete(`skill / ${id}`);
+    const responce = await createAxiosInstance().delete(`skill / ${id}`);
     return responce.data;
 }
 
 export async function getProjects() {
-    const responce = await axiosInstance.get("/project");
+    const responce = await createAxiosInstance().get("/project");
     return responce.data;
 }
 
 export async function createProject(data) {
-    const responce = await axiosInstance.post("/project", data);
+    const responce = await createAxiosInstance().post("/project", data);
     return responce.data;
 }
 
 export async function updateProject(data) {
     const id = data.get("id");
-    const responce = await axiosInstance.patch(`project / ${id}`, data);
+    const responce = await createAxiosInstance().patch(`project / ${id}`, data);
     return responce.data;
 }
 
 export async function deleteProject(id) {
-    const responce = await axiosInstance.delete(`project / ${id}`);
+    const responce = await createAxiosInstance().delete(`project / ${id}`);
     return responce.data;
 }
 
 export async function getUserData() {
-    const responce = await axiosInstance.get("/user");
+    const responce = await createAxiosInstance().get("/user");
 
     return responce.data;
 }
 
 export async function updateUserData(data) {
-    const responce = await axiosInstance.patch("/user", data);
+    const responce = await createAxiosInstance().patch("/user", data);
     return responce.data;
 }
