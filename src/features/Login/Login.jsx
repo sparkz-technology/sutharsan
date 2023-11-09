@@ -4,13 +4,10 @@ import BackButton from "../../ui/BackButton";
 
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    height: 100vh;
-    width: 100%;
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `;
 
 const LoginButton = styled.button`
@@ -64,20 +61,23 @@ function Login() {
     };
 
     return (
-        <Container>
+        <>
             <BackButton />
-            <Body style={{ width: "400px" }}>
-                <Header>
-                    <Title>Login for Admin</Title>
-                </Header>
-                <p style={{ color: "var(--sub-text-color)", fontSize: "0.8rem", fontWeight: "500" }}>
-                    Login with Github to access the admin dashboard.
-                </p>
-                <LoginButton onClick={handleLogin}>
-                    <GitHub size={30} /> Login with Github
-                </LoginButton>
-            </Body>
-        </Container >
+            <Container>
+                <Body style={{ width: "400px" }}>
+                    <Header>
+                        <Title>Login for Admin</Title>
+                    </Header>
+                    <p style={{ color: "var(--sub-text-color)", fontSize: "0.8rem", fontWeight: "500" }}>
+                        Login with Github to access the admin dashboard.
+                    </p>
+                    <LoginButton onClick={handleLogin}>
+                        <GitHub size={30} /> Login with Github
+                    </LoginButton>
+                </Body>
+            </Container >
+        </>
+
     )
 }
 

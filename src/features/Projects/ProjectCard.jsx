@@ -56,16 +56,19 @@ const Info = styled.div`
     margin-bottom: 1rem;
     inline-size: 100%;
     color: var(--card-des-color);
-    text-align: justify;
   }
   h2{
   color:var(--sub-text-color);
+  font-size: 1.5rem;
   
   }
   
   @media screen and (max-width: 768px) {
     p {
       font-size: 0.8rem;
+    }
+    h2{
+      font-size: 1.2rem;
     }
   }
 `;

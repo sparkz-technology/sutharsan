@@ -120,6 +120,7 @@ const MobileMenuItem = styled(Link)`
   &:hover {
       color: var(--nav-active-color);
     }
+  
 `;
 
 const MobileCloseMenu = styled("div", {
@@ -132,6 +133,7 @@ const MobileCloseMenu = styled("div", {
   cursor: pointer;
   color: var(--nav-link-color);
 
+ 
 `;
 
 const MobileOpenMenu = styled("div", {

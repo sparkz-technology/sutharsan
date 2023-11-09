@@ -58,12 +58,9 @@ const Text = styled.p`
   font-size: 1.2rem;
   margin-bottom: 2rem;
   text-align: start;
-  font-family:
-    Roboto Mono,
-    monospace;
-
+  font-family:  Roboto Mono,monospace;
   @media screen and (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -83,6 +80,14 @@ const Profile = styled.aside`
       transform: scale(1.1);
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
+
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    img {
+      width: 200px;
+    }
+
   }
 `;
 

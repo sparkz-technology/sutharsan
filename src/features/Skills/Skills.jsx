@@ -31,6 +31,8 @@ const Tabs = styled.div`
     padding: 0.5rem;
     border-radius: 8px;
     gap: 0.5rem;
+    margin-top: 0.5rem;
+
   }
 `;
 
@@ -49,7 +51,8 @@ const Tab = styled.div`
   }
   @media screen and (max-width: 768px) {
     padding: 5px 10px;
-    font-size: 0.8rem;
+    border: 1.5px solid var(--button-background-color);
+    font-size: 0.7rem;
   }
 `;
 
@@ -155,6 +158,10 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    margin: 1rem;
+  }
 `;
 
 const Title = styled.h1`
@@ -190,6 +197,17 @@ const SkillCardFront = styled.div`
   justify-content: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
+  @media screen and (max-width: 768px) {
+    height: 100px;
+    width: 100px;
+    border-radius: 30px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const SkillCardBack = styled.div`

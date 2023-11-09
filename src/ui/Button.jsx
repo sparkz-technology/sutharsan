@@ -38,6 +38,8 @@ const Button = styled.button`
   }
   @media screen and (max-width: 768px) {
     font-size: 0.8rem;
+    padding: 10px 20px;
+    margin: 2px 1px;
   }
 `;
 

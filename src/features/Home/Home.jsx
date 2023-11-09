@@ -11,7 +11,8 @@ const HomeContainer = styled.div`
   /* background-color: #f5f5f5; */
   padding: 0 10rem;
   @media screen and (max-width: 768px) {
-    padding: 0 2rem;
+    padding: 0rem 2rem;
+    margin-top: 2rem;
   }
 `;
 
@@ -36,7 +37,9 @@ const Subtitle = styled.h1`
     monospace;
   font-weight: 700;
   @media screen and (max-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
   }
 `;
 
@@ -50,7 +53,7 @@ const Description = styled.p`
     monospace;
 
   @media screen and (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 `;
 
