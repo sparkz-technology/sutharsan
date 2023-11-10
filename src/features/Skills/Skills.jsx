@@ -27,6 +27,7 @@ const Tabs = styled.div`
   -webkit-backdrop-filter: blur( 20px );
   border: 1px solid var(--border-color);
   gap: 1rem;
+  width:fit-content;
   @media screen and (max-width: 768px) {
     padding: 0.5rem;
     border-radius: 8px;
@@ -159,8 +160,7 @@ const Header = styled.div`
   justify-content: space-between;
   margin-bottom: 2rem;
   @media screen and (max-width: 768px) {
-    flex-direction: column;
-    margin: 1rem;
+    
   }
 `;
 

@@ -21,7 +21,7 @@ function AppLayout() {
       <About />
       <Skills />
       <Projects />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </>
   );
