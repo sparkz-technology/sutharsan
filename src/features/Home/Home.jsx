@@ -9,7 +9,6 @@ const HomeContainer = styled.div`
   justify-content: center;
   height: 100vh;
   padding: 0 10rem;
-  margin-top: 5rem;
   @media screen and (max-width: 768px) {
     padding: 0rem 2rem;
     margin-top: 7rem;

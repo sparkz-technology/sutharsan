@@ -33,7 +33,7 @@ const Tabs = styled.div`
     border-radius: 8px;
     gap: 0.5rem;
     margin-top: 0.5rem;
-
+    width:100%;
   }
 `;
 
@@ -42,7 +42,6 @@ const Tab = styled.div`
   padding: 10px 20px;
   background-color: ${(props) =>
     props.active ? " var(--button-background-color)" : "transparent"};
-  /* color: ${(props) => (props.active ? "white" : "var(--button-background-color)")}; */
   color: ${(props) => (props.active ? "white" : "var(--button-text-active-color)")};
   border: 3px solid var(--button-background-color);
   border-radius: 8px;
@@ -50,17 +49,19 @@ const Tab = styled.div`
     background-color: var(--button-background-hover-color);
     color: white;
   }
+  display: flex;
+  justify-content: center;
   @media screen and (max-width: 768px) {
     padding: 5px 10px;
     border: 1.5px solid var(--button-background-color);
     font-size: 0.7rem;
+    width:100%;
   }
 `;
 
 const SkillCard = styled.div`
   position: relative;
   perspective: 1000px;
-  /* background-color: #fff; */
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.45);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -160,6 +161,7 @@ const Header = styled.div`
   justify-content: space-between;
   margin-bottom: 2rem;
   @media screen and (max-width: 768px) {
+    flex-direction: column;
     
   }
 `;
