@@ -6,6 +6,7 @@ import Projects from "../features/Projects/Projects";
 import Footer from "../features/Footer/Footer";
 import useGetUserDetails from "../features/Data/useGetUserDetails";
 import Loader from "../ui/Loader";
+import Contact from "../features/Contact/Contact"
 
 
 function AppLayout() {
@@ -20,6 +21,7 @@ function AppLayout() {
       <About />
       <Skills />
       <Projects />
+      <Contact />
       <Footer />
     </>
   );

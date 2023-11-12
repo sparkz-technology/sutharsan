@@ -8,10 +8,10 @@ const Container = styled.div`
   justify-content: start;
   align-items: start;
   flex-direction: column;
-  padding: 2rem 10rem;
-  gap: 2rem;
+  /* padding: 2rem 10rem; */
+  /* gap: 2rem; */
   @media screen and (max-width: 768px) {
-    padding: 2rem;
+    /* padding: 2rem; */
   }
 `;
 
