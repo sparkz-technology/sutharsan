@@ -44,14 +44,27 @@ const Error = styled(ErrorMessage)`
     left: 0;
 `;
 
-const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-const Table = styled.div`
-    display: flex;
-    gap: 1rem;
-`;
+const FormContainer = styled(Form)`
+    // set a max height for the form and make it scrollable
+    height: 500px;
+    overflow-y: auto;
+    // scroll bar style when the form is scrollable with styles
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    
+    
+
+`
 
 const ProjectForm = ({ projectToUpdate = {} }) => {
     const { createProject, isCreating } = useCreateProject()
@@ -88,38 +101,31 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
             onSubmit={handleSubmit}
         >
             {({ setFieldValue, values }) => (
-                <Form>
-                    <Table>
-                        <Column>
-                            <Row>
-                                <Label htmlFor="title">Title</Label>
-                                <Field type="text" id="title" name="title" disabled={isWorking} as={Input} />
-                                <Error name="title" component="div" />
-                            </Row>
+                <FormContainer>
+                    <Row>
+                        <Label htmlFor="title">Title</Label>
+                        <Field type="text" id="title" name="title" disabled={isWorking} as={Input} />
+                        <Error name="title" component="div" />
+                    </Row>
 
-                            <Row>
-                                <Label htmlFor="description">Description</Label>
-                                <Field type="text" id="description" name="description" disabled={isWorking} as={Input} />
-                                <Error name="description" component="div" />
+                    <Row>
+                        <Label htmlFor="description">Description</Label>
+                        <Field type="text" id="description" name="description" disabled={isWorking} as={Input} />
+                        <Error name="description" component="div" />
 
-                            </Row>
+                    </Row>
 
 
-                        </Column>
-                        <Column>
-                            <Row>
-                                <Label htmlFor="website">Website</Label>
-                                <Field type="text" id="website" name="website" disabled={isWorking} as={Input} />
-                                <Error name="website" component="div" />
-                            </Row>
-                            <Row>
-                                <Label htmlFor="github">Github</Label>
-                                <Field type="text" id="github" name="github" disabled={isWorking} as={Input} />
-                                <Error name="github" component="div" />
-                            </Row>
-
-                        </Column>
-                    </Table>
+                    <Row>
+                        <Label htmlFor="website">Website</Label>
+                        <Field type="text" id="website" name="website" disabled={isWorking} as={Input} />
+                        <Error name="website" component="div" />
+                    </Row>
+                    <Row>
+                        <Label htmlFor="github">Github</Label>
+                        <Field type="text" id="github" name="github" disabled={isWorking} as={Input} />
+                        <Error name="github" component="div" />
+                    </Row>
                     <Row>
                         <Label htmlFor="technologies">Technologies</Label>
                         <Field type="text" id="technologies" name="technologies" disabled={isWorking} as={Input} />
@@ -180,7 +186,7 @@ const ProjectForm = ({ projectToUpdate = {} }) => {
                             {isUpdateSession ? 'Update' : 'Create'}
                         </Button>
                     </Row>
-                </Form>
+                </FormContainer>
             )}
         </Formik >
     );
