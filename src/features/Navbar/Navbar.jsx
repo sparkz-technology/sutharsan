@@ -7,8 +7,10 @@ import { useOutSideClick } from "../../hook/useOutSideClick";
 import isPropValid from "@emotion/is-prop-valid";
 import DarkModeToggle from "../../ui/DarkModeToggle";
 import LoginToggle from "../Login/LoginToggle";
+import { fadeAnimationVariants } from "../../styles/Motion";
+import { motion } from "framer-motion";
 
-const NavbarContainer = styled("nav", {
+const NavbarContainer = styled(motion.nav, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "show",
 })`
   position: fixed;
@@ -53,7 +55,7 @@ const NavbarBrand = styled(Link)`
     }
 `;
 
-const NavbarLinks = styled("ul", {
+const NavbarLinks = styled(motion.ul, {
   shouldForwardProp: isPropValid,
 })`
   display: flex;
@@ -64,7 +66,7 @@ const NavbarLinks = styled("ul", {
   gap: 1rem;
 `;
 
-const NavbarLink = styled("li", {
+const NavbarLink = styled(motion.li, {
   shouldForwardProp: isPropValid,
 })`
   margin-left: 1rem;
@@ -84,7 +86,7 @@ const StyledNavLink = styled(Link)`
     }
 `;
 
-const MobileMenu = styled("div", {
+const MobileMenu = styled(motion.div, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "show",
 })`
   position: fixed;
@@ -123,7 +125,7 @@ const MobileMenuItem = styled(Link)`
   
 `;
 
-const MobileCloseMenu = styled("div", {
+const MobileCloseMenu = styled(motion.div, {
   shouldForwardProp: isPropValid,
 })`
   display: flex;
@@ -136,7 +138,7 @@ const MobileCloseMenu = styled("div", {
  
 `;
 
-const MobileOpenMenu = styled("div", {
+const MobileOpenMenu = styled(motion.div, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "show",
 })`
   position: fixed;
@@ -161,7 +163,7 @@ const MobileOpenMenu = styled("div", {
     transform 0.3s ease-in-out;
   display: ${(props) => (props.show ? "none" : "flex")};
 `;
-const ToggleContainer = styled.div`
+const ToggleContainer = styled(motion.div)`
 display: flex;
 gap: 1rem;
 `;
@@ -243,19 +245,26 @@ const Navbar = () => {
               </MobileCloseMenu>
               <LoginToggle />
               {NavLinks.map((link, index) => (
-                <MobileMenuItem
-                  key={index}
-                  to={link.target}
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                  activeClass="active-link"
-                  onClick={() => setShowMenu(false)}
-                >
-                  {link.name}
-                </MobileMenuItem>
+                <motion.div key={index} variants={fadeAnimationVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  custom={index}>
+
+                  <MobileMenuItem
+                    key={index}
+                    to={link.target}
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                    activeClass="active-link"
+                    onClick={() => setShowMenu(false)}
+
+                  >
+                    {link.name}
+                  </MobileMenuItem>
+                </motion.div>
               ))}
             </MobileMenu>
           </>

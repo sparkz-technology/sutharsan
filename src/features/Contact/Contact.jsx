@@ -104,11 +104,15 @@ function Contact() {
           <TextButton onClick={() => setShow(!show)}>let&apos;s connect.</TextButton>
         </Text>
       </Info> */}
-      <Button onClick={() => setShow(!show)}>
+
+      <Button
+        onClick={() => setShow(!show)}
+        style={{ display: show ? "none" : "block" }}
+      >
         <AiOutlineMessage size={30} />
       </Button>
       {show && <ContactForm handleShow={setShow} />}
-    </Container>
+    </Container >
   );
 }
 

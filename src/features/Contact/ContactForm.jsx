@@ -2,12 +2,16 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 import { useOutSideClick } from "../../hook/useOutSideClick";
 // AiFillCloseCircle
 import { AiFillCloseCircle } from "react-icons/ai";
 import useSendMsg from "./useSendMsg";
 import MiniSpinner from "../../ui/MiniSpinner";
-const FormContainer = styled.div`
+import { fadeAnimation } from "../../styles/Motion";
+
+const FormContainer = styled(motion.div)`
   width: 300px;
   margin: 0 auto;
   padding: 20px;
@@ -133,7 +137,7 @@ const ContactForm = ({ handleShow }) => {
   });
 
   return (
-    <FormContainer ref={ref}>
+    <FormContainer ref={ref} {...fadeAnimation} >
       <CloseButton onClick={() => handleShow(false)}>
         <AiFillCloseCircle size={25} />
       </CloseButton>

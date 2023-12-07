@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { motion } from "framer-motion"
 
 import useGetUserDetails from "../Data/useGetUserDetails";
 import ProjectCard from "./ProjectCard";
-const Title = styled.h1`
+import { slideAnimation } from "../../styles/Motion";
+
+const Title = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -13,7 +16,7 @@ const Title = styled.h1`
     font-size: 1.5rem;
   }
 `;
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: start;
@@ -26,9 +29,8 @@ const Container = styled.div`
   }
 `;
 
-const CardContainer = styled.div`
+const CardContainer = styled(motion.div)`
   display: flex;  
-  /* justify-content: center; */
   align-items: center;
   width: 100%;
   gap: 2rem;
@@ -44,7 +46,7 @@ function Projects() {
   const { projects } = userDetails
   return (
     <Container id="projects">
-      <Title>Projects</Title>
+      <Title{...slideAnimation("right")}>Projects</Title>
       <CardContainer>
         {projects.map((project, index) => {
           return <ProjectCard key={index} project={project} />;

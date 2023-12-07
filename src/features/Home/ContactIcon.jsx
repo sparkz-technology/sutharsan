@@ -6,11 +6,13 @@ import {
 } from "react-icons/ai";
 import { IoLogoWhatsapp as WhatsApp } from "react-icons/io";
 import { BiLogoGmail as Gmail } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 import Button from "../../ui/Button";
 import useGetUserDetails from "../Data/useGetUserDetails";
+import { slideAnimation } from "../../styles/Motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -19,7 +21,7 @@ const Container = styled.div`
     align-items: start;
   }
 `;
-const Icons = styled.div`
+const Icons = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -41,7 +43,7 @@ function ContactIcon() {
   const { userDetails } = useGetUserDetails()
   const { mail, githubLink, linkedinLink, instagramLink, WhatsAppNumber, resumeLink } = userDetails
   return (
-    <Container>
+    <Container {...slideAnimation("left")}>
       <div>
         <Button onClick={() => window.open(resumeLink, "_blank")}>Resume &#8594;</Button>
       </div>

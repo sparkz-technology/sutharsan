@@ -8,6 +8,8 @@ import useGetUserDetails from "../features/Data/useGetUserDetails";
 import Loader from "../ui/Loader";
 import Contact from "../features/Contact/Contact"
 
+import { AnimatePresence } from "framer-motion";
+
 
 function AppLayout() {
   const { isFetching } = useGetUserDetails()
@@ -15,7 +17,7 @@ function AppLayout() {
     return <Loader />
   }
   return (
-    <>
+    <AnimatePresence>
       <Navbar />
       <Home />
       <About />
@@ -23,7 +25,7 @@ function AppLayout() {
       <Projects />
       <Contact />
       <Footer />
-    </>
+    </AnimatePresence>
   );
 }
 

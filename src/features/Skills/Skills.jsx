@@ -1,10 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
+
 import CircularProgressBar from "../../ui/CircularProgressBar";
 import useGetUserDetails from "../Data/useGetUserDetails";
+import { fadeAnimation, fadeAnimationVariants, slideAnimation } from "../../styles/Motion";
 
 
-const SkillsWrapper = styled.div`
+
+const SkillsWrapper = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
@@ -15,7 +19,7 @@ const SkillsWrapper = styled.div`
   }
 `;
 
-const Tabs = styled.div`
+const Tabs = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +41,7 @@ const Tabs = styled.div`
   }
 `;
 
-const Tab = styled.div`
+const Tab = styled(motion.div)`
   cursor: pointer;
   padding: 10px 20px;
   background-color: ${(props) =>
@@ -59,7 +63,7 @@ const Tab = styled.div`
   }
 `;
 
-const SkillCard = styled.div`
+const SkillCard = styled(motion.div)`
   position: relative;
   perspective: 1000px;
   border-radius: 0.5rem;
@@ -156,7 +160,7 @@ const SkillCard = styled.div`
   }
 `;
 
-const Header = styled.div`
+const Header = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
@@ -166,7 +170,7 @@ const Header = styled.div`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--title-color);
@@ -177,7 +181,7 @@ const Title = styled.h1`
   }
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   /* height: 500px; */
   padding: 2rem 10rem;
 
@@ -187,7 +191,7 @@ const Container = styled.div`
   }
 `;
 
-const SkillCardFront = styled.div`
+const SkillCardFront = styled(motion.div)`
   background-color: #fff;
   height: 150px;
   width: 150px;
@@ -212,7 +216,7 @@ const SkillCardFront = styled.div`
   }
 `;
 
-const SkillCardBack = styled.div`
+const SkillCardBack = styled(motion.div)`
   background-color: #fff;
   height: 150px;
   width: 150px;
@@ -237,22 +241,32 @@ const Skills = () => {
   return (
     <Container id="skills">
       <Header>
-        <Title>Skills</Title>
-        <Tabs>
-          {TabTitle.map((tab) => (
+        <Title  {...slideAnimation("right")} >Skills</Title>
+        <Tabs {...fadeAnimation}>
+          {TabTitle.map((tab, index) => (
             <Tab
               key={tab.name}
               active={activeTab === tab.name}
               onClick={() => setActiveTab(tab.name)}
+              variants={fadeAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              custom={index}
             >
               {tab.name}
             </Tab>
           ))}
         </Tabs>
       </Header>
-      <SkillsWrapper>
-        {filteredSkills?.map((skill) => (
-          <SkillCard key={skill.skill}>
+      <SkillsWrapper
+      >
+        {filteredSkills?.map((skill, index) => (
+          <SkillCard key={skill.skill}
+            variants={fadeAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            custom={index}
+          >
             <div className="card-inner">
               <SkillCardFront className="front">
                 <img src={skill.imageUrl} alt={skill.skill} />

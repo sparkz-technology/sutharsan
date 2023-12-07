@@ -2,7 +2,9 @@
 import styled from "styled-components";
 import { AiFillGithub } from "react-icons/ai";
 import { BiLinkExternal } from "react-icons/bi";
-const Card = styled.div`
+import { motion } from "framer-motion";
+import { jumpAnimation } from "../../styles/Motion";
+const Card = styled(motion.div)`
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
@@ -42,7 +44,7 @@ const Image = styled.img`
     }
 
 `;
-const Info = styled.div`
+const Info = styled(motion.div)`
   font-size: 1.2rem;
   line-height: 1.5;
   display: flex;
@@ -92,7 +94,7 @@ const Tag = styled.span`
     
 `;
 
-const Links = styled.div`
+const Links = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -113,9 +115,8 @@ const Links = styled.div`
 function ProjectCard({ project }) {
   const tech = project.technologies.split(",");
   return (
-    <>
+    <motion.div {...jumpAnimation()}>
       <Card key={project.title}>
-
         <Image src={project.imageUrl} alt={project.title} security="true" loading="lazy" />
         <Info>
           <h2>{project.title}</h2>
@@ -136,7 +137,7 @@ function ProjectCard({ project }) {
           </Links>
         </Info>
       </Card>
-    </>
+    </motion.div>
   )
 }
 

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import useGetUserDetails from "../Data/useGetUserDetails";
+import { fadeAnimation, headContentAnimation, slideAnimation } from "../../styles/Motion";
+import { motion } from "framer-motion";
 
-const StyledAbout = styled.section`
+const StyledAbout = styled(motion.section)`
   display: flex;
   flex-direction: column;
   /* background-color: #f5f5f5; */
@@ -17,7 +19,7 @@ const StyledAbout = styled.section`
     padding: 2rem;
   }
 `;
-const Container = styled.main`
+const Container = styled(motion.main)`
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -38,11 +40,11 @@ const Container = styled.main`
   }
 `;
 
-const Info = styled.section`
+const Info = styled(motion.div)`
   flex: 1;
 `;
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -54,7 +56,7 @@ const Title = styled.h1`
   }
 `;
 
-const Text = styled.p`
+const Text = styled(motion.p)`
   font-size: 1.2rem;
   margin-bottom: 2rem;
   text-align: start;
@@ -64,7 +66,7 @@ const Text = styled.p`
   }
 `;
 
-const Profile = styled.aside`
+const Profile = styled(motion.aside)`
   width: 30%;
   display: flex;
   justify-content: center;
@@ -98,14 +100,14 @@ function About() {
 
   return (
     <StyledAbout id="about">
-      <Title>About Me</Title>
-      <Container>
-        <Info>
+      <Title {...slideAnimation("right")}>About Me</Title>
+      <Container >
+        <Info {...headContentAnimation}>
           <Text>
             <p dangerouslySetInnerHTML={{ __html: about }} />
           </Text>
         </Info>
-        <Profile>
+        <Profile {...fadeAnimation}>
           <img src={image} alt="Sutharsan" />
         </Profile>
       </Container>

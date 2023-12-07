@@ -6,15 +6,40 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: 'Open Sans', sans-serif;
     }
+    
+
+    body {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #962dff;
+  --sb-size: 4px;
+
+  scrollbar-color: var(--sb-thumb-color) 
+                   var(--sb-track-color);
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size) 
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 6px;
+  
+  }
     * {
         box-sizing: border-box;
-        overflow: -moz-scrollbars-none;
+        /* overflow: -moz-scrollbars-none;
         -ms-overflow-style: none;
         scrollbar-width: none;
         user-select: none;
         &::-webkit-scrollbar {
             display: none;
-        }
+        } */
     }
 
 

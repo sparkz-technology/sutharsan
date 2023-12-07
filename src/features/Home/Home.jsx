@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import ContactIcon from "./ContactIcon";
 import useGetUserDetails from "../Data/useGetUserDetails";
+import { headContentAnimation, headTextAnimation, slideAnimation } from "../../styles/Motion";
+import { motion } from "framer-motion";
 
-const HomeContainer = styled.div`
+const HomeContainer = styled(motion.div)` 
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -16,7 +18,7 @@ const HomeContainer = styled.div`
   }
 `;
 
-const Title = styled.strong`
+const Title = styled(motion.h1)`
   font-weight: bold;
   margin-bottom: 1rem;
   text-align: start;
@@ -25,7 +27,7 @@ const Title = styled.strong`
   color:var(--sub-text-color);
 `;
 
-const Subtitle = styled.h1`
+const Subtitle = styled(motion.h1)`
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -43,7 +45,7 @@ const Subtitle = styled.h1`
   }
 `;
 
-const Description = styled.p`
+const Description = styled(motion.div)`
   font-size: 1.2rem;
   margin-bottom: 2rem;
   text-align: start;
@@ -63,15 +65,15 @@ const Home = () => {
   const home = userDetails?.homeInfo
 
   return (
-    <HomeContainer id="home">
+    <HomeContainer id="home" >
 
-      <Title>Hi, my name is
+      <Title {...slideAnimation("right")}>Hi, my name is
       </Title>
-      <Subtitle>
+      <Subtitle {...headTextAnimation}>
         Sutharsan.
         <br />I am a web craftsman.
       </Subtitle>
-      <Description>
+      <Description {...headContentAnimation}>
         <p dangerouslySetInnerHTML={{ __html: home }} />
 
       </Description>
