@@ -100,7 +100,7 @@ function About() {
 
   return (
     <StyledAbout id="about">
-      <Title {...slideAnimation("right")}>About Me</Title>
+      <Title {...slideAnimation("up")}>About Me</Title>
       <Container >
         <Info {...headContentAnimation}>
           <Text>

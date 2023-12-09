@@ -241,7 +241,7 @@ const Skills = () => {
   return (
     <Container id="skills">
       <Header>
-        <Title  {...slideAnimation("right")} >Skills</Title>
+        <Title  {...slideAnimation("up")} >Skills</Title>
         <Tabs {...fadeAnimation}>
           {TabTitle.map((tab, index) => (
             <Tab

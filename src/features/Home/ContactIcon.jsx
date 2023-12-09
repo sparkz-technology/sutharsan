@@ -43,7 +43,7 @@ function ContactIcon() {
   const { userDetails } = useGetUserDetails()
   const { mail, githubLink, linkedinLink, instagramLink, WhatsAppNumber, resumeLink } = userDetails
   return (
-    <Container {...slideAnimation("left")}>
+    <Container {...slideAnimation("up")}>
       <div>
         <Button onClick={() => window.open(resumeLink, "_blank")}>Resume &#8594;</Button>
       </div>

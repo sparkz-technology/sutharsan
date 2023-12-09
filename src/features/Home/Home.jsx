@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <HomeContainer id="home" >
 
-      <Title {...slideAnimation("right")}>Hi, my name is
+      <Title {...slideAnimation("up")}>Hi, my name is
       </Title>
       <Subtitle {...headTextAnimation}>
         Sutharsan.

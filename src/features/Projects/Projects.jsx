@@ -46,7 +46,7 @@ function Projects() {
   const { projects } = userDetails
   return (
     <Container id="projects">
-      <Title{...slideAnimation("right")}>Projects</Title>
+      <Title{...slideAnimation("up")}>Projects</Title>
       <CardContainer>
         {projects.map((project, index) => {
           return <ProjectCard key={index} project={project} />;

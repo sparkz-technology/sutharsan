@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
 
-    body {
+    /* body {
   --sb-track-color: #232E33;
   --sb-thumb-color: #962dff;
   --sb-size: 4px;
@@ -30,16 +30,16 @@ body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 6px;
   
-  }
+  } */
     * {
         box-sizing: border-box;
-        /* overflow: -moz-scrollbars-none;
+        overflow: -moz-scrollbars-none;
         -ms-overflow-style: none;
         scrollbar-width: none;
         user-select: none;
         &::-webkit-scrollbar {
             display: none;
-        } */
+        }
     }
 
 
