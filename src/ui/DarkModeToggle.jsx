@@ -72,7 +72,7 @@ function DarkModeToggle() {
 
   return (
     <ButtonIcon onClick={toggleDarkMode}>
-      {isDarkMode ? <SunIcon /> : <MoonIcon />}
+      {isDarkMode ? <SunIcon size={window.innerWidth <= 768 ? 20 : 30} /> : <MoonIcon size={window.innerWidth <= 768 ? 20 : 30} />}
     </ButtonIcon>
   );
 }

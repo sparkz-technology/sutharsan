@@ -80,8 +80,8 @@ export const headContentAnimation = {
 export const slideAnimation = (direction) => {
     return {
         initial: {
-            x: direction === 'left' ? -100 : direction === 'right' ? 100 : 0,
-            y: direction === 'down' ? 100 : direction === 'up' ? -100 : 0,
+            x: direction === 'left' ? -50 : direction === 'right' ? 50 : 0,
+            y: direction === 'down' ? 50 : direction === 'up' ? -50 : 0,
             opacity: 0,
             transition: { ...transition, delay: 0.5 },
         },
