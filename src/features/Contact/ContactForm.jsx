@@ -94,8 +94,8 @@ const Row = styled.div`
 `;
 const CloseButton = styled.button`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1%;
+  right: 3%;
   border: none;
   background-color: transparent;
   cursor: pointer;

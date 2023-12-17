@@ -53,7 +53,7 @@ const Button = styled.button`
   color:var(--button-text-color);
   padding: 6px 5px;
   border: none;
-  border-radius: 25px;
+  border-radius: 50%;
   font-size: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
