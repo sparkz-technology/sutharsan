@@ -6,7 +6,7 @@ const StyledTable = styled.div`
     border: 1px solid var(--border-color);
     font-size: 1.4rem;
     border-radius: 7px;
-    overflow: hidden;
+    
 `;
 
 const StyledHeader = styled.div`
@@ -22,6 +22,8 @@ const StyledHeader = styled.div`
     grid-gap: 1.6rem;
     align-items: center;
     justify-content: space-between;
+    
+    
     @media (max-width: 768px) {
         font-size: 1rem;
         padding: 0.8rem 0.5rem ;
@@ -40,6 +42,7 @@ const StyledRow = styled.div`
     justify-content: space-between;
     font-size: 16px;
     color:var(--sub-text-color);
+    
     &:not(:last-child) {
         border: 1px solid var(--border-color);
     }
@@ -52,6 +55,7 @@ const StyledRow = styled.div`
 `;
 const StyledBody = styled.section`
   margin: 0.4rem 0;
+  overflow: auto;
 `;
 const Empty = styled.p`
 font-size: 1.6rem;
