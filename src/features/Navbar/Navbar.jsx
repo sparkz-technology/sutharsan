@@ -3,12 +3,14 @@ import { Link } from "react-scroll";
 import styled from "@emotion/styled";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
-import { useOutSideClick } from "../../hook/useOutSideClick";
 import isPropValid from "@emotion/is-prop-valid";
-import DarkModeToggle from "../../ui/DarkModeToggle";
-import LoginToggle from "../Login/LoginToggle";
 import { fadeAnimationVariants } from "../../styles/Motion";
 import { motion } from "framer-motion";
+
+
+import { useOutSideClick } from "../../hook/useOutSideClick";
+import DarkModeToggle from "../../ui/DarkModeToggle";
+import LoginToggle from "../Login/LoginToggle";
 
 const NavbarContainer = styled(motion.nav, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== "show",
@@ -24,7 +26,7 @@ const NavbarContainer = styled(motion.nav, {
   border-radius: 50px;
   // color: #0d0c22;
   color: var(--nav-link-color);
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   background: rgba( 255, 255, 255, 0.15 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 20px );
@@ -94,7 +96,7 @@ const MobileMenu = styled(motion.div, {
   right: 10px;
   left: 10px;
   border-radius: 50px;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   display: ${(props) => (props.show ? "block" : "none")};
   z-index: 1;
   color: var(--nav-link-color);
@@ -151,7 +153,7 @@ const MobileOpenMenu = styled(motion.div, {
   align-items: center;
   border-radius: 50px;
   backdrop-filter: blur(10px);
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   color: var(--nav-link-color);
   background: rgba( 255, 255, 255, 0.15 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
