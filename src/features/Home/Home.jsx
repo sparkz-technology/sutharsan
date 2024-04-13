@@ -70,7 +70,7 @@ const Home = () => {
 
       <Title {...slideAnimation("up")}>Hi, my name is
       </Title>
-      <Subtitle {...headTextAnimation}>
+   <Subtitle {...slideAnimation("down")}>
         Sutharsan.
         <br />I am a web craftsman.
       </Subtitle>
