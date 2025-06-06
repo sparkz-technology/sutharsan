@@ -1,16 +1,21 @@
-name: Deploy
+name: Deploy React Vite App to GitHub Pages
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -18,7 +23,9 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install && npm install gh-pages --save-dev
+        run: |
+          npm install
+          npm install gh-pages --save-dev
 
       - name: Build project
         run: npm run build
