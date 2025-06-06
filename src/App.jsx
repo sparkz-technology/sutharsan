@@ -38,7 +38,9 @@ const routes = createBrowserRouter([
       { path: "projects", element: <ProjectTable /> },
     ],
   }
-]);
+], {
+  basename: "/sutharsan/",
+});
 
 function App() {
   const queryClient = new QueryClient({
