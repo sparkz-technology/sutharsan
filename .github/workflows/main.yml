@@ -1,28 +1,26 @@
-name: Deploy Vite React App to GitHub Pages
+name: Deploy
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: write
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '16'
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install dependencies
+        run: npm install && npm install gh-pages --save-dev
 
-      - name: Build App
+      - name: Build project
         run: npm run build
 
       - name: Deploy to GitHub Pages
